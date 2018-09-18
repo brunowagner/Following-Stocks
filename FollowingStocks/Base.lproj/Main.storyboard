@@ -211,7 +211,7 @@
         <!--Search-->
         <scene sceneID="jEN-wk-9dQ">
             <objects>
-                <tableViewController title="Search" id="tFm-o2-WJM" sceneMemberID="viewController">
+                <tableViewController title="Search" id="tFm-o2-WJM" customClass="SearchViewController" customModule="FollowingStocks" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="VrK-6i-Pqj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -403,7 +403,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Fh0-0s-OD2"/>
+        <segue reference="ecp-YK-vYw"/>
         <segue reference="9g6-0L-wY1"/>
     </inferredMetricsTieBreakers>
 </document>
