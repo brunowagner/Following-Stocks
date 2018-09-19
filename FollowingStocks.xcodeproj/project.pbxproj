@@ -18,6 +18,9 @@
 		39CF60D3214E02310041AF3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D1214E02310041AF3B /* Main.storyboard */; };
 		39CF60D5214E02320041AF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D4214E02320041AF3B /* Assets.xcassets */; };
 		39CF60D8214E02320041AF3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D6214E02320041AF3B /* LaunchScreen.storyboard */; };
+		39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */; };
+		39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */; };
+		39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDED21530794004BEB1E /* TesteSearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		39CF60D4214E02320041AF3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39CF60D7214E02320041AF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39CF60D9214E02330041AF3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste1SearchController.swift; sourceTree = "<group>"; };
+		39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
+		39D4DDED21530794004BEB1E /* TesteSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteSearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				39A7E1D0214F012C00476573 /* SearchViewController.swift */,
+				39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */,
+				39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */,
+				39D4DDED21530794004BEB1E /* TesteSearchController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -186,10 +195,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A7E1D1214F012C00476573 /* SearchViewController.swift in Sources */,
+				39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */,
 				39CF60D0214E02310041AF3B /* ViewController.swift in Sources */,
+				39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,
 				39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */,
 				39A7E1D3214F03A300476573 /* Autocomplete.swift in Sources */,
+				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,
 				39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */,
 				39A7E1DC215081D500476573 /* Links uteis.swift in Sources */,
