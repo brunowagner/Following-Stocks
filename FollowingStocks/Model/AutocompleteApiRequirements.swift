@@ -19,15 +19,15 @@ class AutocompleteApiRequirements: ApiRequirements {
     }
     
     func requestConfigToPOST(urlRequest: inout NSMutableURLRequest, jsonBody: String?) {
-        <#code#>
+        urlRequest.httpMethod = "POST"
     }
     
     func requestConfigToPUT(urlRequest: inout NSMutableURLRequest, jsonBody: String?) {
-        <#code#>
+        urlRequest.httpMethod = "PUT"
     }
     
     func requestConfigToDELET(urlRequest: inout NSMutableURLRequest) {
-        <#code#>
+        urlRequest.httpMethod = "DELETE"
     }
     
     func getValidData(data: Data) -> Data {

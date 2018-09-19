@@ -114,7 +114,6 @@
         <!--Protifolio-->
         <scene sceneID="Sha-q2-nya">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uth-hX-9ZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="2gF-hN-lcU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Protifolio" id="lvv-Tl-zd2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gjT-yc-pba">
@@ -125,6 +124,7 @@
                         <segue destination="Loz-2r-xdk" kind="relationship" relationship="rootViewController" id="3sH-OY-LiW"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uth-hX-9ZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="33" y="2170"/>
         </scene>
@@ -216,21 +216,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Name Companies or Symbol" showsScopeBar="YES" id="VEr-4h-nmX">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                            <connections>
-                                <outlet property="delegate" destination="tFm-o2-WJM" id="xEd-cr-wCn"/>
-                            </connections>
-                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="d9A-gg-T1F">
-                                <rect key="frame" x="0.0" y="84" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="d9A-gg-T1F">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d9A-gg-T1F" id="lPJ-HS-5vM">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -247,19 +235,11 @@
                     <navigationItem key="navigationItem" title="Search" id="DC2-CB-ZO7"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="D3U-9h-OPh" id="Jki-HZ-Mkx"/>
+                        <outlet property="tableView" destination="VrK-6i-Pqj" id="jRk-tR-iqb"/>
                         <segue destination="GQB-UR-oHg" kind="show" id="ecp-YK-vYw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7wc-5V-P3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="uob-Da-Sdh">
-                    <connections>
-                        <outlet property="delegate" destination="VrK-6i-Pqj" id="Slm-WN-8mj"/>
-                        <outlet property="searchBar" destination="VEr-4h-nmX" id="BqI-QG-IcL"/>
-                        <outlet property="searchContentsController" destination="tFm-o2-WJM" id="zY4-PO-dha"/>
-                        <outlet property="searchResultsDataSource" destination="VrK-6i-Pqj" id="glF-Ml-q7c"/>
-                        <outlet property="searchResultsDelegate" destination="VrK-6i-Pqj" id="Xe8-2D-cbJ"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="988" y="3116"/>
         </scene>

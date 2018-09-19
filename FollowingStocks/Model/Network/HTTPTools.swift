@@ -113,7 +113,7 @@ struct HTTPTools {
 
         /* GUARD: Did we get a successful response? */
         guard let statusCode = (response as? HTTPURLResponse)?.statusCode else{
-            sendError(errorCode: ErrorTratament.ErrorCode.Response_statusCode_error.rawValue, errorString: "Your request returned a invalid status code!")
+            //sendError(errorCode: ErrorTratament.ErrorCode.Response_statusCode_error.rawValue, errorString: "Your request returned a invalid status code!")
             return
         }
         /* GUARD: Did we get a successful 2XX response? */
@@ -124,7 +124,7 @@ struct HTTPTools {
         
         /* GUARD: Was there any data returned? */
         guard let data = data else {
-            sendError(errorCode: ErrorTratament.ErrorCode.No_data_or_unexpected_data_was_returned.rawValue ,errorString: "No data was returned by the request!")
+            //sendError(errorCode: ErrorTratament.ErrorCode.No_data_or_unexpected_data_was_returned.rawValue ,errorString: "No data was returned by the request!")
             return
         }
         
@@ -148,7 +148,7 @@ struct HTTPTools {
             parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
         } catch {
             let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
-            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: ErrorTratament.ErrorCode.Could_not_parse_the_data.rawValue, userInfo: userInfo))
+            //completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: ErrorTratament.ErrorCode.Could_not_parse_the_data.rawValue, userInfo: userInfo))
         }
         
         completionHandlerForConvertData(parsedResult, nil)
