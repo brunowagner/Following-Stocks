@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,19 +15,57 @@
         <!--Search-->
         <scene sceneID="G4p-5a-JES">
             <objects>
-                <tableViewController title="Search" id="c0O-v5-mEt" sceneMemberID="viewController">
+                <tableViewController title="Search" id="c0O-v5-mEt" customClass="SearchViewController" customModule="FollowingStocks" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TaB-CW-joy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Au-I9-jAo">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="141" id="9Au-I9-jAo" customClass="SearchTableViewCell" customModule="FollowingStocks" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="141"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Au-I9-jAo" id="xWL-i1-phh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name que vai aparecer no layble do lable" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAe-bV-fi3">
+                                            <rect key="frame" x="138" y="11" width="221" height="46"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symbol" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRJ-ex-SfG">
+                                            <rect key="frame" x="16" y="11" width="119" height="119"/>
+                                            <color key="backgroundColor" red="0.17254901959999999" green="0.70980392160000005" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="JRJ-ex-SfG" secondAttribute="height" multiplier="1:1" id="rsp-St-i17"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <size key="shadowOffset" width="1" height="-1"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="exchange" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bhb-vC-bLa">
+                                            <rect key="frame" x="138" y="65" width="221" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JRJ-ex-SfG" firstAttribute="bottom" secondItem="xWL-i1-phh" secondAttribute="bottomMargin" id="KF6-1B-HYI"/>
+                                        <constraint firstItem="JRJ-ex-SfG" firstAttribute="top" secondItem="xWL-i1-phh" secondAttribute="topMargin" id="bQd-dw-4UP"/>
+                                        <constraint firstItem="JRJ-ex-SfG" firstAttribute="leading" secondItem="xWL-i1-phh" secondAttribute="leadingMargin" id="w62-2s-2Iu"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="exchangeLable" destination="Bhb-vC-bLa" id="UtN-Gp-VPa"/>
+                                    <outlet property="nameLable" destination="tAe-bV-fi3" id="RxF-IC-b9V"/>
+                                    <outlet property="symbolLable" destination="JRJ-ex-SfG" id="uiR-ac-JfC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -38,7 +78,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C33-VH-DKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988" y="815"/>
+            <point key="canvasLocation" x="988" y="814.54272863568224"/>
         </scene>
         <!--Item-->
         <scene sceneID="wAe-wg-WPP">
@@ -81,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJq-I4-was" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1751" y="666"/>
+            <point key="canvasLocation" x="1871" y="680"/>
         </scene>
         <!--Following-->
         <scene sceneID="OFw-Jm-Uh8">
@@ -221,7 +261,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="mRA-yX-iRi" kind="relationship" relationship="rootViewController" id="mce-D8-DKz"/>
+                        <segue destination="c0O-v5-mEt" kind="relationship" relationship="rootViewController" id="GiP-zL-tte"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XQc-kC-XAC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,7 +440,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ecp-YK-vYw"/>
-        <segue reference="T8B-ad-0Lx"/>
-        <segue reference="eHd-Xj-Of8"/>
+        <segue reference="gCk-WN-Ws4"/>
     </inferredMetricsTieBreakers>
 </document>

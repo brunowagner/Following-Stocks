@@ -19,7 +19,7 @@ struct HTTPTools {
         /* 2/3. Build the URL, Configure the request */
         var request = NSMutableURLRequest(url: apiRequirements.parseURLFromParameters(parameters, withPathExtension: method))
         apiRequirements.requestConfigToGET(urlRequest: &request)
-        
+        print(request.url!)
         /* 4. Make the request */
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             HTTPTools.treatsDataTask(data: data, response: response, error: error, apiRequirements: apiRequirements, completionHandlerForTreatsDataTask: completionHandlerForGET)

@@ -21,6 +21,7 @@
 		39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */; };
 		39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */; };
 		39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDED21530794004BEB1E /* TesteSearchController.swift */; };
+		39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste1SearchController.swift; sourceTree = "<group>"; };
 		39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		39D4DDED21530794004BEB1E /* TesteSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteSearchController.swift; sourceTree = "<group>"; };
+		39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		39CF60E0214E02970041AF3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				39A7E1D3214F03A300476573 /* Autocomplete.swift in Sources */,
 				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,
+				39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */,
 				39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */,
 				39A7E1DC215081D500476573 /* Links uteis.swift in Sources */,
 			);
