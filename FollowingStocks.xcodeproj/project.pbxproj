@@ -22,6 +22,7 @@
 		39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */; };
 		39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDED21530794004BEB1E /* TesteSearchController.swift */; };
 		39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */; };
+		39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		39D4DDED21530794004BEB1E /* TesteSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteSearchController.swift; sourceTree = "<group>"; };
 		39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingStocks.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */,
 				39A7E1D2214F03A300476573 /* Autocomplete.swift */,
 				39A7E1DB215081D500476573 /* Links uteis.swift */,
+				39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,
 				39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */,
 				39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */,
+				39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */,
 				39A7E1DC215081D500476573 /* Links uteis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +408,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */,
+			);
+			currentVersion = 39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */;
+			path = FollowingStocks.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 39CF60C2214E02310041AF3B /* Project object */;
 }

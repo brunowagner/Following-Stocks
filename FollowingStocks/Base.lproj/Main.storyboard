@@ -131,20 +131,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjg-7U-L2Z">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="abJ-82-WST">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="btnAction:" destination="j9h-ST-OKV" eventType="touchUpInside" id="f6e-1g-mza"/>
-                                    <segue destination="BJF-VD-jGW" kind="show" id="m9U-uU-L2i"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yjg-7U-L2Z">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="btnAction:" destination="j9h-ST-OKV" eventType="touchUpInside" id="f6e-1g-mza"/>
+                                        <segue destination="BJF-VD-jGW" kind="show" id="m9U-uU-L2i"/>
+                                    </connections>
+                                </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hr2-Fx-SvD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Following" id="pjA-7E-MMa"/>
+                    <navigationItem key="navigationItem" title="Following" id="pjA-7E-MMa">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="jVy-yd-udn"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="btn" destination="Yjg-7U-L2Z" id="BRB-i5-fGc"/>
                         <segue destination="BJF-VD-jGW" kind="show" id="T8B-ad-0Lx"/>
@@ -211,26 +218,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfL-yY-vKH">
-                                <rect key="frame" x="164" y="264" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="BJF-VD-jGW" kind="show" id="Lkm-1V-aNG"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OSr-pw-zhY">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lfL-yY-vKH">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <segue destination="BJF-VD-jGW" kind="show" id="Lkm-1V-aNG"/>
+                                    </connections>
+                                </button>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OSr-pw-zhY" firstAttribute="leading" secondItem="LtU-30-qaA" secondAttribute="leading" id="4qV-It-sKe"/>
+                            <constraint firstItem="LtU-30-qaA" firstAttribute="trailing" secondItem="OSr-pw-zhY" secondAttribute="trailing" id="GVg-R0-qI0"/>
+                            <constraint firstItem="LtU-30-qaA" firstAttribute="bottom" secondItem="OSr-pw-zhY" secondAttribute="bottom" id="gW4-Ij-PUO"/>
+                            <constraint firstItem="OSr-pw-zhY" firstAttribute="top" secondItem="LtU-30-qaA" secondAttribute="top" id="j6W-58-Cf6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LtU-30-qaA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Portifolio" id="U80-bJ-7Nq"/>
+                    <navigationItem key="navigationItem" title="Portifolio" id="U80-bJ-7Nq">
+                        <barButtonItem key="leftBarButtonItem" title="Add" id="W32-FE-jzp"/>
+                        <barButtonItem key="rightBarButtonItem" title="Remove" id="AeB-75-CLw"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="BJF-VD-jGW" kind="show" id="kGV-Ho-6PR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPa-ab-vTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="988" y="2169"/>
+            <point key="canvasLocation" x="988" y="2168.3658170914546"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ubs-YM-sQj">
@@ -440,6 +460,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ecp-YK-vYw"/>
-        <segue reference="gCk-WN-Ws4"/>
+        <segue reference="m9U-uU-L2i"/>
     </inferredMetricsTieBreakers>
 </document>

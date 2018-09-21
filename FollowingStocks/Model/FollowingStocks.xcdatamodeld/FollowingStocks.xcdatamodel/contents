@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Paper" representedClassName="Paper" syncable="YES" codeGenerationType="class">
+        <attribute name="exchange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="exchDisp" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isFollowed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isPortfolio" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeDisp" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="quote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Quote" inverseName="paper" inverseEntity="Quote" syncable="YES"/>
+        <relationship name="trades" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Trade" inverseName="paper" inverseEntity="Trade" syncable="YES"/>
+    </entity>
+    <entity name="Quote" representedClassName="Quote" syncable="YES" codeGenerationType="class">
+        <attribute name="change" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="changePercent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="high" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="latest" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="low" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="open" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="previousClose" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="paper" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Paper" inverseName="quote" inverseEntity="Paper" syncable="YES"/>
+    </entity>
+    <entity name="Trade" representedClassName="Trade" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="operation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="paper" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Paper" inverseName="trades" inverseEntity="Paper" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Paper" positionX="5121" positionY="-1611" width="128" height="193"/>
+        <element name="Quote" positionX="5400" positionY="-1633" width="128" height="193"/>
+        <element name="Trade" positionX="5400" positionY="-1405" width="128" height="118"/>
+    </elements>
+</model>
