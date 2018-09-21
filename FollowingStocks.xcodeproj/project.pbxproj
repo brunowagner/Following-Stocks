@@ -23,6 +23,8 @@
 		39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDED21530794004BEB1E /* TesteSearchController.swift */; };
 		39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */; };
 		39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */; };
+		39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63302155B6210000C1D9 /* PortfolioCell.swift */; };
+		39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		39D4DDED21530794004BEB1E /* TesteSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteSearchController.swift; sourceTree = "<group>"; };
 		39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingStocks.xcdatamodel; sourceTree = "<group>"; };
+		39EF63302155B6210000C1D9 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
+		39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */,
+				39EF63302155B6210000C1D9 /* PortfolioCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +130,7 @@
 				39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */,
 				39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */,
 				39D4DDED21530794004BEB1E /* TesteSearchController.swift */,
+				39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,11 +207,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39A7E1D1214F012C00476573 /* SearchViewController.swift in Sources */,
+				39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */,
 				39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */,
 				39CF60D0214E02310041AF3B /* ViewController.swift in Sources */,
 				39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,
 				39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */,
+				39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */,
 				39A7E1D3214F03A300476573 /* Autocomplete.swift in Sources */,
 				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,

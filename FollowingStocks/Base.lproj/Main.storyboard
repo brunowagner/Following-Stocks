@@ -213,7 +213,7 @@
         <!--Portifolio-->
         <scene sceneID="Qmg-OZ-Ptd">
             <objects>
-                <viewController title="Portifolio" id="Loz-2r-xdk" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PortfolioViewController" title="Portifolio" id="Loz-2r-xdk" customClass="PortfolioViewController" customModule="FollowingStocks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VyC-PY-HMn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,7 +230,7 @@
                                     </connections>
                                 </button>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PortfolioCell" rowHeight="89" id="b3I-tE-UIB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PortfolioCell" rowHeight="89" id="b3I-tE-UIB" customClass="PortfolioCell" customModule="FollowingStocks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="89"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b3I-tE-UIB" id="9ey-Io-xi2">
@@ -284,6 +284,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="zQ6-UK-DeX" secondAttribute="trailing" id="aPO-wA-Fot"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="change" destination="WnU-yC-8VB" id="rDX-Pl-6as"/>
+                                            <outlet property="exchange" destination="T14-MP-uIp" id="u3M-CF-DPO"/>
+                                            <outlet property="price" destination="8bg-sJ-oX9" id="iGB-9i-BaN"/>
+                                            <outlet property="symbol" destination="Geg-tZ-JhH" id="L57-SN-b2i"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
