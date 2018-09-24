@@ -25,6 +25,7 @@
 		39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */; };
 		39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63302155B6210000C1D9 /* PortfolioCell.swift */; };
 		39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */; };
+		39EF63352155C3D60000C1D9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63342155C3D60000C1D9 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingStocks.xcdatamodel; sourceTree = "<group>"; };
 		39EF63302155B6210000C1D9 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
+		39EF63342155C3D60000C1D9 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		39CF60DF214E02890041AF3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				39EF63342155C3D60000C1D9 /* DataController.swift */,
 				39A7E1D4214F056700476573 /* Network */,
 				39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */,
 				39A7E1D2214F03A300476573 /* Autocomplete.swift */,
@@ -219,6 +222,7 @@
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,
 				39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */,
 				39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */,
+				39EF63352155C3D60000C1D9 /* DataController.swift in Sources */,
 				39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */,
 				39A7E1DC215081D500476573 /* Links uteis.swift in Sources */,
 			);

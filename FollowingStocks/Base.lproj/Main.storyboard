@@ -308,6 +308,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Remove" id="AeB-75-CLw"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="OSr-pw-zhY" id="WYP-Vp-huo"/>
                         <segue destination="BJF-VD-jGW" kind="show" id="kGV-Ho-6PR"/>
                     </connections>
                 </viewController>
