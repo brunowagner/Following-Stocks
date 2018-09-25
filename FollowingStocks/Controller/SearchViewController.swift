@@ -103,8 +103,10 @@ class SearchViewController : UITableViewController {
 	}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
-        //let detailsVC = segue.destinationViewController as! DetailsViewController
-        //detailsVC.userDetails = userDetails
+        if segue.identifier == "SearchToDetail" {
+            let detailVC = segue.destination as! DetailViewController
+            detailVC.paperStruct = sender as! paperStruct
+        }
     }
     
 
@@ -162,11 +164,13 @@ extension SearchViewController {
         //TODO: pegar symbol e pesquizar Cotação
         let paper = filteredPapelArray[indexPath.row]
         
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        //let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         
-        detailVC.paperStruct = paper
+        //detailVC.paperStruct = paper
         
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        //self.navigationController?.pushViewController(detailVC, animated: true)
+        
+        performSegue(withIdentifier: "SearchToDetail", sender: paper)
         
 //        AlphaVantageClient.sharedInstance.requestQuote(symbol: paper.symbol) { (globalQuote, error) in
 //            guard error == nil else {
@@ -190,4 +194,6 @@ extension SearchViewController {
 //            self.performSegue(withIdentifier: "PushDetailsVC", sender: self)
 //        }
     }
+    
+    
 }

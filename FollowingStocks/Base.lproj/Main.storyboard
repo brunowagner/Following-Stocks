@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -74,7 +75,10 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Lez-nT-ggn"/>
+                    <navigationItem key="navigationItem" title="Search" id="Lez-nT-ggn"/>
+                    <connections>
+                        <segue destination="BJF-VD-jGW" kind="show" identifier="SearchToDetail" id="F8w-hl-8Ih"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C33-VH-DKl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,7 +120,6 @@
                     <navigationItem key="navigationItem" id="ic7-5n-Qz4"/>
                     <connections>
                         <outlet property="tableView" destination="hGk-gb-3WG" id="Xa0-gB-EGX"/>
-                        <segue destination="BJF-VD-jGW" kind="show" id="gCk-WN-Ws4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJq-I4-was" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,7 +144,6 @@
                                     <state key="normal" title="Button"/>
                                     <connections>
                                         <action selector="btnAction:" destination="j9h-ST-OKV" eventType="touchUpInside" id="f6e-1g-mza"/>
-                                        <segue destination="BJF-VD-jGW" kind="show" id="m9U-uU-L2i"/>
                                     </connections>
                                 </button>
                             </tableView>
@@ -154,7 +156,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="btn" destination="Yjg-7U-L2Z" id="BRB-i5-fGc"/>
-                        <segue destination="BJF-VD-jGW" kind="show" id="T8B-ad-0Lx"/>
+                        <segue destination="BJF-VD-jGW" kind="show" identifier="FollowingToDetail" id="T8B-ad-0Lx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEP-cB-IEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,6 +407,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wj0-xO-gZf"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Z92-Na-lVj">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Follow" id="EQ1-eW-qfm"/>
+                            <barButtonItem title="PortFolio" id="6T9-ov-jJj"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="changeLabel" destination="aKh-3J-v1F" id="XHx-iU-jxr"/>
                         <outlet property="changePercentLabel" destination="oSn-uz-i3b" id="1D2-qV-jDL"/>
@@ -438,9 +446,6 @@
                                     <rect key="frame" x="0.0" y="117" width="375" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
-                                    <connections>
-                                        <segue destination="BJF-VD-jGW" kind="show" id="Lkm-1V-aNG"/>
-                                    </connections>
                                 </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PortfolioCell" rowHeight="89" id="b3I-tE-UIB" customClass="PortfolioCell" customModule="FollowingStocks" customModuleProvider="target">
@@ -526,7 +531,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="OSr-pw-zhY" id="WYP-Vp-huo"/>
-                        <segue destination="BJF-VD-jGW" kind="show" id="kGV-Ho-6PR"/>
+                        <segue destination="BJF-VD-jGW" kind="show" identifier="PortfolioToDetail" id="kGV-Ho-6PR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPa-ab-vTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -741,6 +746,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ecp-YK-vYw"/>
-        <segue reference="Lkm-1V-aNG"/>
+        <segue reference="T8B-ad-0Lx"/>
     </inferredMetricsTieBreakers>
 </document>
