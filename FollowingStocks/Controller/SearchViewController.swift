@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-struct papelStruct {
+struct paperStruct {
     let symbol: String //: "PBR",
     let companyName: String  //: "Petróleo Brasileiro S.A. - Petrobras",
     let exch: String  //: "NYQ",
@@ -27,7 +27,7 @@ struct papelStruct {
         self.typeDisp = dicPaper["typeDisp"] as! String
     }
     
-    static func parseToPapelArray(from resultSet: [String : AnyObject]) -> [papelStruct]{
+    static func parseToPapelArray(from resultSet: [String : AnyObject]) -> [paperStruct]{
         guard let rs = resultSet["ResultSet"] as? [String : AnyObject] else {
             fatalError("Não foi encontrado 'ResultSet nos dados baixados.'")
         }
@@ -36,10 +36,10 @@ struct papelStruct {
             fatalError("Não foi encontrado 'Result nos dados baixados.'")
         }
 
-        var papelArray : [papelStruct] = []
+        var papelArray : [paperStruct] = []
         
         for data in results {
-            let papel = papelStruct(dicPaper: data)
+            let papel = paperStruct(dicPaper: data)
             papelArray.append(papel)
         }
         return papelArray
@@ -49,13 +49,13 @@ struct papelStruct {
 class SearchViewController : UITableViewController {
     
 
-    var papelArray : [papelStruct]!
-    var filteredPapelArray : [papelStruct]!
+    var papelArray : [paperStruct]!
+    var filteredPapelArray : [paperStruct]!
     
-    var papelDetails : papelStruct!
+    var papelDetails : paperStruct!
 
     var searchController : UISearchController!
-    
+    var operation : String = "default"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,10 +63,9 @@ class SearchViewController : UITableViewController {
         filteredPapelArray = papelArray
 		tableView.dataSource = self
 		tableView.delegate = self
-        
 		configureSearchController()
-        
         definesPresentationContext = true
+        print("operation =  \(operation)")
     }
     
 	func configureSearchController(){
@@ -81,8 +80,8 @@ class SearchViewController : UITableViewController {
         
         let parameters = [
             "query" : query,
-            "region" : "EU",
-            "lang" : "en-GB"
+            "region" : "1",
+            "lang" : "en"
             ] as [String: AnyObject]
         
         let _ = HTTPTools.taskForGETMethod("", parameters: parameters, apiRequirements: AutocompleteApiRequirements()) { (data, error) in
@@ -91,9 +90,10 @@ class SearchViewController : UITableViewController {
             }
             print(data!)
             
-            self.filteredPapelArray = papelStruct.parseToPapelArray(from: data as! [String : AnyObject])
+            //self.filteredPapelArray = paperStruct.parseToPapelArray(from: data as! [String : AnyObject])
             
             DispatchQueue.main.async {
+                self.filteredPapelArray = paperStruct.parseToPapelArray(from: data as! [String : AnyObject])
                 self.tableView.reloadData()
             }
         }
@@ -121,7 +121,8 @@ extension SearchViewController{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchTableViewCell
         
-        let paper : papelStruct = filteredPapelArray[indexPath.row]
+        let paper : paperStruct = filteredPapelArray[indexPath.row]
+        print(paper.symbol)
 
         cell.symbolLable.text = paper.symbol
         cell.nameLable.text = paper.companyName
@@ -152,10 +153,41 @@ extension SearchViewController {
         return 100
     }
 
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //adicionado para add
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath == tableView.indexPathForSelectedRow {
+            //TODO: desmarcar celula
+        }
+        
+        //TODO: pegar symbol e pesquizar Cotação
+        let paper = filteredPapelArray[indexPath.row]
+        
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        
+        detailVC.paperStruct = paper
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        
+//        AlphaVantageClient.sharedInstance.requestQuote(symbol: paper.symbol) { (globalQuote, error) in
+//            guard error == nil else {
+//                fatalError("Erro ao aobter cotação: \(error?.localizedDescription)")
+//            }
+//
+//            let quote = Quote(context: DataController.sharedInstance().viewContext)
+//
+//
+//        }
+        
+        
+        //TODO: instanciar Detail
+        //TODO: injetar paper e quote em Detail
+        //TODO: Navejar até detail.
+        
+        
+        
 //        if tableView == resultsController.tableView{
 //            userDetails = foundUsers[indexPath.row]
 //            self.performSegue(withIdentifier: "PushDetailsVC", sender: self)
 //        }
-//    }
+    }
 }

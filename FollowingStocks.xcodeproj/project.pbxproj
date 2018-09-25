@@ -26,6 +26,9 @@
 		39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63302155B6210000C1D9 /* PortfolioCell.swift */; };
 		39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */; };
 		39EF63352155C3D60000C1D9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63342155C3D60000C1D9 /* DataController.swift */; };
+		39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */; };
+		39EF6339215989180000C1D9 /* AlphaVantageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF6338215989180000C1D9 /* AlphaVantageClient.swift */; };
+		39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		39EF63302155B6210000C1D9 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		39EF63342155C3D60000C1D9 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageApiRequirements.swift; sourceTree = "<group>"; };
+		39EF6338215989180000C1D9 /* AlphaVantageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageClient.swift; sourceTree = "<group>"; };
+		39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,9 +116,11 @@
 				39EF63342155C3D60000C1D9 /* DataController.swift */,
 				39A7E1D4214F056700476573 /* Network */,
 				39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */,
+				39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */,
 				39A7E1D2214F03A300476573 /* Autocomplete.swift */,
 				39A7E1DB215081D500476573 /* Links uteis.swift */,
 				39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */,
+				39EF6338215989180000C1D9 /* AlphaVantageClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 				39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */,
 				39D4DDED21530794004BEB1E /* TesteSearchController.swift */,
 				39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */,
+				39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,12 +227,15 @@
 				39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */,
 				39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */,
 				39A7E1D3214F03A300476573 /* Autocomplete.swift in Sources */,
+				39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */,
+				39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */,
 				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,
 				39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */,
 				39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */,
 				39EF63352155C3D60000C1D9 /* DataController.swift in Sources */,
 				39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */,
+				39EF6339215989180000C1D9 /* AlphaVantageClient.swift in Sources */,
 				39A7E1DC215081D500476573 /* Links uteis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

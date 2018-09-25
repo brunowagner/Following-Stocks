@@ -32,20 +32,14 @@ class PortfolioViewController: UIViewController {
     
     var fetchedResultsController : NSFetchedResultsController<Paper>!
     
+    //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
-
 
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         setupPaperFetchedResultsController()
-        
         //tableView.dataSource = self
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +69,15 @@ class PortfolioViewController: UIViewController {
         } catch {
             fatalError("Can not to do fetchedResultsController.performFetch!")
         }
+    }
+    
+    
+    @IBAction func addAction(_ sender: UIBarButtonItem) {
+        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        
+        searchVC.operation = "add"
+        
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
 }
 
