@@ -13,6 +13,7 @@
 		39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D6214F056700476573 /* HTTPTools.swift */; };
 		39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */; };
 		39A7E1DC215081D500476573 /* Links uteis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1DB215081D500476573 /* Links uteis.swift */; };
+		39CE53F1215AF1E8005B57C7 /* MovingPortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE53F0215AF1E8005B57C7 /* MovingPortfolioViewController.swift */; };
 		39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF60CD214E02310041AF3B /* AppDelegate.swift */; };
 		39CF60D0214E02310041AF3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF60CF214E02310041AF3B /* ViewController.swift */; };
 		39CF60D3214E02310041AF3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D1214E02310041AF3B /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		39A7E1D6214F056700476573 /* HTTPTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTools.swift; sourceTree = "<group>"; };
 		39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteApiRequirements.swift; sourceTree = "<group>"; };
 		39A7E1DB215081D500476573 /* Links uteis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Links uteis.swift"; sourceTree = "<group>"; };
+		39CE53F0215AF1E8005B57C7 /* MovingPortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingPortfolioViewController.swift; sourceTree = "<group>"; };
 		39CF60CA214E02310041AF3B /* FollowingStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowingStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CF60CD214E02310041AF3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39CF60CF214E02310041AF3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				39D4DDED21530794004BEB1E /* TesteSearchController.swift */,
 				39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */,
 				39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */,
+				39CE53F0215AF1E8005B57C7 /* MovingPortfolioViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				39A7E1D1214F012C00476573 /* SearchViewController.swift in Sources */,
 				39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */,
 				39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */,
+				39CE53F1215AF1E8005B57C7 /* MovingPortfolioViewController.swift in Sources */,
 				39CF60D0214E02310041AF3B /* ViewController.swift in Sources */,
 				39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,

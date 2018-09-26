@@ -6,6 +6,21 @@
 //  Copyright © 2018 Bruno_W. All rights reserved.
 //
 
+/*
+ Lógica:
+ 
+ > ao iniciar:
+ -      buscar na rede a cotação do papel recebido via modo de injeção
+ -      carregar as view com os dados obtidos da rede.
+ 
+ > ao clicar no botão "Add":
+ -      Ir para uma view(modal) com formulario de adição
+ -      No formulário:
+ -          O usuário poderá cancelar a adição ou;
+ -          O usuário irá preencher dados como quantidade, preço e data de compra.
+ -          Ao clicar em adicionar os dados seráo persistidos no coredata e o formulário será dispensado.
+ */
+
 import UIKit
 
 class DetailViewController: UIViewController {
@@ -26,10 +41,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var previousCloseLabel: UILabel!
     @IBOutlet weak var changeLabel: UILabel!
     @IBOutlet weak var changePercentLabel: UILabel!
+    @IBOutlet weak var portfolioButton: UIBarButtonItem!
+    @IBOutlet weak var followButton: UIBarButtonItem!
     
-    
-    
-    
+    //MARK: Life`s Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fillUI()
@@ -59,21 +74,20 @@ class DetailViewController: UIViewController {
                 //TODO: Codificar quota não encontrada ou veio vazia
                 return
             }
-            
             //self.quote = Quote(context: DataController.sharedInstance().viewContext)
             DispatchQueue.main.async {
-                
                 self.reloadUIData(globalQuote: globalQuote!)
             }
-            
         }
     }
     
+    @IBAction func portfolioAction(_ sender: Any) {
+        
+        let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        
+        present(m, animated: true, completion: nil)
+    }
     func reloadUIData(globalQuote: AlphaVantageClient.GlobalQuote){
-        
-        
-
-        
         self.priceLabel.text =  "\(globalQuote.price)"
         self.changeLabel.text =  "\(globalQuote.change)"
         self.changePercentLabel.text =  "\(globalQuote.changePercent)"
@@ -85,6 +99,8 @@ class DetailViewController: UIViewController {
         self.symbolLabel.text = "\(globalQuote.symbol)"
         self.volumeLabel.text = "\(globalQuote.volume)"
     }
+    
+    
     
 
     /*
