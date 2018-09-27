@@ -14,7 +14,7 @@
     </entity>
     <entity name="Quote" representedClassName="Quote" syncable="YES" codeGenerationType="class">
         <attribute name="change" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="changePercent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="changePercent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="high" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="latest" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="low" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>

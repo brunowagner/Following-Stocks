@@ -23,6 +23,9 @@
 		39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */; };
 		39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDED21530794004BEB1E /* TesteSearchController.swift */; };
 		39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */; };
+		39DB5480215C4D140045C3D2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB547F215C4D140045C3D2 /* Utilities.swift */; };
+		39DB5483215C52860045C3D2 /* PaperStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB5482215C52860045C3D2 /* PaperStruct.swift */; };
+		39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */; };
 		39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */; };
 		39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63302155B6210000C1D9 /* PortfolioCell.swift */; };
 		39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */; };
@@ -51,6 +54,9 @@
 		39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		39D4DDED21530794004BEB1E /* TesteSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteSearchController.swift; sourceTree = "<group>"; };
 		39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		39DB547F215C4D140045C3D2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		39DB5482215C52860045C3D2 /* PaperStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperStruct.swift; sourceTree = "<group>"; };
+		39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStruct.swift; sourceTree = "<group>"; };
 		39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingStocks.xcdatamodel; sourceTree = "<group>"; };
 		39EF63302155B6210000C1D9 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -99,15 +105,16 @@
 		39CF60CC214E02310041AF3B /* FollowingStocks */ = {
 			isa = PBXGroup;
 			children = (
+				39CF60CD214E02310041AF3B /* AppDelegate.swift */,
 				39CF60E1214E029F0041AF3B /* Controller */,
 				39CF60E0214E02970041AF3B /* View */,
 				39CF60DF214E02890041AF3B /* Model */,
-				39CF60CD214E02310041AF3B /* AppDelegate.swift */,
+				39CF60D4214E02320041AF3B /* Assets.xcassets */,
 				39CF60CF214E02310041AF3B /* ViewController.swift */,
 				39CF60D1214E02310041AF3B /* Main.storyboard */,
-				39CF60D4214E02320041AF3B /* Assets.xcassets */,
 				39CF60D6214E02320041AF3B /* LaunchScreen.storyboard */,
 				39CF60D9214E02330041AF3B /* Info.plist */,
+				39DB547E215C4C740045C3D2 /* Support */,
 			);
 			path = FollowingStocks;
 			sourceTree = "<group>";
@@ -115,13 +122,14 @@
 		39CF60DF214E02890041AF3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				39DB5481215C524F0045C3D2 /* Structs */,
+				39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */,
 				39EF63342155C3D60000C1D9 /* DataController.swift */,
 				39A7E1D4214F056700476573 /* Network */,
 				39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */,
 				39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */,
 				39A7E1D2214F03A300476573 /* Autocomplete.swift */,
 				39A7E1DB215081D500476573 /* Links uteis.swift */,
-				39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */,
 				39EF6338215989180000C1D9 /* AlphaVantageClient.swift */,
 			);
 			path = Model;
@@ -148,6 +156,23 @@
 				39CE53F0215AF1E8005B57C7 /* MovingPortfolioViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		39DB547E215C4C740045C3D2 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				39DB547F215C4D140045C3D2 /* Utilities.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		39DB5481215C524F0045C3D2 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				39DB5482215C52860045C3D2 /* PaperStruct.swift */,
+				39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */,
+			);
+			path = Structs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,8 +253,11 @@
 				39CF60D0214E02310041AF3B /* ViewController.swift in Sources */,
 				39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,
+				39DB5483215C52860045C3D2 /* PaperStruct.swift in Sources */,
 				39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */,
 				39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */,
+				39DB5480215C4D140045C3D2 /* Utilities.swift in Sources */,
+				39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */,
 				39A7E1D3214F03A300476573 /* Autocomplete.swift in Sources */,
 				39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */,
 				39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */,

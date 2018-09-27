@@ -73,16 +73,5 @@ extension AlphaVantageClient{
             self.change = (quote["09. change"] as! NSString).doubleValue
             self.changePercent = quote["10. change percent"] as! String
         }
-        
-        private func stringToDate(_ stringDate: String) -> Date{
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-mm-dd" //Your date format
-            //dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
-            guard let date = dateFormatter.date(from: stringDate) else {//according to date format your date string
-                fatalError("Data não pode ser convertida")
-            }
-            print(date ) //Convert String to Date
-            return date
-        }
     }
 }

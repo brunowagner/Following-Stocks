@@ -26,7 +26,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var paper : Paper!
-    var paperStruct : paperStruct!
+    var paperStruct : PaperStruct!
     var quote : Quote!
     
     //MARK: Outlets
@@ -48,6 +48,16 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fillUI()
+        
+        paper = Paper(context: DataController.sharedInstance().viewContext)
+        quote = Quote(context: DataController.sharedInstance().viewContext)
+        
+        paper.symbol = paperStruct.symbol
+        paper.name = paperStruct.companyName
+        paper.exchange = paperStruct.exch
+        paper.exchDisp = paperStruct.exchDisp
+        paper.type = paperStruct.type
+        paper.typeDisp = paperStruct.typeDisp
         
         requestQuote(symbol: paperStruct.symbol)
 
@@ -74,6 +84,19 @@ class DetailViewController: UIViewController {
                 //TODO: Codificar quota não encontrada ou veio vazia
                 return
             }
+            
+            self.quote.change = (globalQuote?.change)!
+            self.quote.changePercent = globalQuote?.changePercent
+            self.quote.high = (globalQuote?.high)!
+            self.quote.latest = Utilities.Convert.stringToDate((globalQuote?.latestTradingDay)!, dateFormat: "yyyy-mm-dd")
+            self.quote.low = (globalQuote?.low)!
+            self.quote.open = (globalQuote?.open)!
+            self.quote.previousClose = (globalQuote?.previousClose)!
+            self.quote.price = (globalQuote?.price)!
+            self.quote.volume = (globalQuote?.volume)!
+            
+            self.quote.paper = self.paper
+            
             //self.quote = Quote(context: DataController.sharedInstance().viewContext)
             DispatchQueue.main.async {
                 self.reloadUIData(globalQuote: globalQuote!)
@@ -84,6 +107,8 @@ class DetailViewController: UIViewController {
     @IBAction func portfolioAction(_ sender: Any) {
         
         let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        
+        m.paper = paper
         
         present(m, animated: true, completion: nil)
     }

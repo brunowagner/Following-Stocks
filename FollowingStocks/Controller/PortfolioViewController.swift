@@ -38,13 +38,20 @@ class PortfolioViewController: UIViewController {
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         setupPaperFetchedResultsController()
-        //tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        fetchedResultsController = nil
     }
     
     
@@ -127,7 +134,7 @@ extension PortfolioViewController: NSFetchedResultsControllerDelegate{
         
         switch type {
         case .insert:
-            tableView.insertRows(at: [indexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
             break
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)

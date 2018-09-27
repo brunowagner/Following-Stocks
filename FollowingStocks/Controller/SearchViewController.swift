@@ -8,51 +8,13 @@
 
 import Foundation
 import UIKit
-
-
-struct paperStruct {
-    let symbol: String //: "PBR",
-    let companyName: String  //: "Petróleo Brasileiro S.A. - Petrobras",
-    let exch: String  //: "NYQ",
-    let type: String  //: "S",
-    let exchDisp: String  //: "NYSE",
-    let typeDisp: String  //: "Equity"
-    
-    init(dicPaper: [String: AnyObject]) {
-        self.symbol = dicPaper["symbol"] as! String
-        self.companyName = dicPaper["name"] as! String
-        self.exch = dicPaper["exch"] as! String
-        self.type = dicPaper["type"] as! String
-        self.exchDisp = dicPaper["exchDisp"] as! String
-        self.typeDisp = dicPaper["typeDisp"] as! String
-    }
-    
-    static func parseToPapelArray(from resultSet: [String : AnyObject]) -> [paperStruct]{
-        guard let rs = resultSet["ResultSet"] as? [String : AnyObject] else {
-            fatalError("Não foi encontrado 'ResultSet nos dados baixados.'")
-        }
-        
-        guard let results = rs["Result"] as? [[String :AnyObject]] else {
-            fatalError("Não foi encontrado 'Result nos dados baixados.'")
-        }
-
-        var papelArray : [paperStruct] = []
-        
-        for data in results {
-            let papel = paperStruct(dicPaper: data)
-            papelArray.append(papel)
-        }
-        return papelArray
-    }
-}
-
 class SearchViewController : UITableViewController {
     
 
-    var papelArray : [paperStruct]!
-    var filteredPapelArray : [paperStruct]!
+    var papelArray : [PaperStruct]!
+    var filteredPapelArray : [PaperStruct]!
     
-    var papelDetails : paperStruct!
+    var papelDetails : PaperStruct!
 
     var searchController : UISearchController!
     var operation : String = "default"
@@ -93,7 +55,7 @@ class SearchViewController : UITableViewController {
             //self.filteredPapelArray = paperStruct.parseToPapelArray(from: data as! [String : AnyObject])
             
             DispatchQueue.main.async {
-                self.filteredPapelArray = paperStruct.parseToPapelArray(from: data as! [String : AnyObject])
+                self.filteredPapelArray = PaperStruct.parseToPapelArray(from: data as! [String : AnyObject])
                 self.tableView.reloadData()
             }
         }
@@ -105,7 +67,7 @@ class SearchViewController : UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
         if segue.identifier == "SearchToDetail" {
             let detailVC = segue.destination as! DetailViewController
-            detailVC.paperStruct = sender as! paperStruct
+            detailVC.paperStruct = sender as! PaperStruct
         }
     }
     
@@ -123,7 +85,7 @@ extension SearchViewController{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchTableViewCell
         
-        let paper : paperStruct = filteredPapelArray[indexPath.row]
+        let paper : PaperStruct = filteredPapelArray[indexPath.row]
         print(paper.symbol)
 
         cell.symbolLable.text = paper.symbol
