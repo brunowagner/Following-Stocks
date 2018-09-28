@@ -59,9 +59,10 @@ class MovingPortfolioViewController: UIViewController {
     @IBAction func addAction (_ sender: UIButton){
         //paper.addToTrades(trade)
         trade.paper = paper
+        print(trade)
 
         paper.isPortfolio = true
-
+        print(paper)
         do{
             try DataController.sharedInstance().viewContext.save()
             dismiss(animated: true, completion: nil)

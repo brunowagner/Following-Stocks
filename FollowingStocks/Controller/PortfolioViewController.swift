@@ -38,44 +38,65 @@ class PortfolioViewController: UIViewController {
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad")
+        setupPaperFetchedResultsController()
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
         setupPaperFetchedResultsController()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //tableView.reloadData()
+        //if let indexPath = tableView.indexPathForSelectedRow {
+        //    tableView.deselectRow(at: indexPath, animated: false)
+        //    tableView.reloadRows(at: [indexPath], with: .fade)
+        //}
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("viewDidDisappear")
         fetchedResultsController = nil
     }
-    
-    
+
     //MARK: Fetcheds
     
     fileprivate func setupPaperFetchedResultsController() {
+        print("Iniciando Fetched...")
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
         
-        let predicate = NSPredicate(format: "isPortfolio = %@", "true")
+        let predicate = NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))
         
         let sortDescriptor = NSSortDescriptor(key: "symbol", ascending: true)
         
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.sharedInstance().viewContext, sectionNameKeyPath: nil, cacheName: "paperFRC")
+        //------------ apenas para testar o fetchRequst puro
+        if let result = try? DataController.sharedInstance().viewContext.fetch(fetchRequest){
+            let papers : [Paper] = result
+
+            //for p in papers{
+            //    print(p.symbol)
+            //}
+            
+            print(papers.count)
+            //print(papers)
+        }
+        //----------
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.sharedInstance().viewContext, sectionNameKeyPath: nil, cacheName: nil)//"paperFRC")
         
         fetchedResultsController.delegate = self
-        
+
         do{
             try fetchedResultsController.performFetch()
         } catch {
             fatalError("Can not to do fetchedResultsController.performFetch!")
         }
+        print("Quantidade objetos no fetched: \(String(describing: fetchedResultsController.sections?[0].numberOfObjects))")
     }
     
     //MARK: Actions
@@ -104,7 +125,7 @@ extension PortfolioViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioCell") as! PortfolioCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PortfolioCell", for: indexPath) as! PortfolioCell
         
         let paper = fetchedResultsController.object(at: indexPath)
         
@@ -114,6 +135,42 @@ extension PortfolioViewController: UITableViewDataSource{
         cell.change.text = "\(paper.quote?.change ?? 0)"
         
         return cell
+    }
+}
+
+    //MARK: UITableViewDelegate
+extension PortfolioViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        //TODO: pegar symbol e pesquizar Cotação
+        //let paper = fetchedResultsController.object(at: indexPath)
+        
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailVC.paper = fetchedResultsController.object(at: indexPath)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+        
+        //performSegue(withIdentifier: "SearchToDetail", sender: paper)
+        
+        //        AlphaVantageClient.sharedInstance.requestQuote(symbol: paper.symbol) { (globalQuote, error) in
+        //            guard error == nil else {
+        //                fatalError("Erro ao aobter cotação: \(error?.localizedDescription)")
+        //            }
+        //
+        //            let quote = Quote(context: DataController.sharedInstance().viewContext)
+        //
+        //
+        //        }
+
+        //TODO: instanciar Detail
+        //TODO: injetar paper e quote em Detail
+        //TODO: Navejar até detail.
+
+        //        if tableView == resultsController.tableView{
+        //            userDetails = foundUsers[indexPath.row]
+        //            self.performSegue(withIdentifier: "PushDetailsVC", sender: self)
+        //        }
     }
 }
 
@@ -131,18 +188,23 @@ extension PortfolioViewController: NSFetchedResultsControllerDelegate{
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
         
         switch type {
         case .insert:
+            print("FRC type = insert")
             tableView.insertRows(at: [newIndexPath!], with: .fade)
             break
         case .delete:
+            print("FRC type = delete")
             tableView.deleteRows(at: [indexPath!], with: .fade)
             break
         case .update:
+            print("FRC type = update")
             tableView.reloadData()
             break
         case .move:
+            print("FRC type = move")
                 //move isn't applied in this app
             break
         }

@@ -3,8 +3,8 @@
     <entity name="Paper" representedClassName="Paper" syncable="YES" codeGenerationType="class">
         <attribute name="exchange" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="exchDisp" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="isFollowed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="isPortfolio" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFollowed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isPortfolio" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,6 +31,7 @@
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="paper" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Paper" inverseName="trades" inverseEntity="Paper" syncable="YES"/>
     </entity>
+    <fetchRequest name="paperAll" entity="Paper"/>
     <elements>
         <element name="Paper" positionX="5121" positionY="-1611" width="128" height="193"/>
         <element name="Quote" positionX="5400" positionY="-1633" width="128" height="193"/>

@@ -47,31 +47,41 @@ class DetailViewController: UIViewController {
     //MARK: Life`s Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillUI()
         
+        
+        if paper == nil{
+        print("DETAIL - criando paper...")
         paper = Paper(context: DataController.sharedInstance().viewContext)
+        print("DETAIL - paper criado!")
+            print("DETAIL - criando quote...")
         quote = Quote(context: DataController.sharedInstance().viewContext)
+            print("DETAIL - quote criado!")
+            
+            print("DETAIL - setando paper...")
+            paper.symbol = paperStruct.symbol
+            paper.name = paperStruct.companyName
+            paper.exchange = paperStruct.exch
+            paper.exchDisp = paperStruct.exchDisp
+            paper.type = paperStruct.type
+            paper.typeDisp = paperStruct.typeDisp
+            print("DETAIL - paper setado!")
+            
+        } else {
+            print("DETAIL - criando quote...")
+            quote = paper.quote
+            print("DETAIL - quote criado!")
+        }
         
-        paper.symbol = paperStruct.symbol
-        paper.name = paperStruct.companyName
-        paper.exchange = paperStruct.exch
-        paper.exchDisp = paperStruct.exchDisp
-        paper.type = paperStruct.type
-        paper.typeDisp = paperStruct.typeDisp
-        
-        requestQuote(symbol: paperStruct.symbol)
+        fillUI()
+
+        requestQuote(symbol: paper.symbol!)
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func fillUI(){
-        self.nameLabel.text = paperStruct.companyName
-        self.symbolLabel.text = paperStruct.symbol
+        self.nameLabel.text = paper.name
+        self.symbolLabel.text = paper.symbol
     }
     
     func requestQuote(symbol : String) {
@@ -85,6 +95,7 @@ class DetailViewController: UIViewController {
                 return
             }
             
+            print("DETAIL - setando quoter...")
             self.quote.change = (globalQuote?.change)!
             self.quote.changePercent = globalQuote?.changePercent
             self.quote.high = (globalQuote?.high)!
@@ -94,8 +105,9 @@ class DetailViewController: UIViewController {
             self.quote.previousClose = (globalQuote?.previousClose)!
             self.quote.price = (globalQuote?.price)!
             self.quote.volume = (globalQuote?.volume)!
-            
+
             self.quote.paper = self.paper
+            print("DETAIL - quoter setado!")
             
             //self.quote = Quote(context: DataController.sharedInstance().viewContext)
             DispatchQueue.main.async {
@@ -108,10 +120,13 @@ class DetailViewController: UIViewController {
         
         let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
         
+        print("DETAIL - injetando paper...")
         m.paper = paper
+        print("DETAIL - paper injetado!")
         
         present(m, animated: true, completion: nil)
     }
+    
     func reloadUIData(globalQuote: AlphaVantageClient.GlobalQuote){
         self.priceLabel.text =  "\(globalQuote.price)"
         self.changeLabel.text =  "\(globalQuote.change)"
