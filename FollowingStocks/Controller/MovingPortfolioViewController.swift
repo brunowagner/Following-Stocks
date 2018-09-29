@@ -21,6 +21,7 @@ class MovingPortfolioViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,10 +29,10 @@ class MovingPortfolioViewController: UIViewController {
         
         trade.date = Date()
         trade.operation = "purchase"
-        trade.price = (paper.quote?.price)!
+        trade.price = 0//(paper?.quote?.price)!
         trade.quantity = Int16((quantityTextField.text! as NSString).intValue)
         
-        paperTextField.text = paper.symbol
+        paperTextField.text = paper?.symbol
         quantityTextField.text = "\(trade.quantity)"
         priceTextField.text = "\(trade.price)"
         dateTextField.text = dateFormatter.string(from: trade.date!)
@@ -52,6 +53,14 @@ class MovingPortfolioViewController: UIViewController {
         return df
     }()
     
+    @IBAction func searchAction(_ sender: Any) {
+        performSegue(withIdentifier: "MovingYourPortifolioToSearch", sender: nil)
+    }
+    
+    @IBAction func unwindToMovingPortfolioViewController(_ sender: UIStoryboardSegue) {
+        // created to use um unwind SearchViewController
+    }
+    
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -71,6 +80,12 @@ class MovingPortfolioViewController: UIViewController {
         }
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let searchVC = segue.destination as? SearchViewController{
+            searchVC.isToFillField = true
+        }
     }
     
     /*

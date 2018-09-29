@@ -17,17 +17,28 @@ class SearchViewController : UITableViewController {
     var papelDetails : PaperStruct!
 
     var searchController : UISearchController!
-    var operation : String = "default"
+    var isToFillField : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(SearchViewController.self) - viewDidLoad")
         if papelArray == nil { papelArray = [] }
         filteredPapelArray = papelArray
 		tableView.dataSource = self
 		tableView.delegate = self
 		configureSearchController()
         definesPresentationContext = true
-        print("operation =  \(operation)")
+        print("toFillField =  \(isToFillField)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("\(SearchViewController.self) - viewWillAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("\(SearchViewController.self) - viewWillDisappear")
     }
     
 	func configureSearchController(){
@@ -68,6 +79,11 @@ class SearchViewController : UITableViewController {
         if segue.identifier == "SearchToDetail" {
             let detailVC = segue.destination as! DetailViewController
             detailVC.paperStruct = sender as! PaperStruct
+        }
+        if segue.identifier == "unwindToMovingPortfolioViewController"{
+            let mVC = segue.destination as! MovingPortfolioViewController
+            let paperStruct = sender as! PaperStruct
+            mVC.paperTextField.text = paperStruct.symbol
         }
     }
     
@@ -119,42 +135,16 @@ extension SearchViewController {
 
     //adicionado para add
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath == tableView.indexPathForSelectedRow {
-            //TODO: desmarcar celula
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        guard isToFillField == false else {
+             dismiss(animated: false, completion: nil)
+             return performSegue(withIdentifier: "unwindToMovingPortfolioViewController", sender: filteredPapelArray[indexPath.row])
         }
         
-        //TODO: pegar symbol e pesquizar Cotação
         let paper = filteredPapelArray[indexPath.row]
-        
-        //let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        
-        //detailVC.paperStruct = paper
-        
-        //self.navigationController?.pushViewController(detailVC, animated: true)
-        
         performSegue(withIdentifier: "SearchToDetail", sender: paper)
-        
-//        AlphaVantageClient.sharedInstance.requestQuote(symbol: paper.symbol) { (globalQuote, error) in
-//            guard error == nil else {
-//                fatalError("Erro ao aobter cotação: \(error?.localizedDescription)")
-//            }
-//
-//            let quote = Quote(context: DataController.sharedInstance().viewContext)
-//
-//
-//        }
-        
-        
-        //TODO: instanciar Detail
-        //TODO: injetar paper e quote em Detail
-        //TODO: Navejar até detail.
-        
-        
-        
-//        if tableView == resultsController.tableView{
-//            userDetails = foundUsers[indexPath.row]
-//            self.performSegue(withIdentifier: "PushDetailsVC", sender: self)
-//        }
+
     }
     
     
