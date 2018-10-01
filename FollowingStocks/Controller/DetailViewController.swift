@@ -79,6 +79,10 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        //DataController.sharedInstance().viewContext.delete(paper)
+    }
+    
     func fillUI(){
         self.nameLabel.text = paper.name
         self.symbolLabel.text = paper.symbol
