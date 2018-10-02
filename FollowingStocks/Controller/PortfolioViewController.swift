@@ -102,19 +102,7 @@ class PortfolioViewController: UIViewController {
     //MARK: Actions
     
     @IBAction func addAction(_ sender: UIBarButtonItem) {
-        //TODO: Modify code to open input Alert
-        //inside input Alert, put option to search paper.
-//        let searchVC = self.storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
-//
-//        searchVC.operation = "add"
-//
-//        self.navigationController?.pushViewController(searchVC, animated: true)
-        
         let m = self.storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
-        
-        //print("DETAIL - injetando paper...")
-        //m.paper = paper
-        //print("DETAIL - paper injetado!")
         
         present(m, animated: true, completion: nil)
     }

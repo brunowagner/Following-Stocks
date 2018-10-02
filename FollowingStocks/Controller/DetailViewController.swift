@@ -69,7 +69,6 @@ class DetailViewController: UIViewController {
         if !paper.isFollowed && !paper.isPortfolio{
             DataController.sharedInstance().viewContext.delete(paper)
         }
-        paper = nil
     }
     
     func fillUI(){
@@ -110,7 +109,34 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func portfolioAction(_ sender: Any) {
+        print("presentPortfolioTradeAlert - inicio")
+        presentPortfolioTradeAlert()
+        print("presentPortfolioTradeAlert - fim")
+    }
+    
+    func presentPortfolioTradeAlert() {
+        let alert = UIAlertController(title: "Portfolio Trade", message: "What trade do you might?", preferredStyle: .alert)
         
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
+            self.addToPortfolio()
+        }
+        
+        let remove = UIAlertAction(title: "Remove", style: .default) { (alertAcion) in
+            self.removeFromPortFolio()
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(remove)
+        alert.addAction(add)
+        
+        remove.isEnabled = paper.isPortfolio
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func addToPortfolio() {
         let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
         
         print("DETAIL - injetando paper...")
@@ -118,6 +144,25 @@ class DetailViewController: UIViewController {
         print("DETAIL - paper injetado!")
         
         present(m, animated: true, completion: nil)
+    }
+    
+    func removeFromPortFolio() {
+        print("removeFromPortFolio - inicio")
+        DataController.sharedInstance().viewContext.delete(paper)
+        do{
+            try DataController.sharedInstance().viewContext.save()
+            
+            let alert = UIAlertController(title: "Sucessful!", message: "Paper was deleted from portfolio!", preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+            
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+        } catch {
+            fatalError("Papel não deletado!")
+        }
+        
+        print("removeFromPortFolio - fim")
     }
     
     func reloadUIData(globalQuote: GlobalQuote){
