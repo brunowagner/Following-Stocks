@@ -10,35 +10,42 @@ import UIKit
 
 class MovingPortfolioViewController: UIViewController {
 
+    //MARK: Properties
     var paper: Paper!
-    
+    var quote: Quote!
     var trade: Trade!
     
+    //MARK: Outlets
     @IBOutlet weak var paperTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
-    
-    
-    
+
+    //MARK: Life`s cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(type(of: self)) - viewDidLoad")
         
-        trade = Trade(context: DataController.sharedInstance().viewContext)
-        
-        trade.date = Date()
-        trade.operation = "purchase"
-        trade.price = 0//(paper?.quote?.price)!
-        trade.quantity = Int16((quantityTextField.text! as NSString).intValue)
-        
-        paperTextField.text = paper?.symbol
-        quantityTextField.text = "\(trade.quantity)"
-        priceTextField.text = "\(trade.price)"
-        dateTextField.text = dateFormatter.string(from: trade.date!)
-        
-
+        fillUI()
         // Do any additional setup after loading the view.
+    }
+    
+    func fillUI(){
+        paperTextField.text = paper?.symbol
+        quantityTextField.text = "0"
+        priceTextField.text = "\((paper?.quote?.price) ?? 0)"
+        dateTextField.text = dateFormatter.string(from: Date())
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("\(type(of: self)) - viewWillDisappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("\(type(of: self)) - viewDidDisappear")
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,48 +61,54 @@ class MovingPortfolioViewController: UIViewController {
     }()
     
     @IBAction func searchAction(_ sender: Any) {
+         print("\(type(of: self)) - performSegue")
         performSegue(withIdentifier: "MovingYourPortifolioToSearch", sender: nil)
     }
     
     @IBAction func unwindToMovingPortfolioViewController(_ sender: UIStoryboardSegue) {
-        // created to use um unwind SearchViewController
+        print("\(type(of: self)) - unwindToMovingPortfolioViewController")
+        let vc = sender.source as! SearchViewController
+        paper = vc.paper
+        self.paperTextField.text = paper.symbol
     }
     
     @IBAction func cancelAction(_ sender: Any) {
+        print("\(type(of: self)) - cancelAction")
+        if paper != nil, !paper.isPortfolio && !paper.isFollowed {
+            DataController.sharedInstance().viewContext.delete(paper)
+        }
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addAction (_ sender: UIButton){
-        //paper.addToTrades(trade)
+        
+        trade = Trade(context: DataController.sharedInstance().viewContext)
+        
+        trade.date = dateFormatter.date(from: self.dateTextField.text!)
+        trade.operation = "purchase"
+        trade.price = (self.priceTextField.text! as NSString).doubleValue
+        trade.quantity = Int16((quantityTextField.text! as NSString).intValue)
+        
         trade.paper = paper
+        
         print(trade)
-
+        
         paper.isPortfolio = true
         print(paper)
+        
         do{
             try DataController.sharedInstance().viewContext.save()
             dismiss(animated: true, completion: nil)
         } catch {
             fatalError("Não foi possivel salva no core data")
         }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("\(type(of: self)) - prepareforSegue")
         if let searchVC = segue.destination as? SearchViewController{
             searchVC.isToFillField = true
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct PaperStruct {
     let symbol: String //: "PBR",
     let companyName: String  //: "Petróleo Brasileiro S.A. - Petrobras",
@@ -14,7 +15,7 @@ struct PaperStruct {
     let type: String  //: "S",
     let exchDisp: String  //: "NYSE",
     let typeDisp: String  //: "Equity"
-    
+
     init(dicPaper: [String: AnyObject]) {
         self.symbol = dicPaper["symbol"] as! String
         self.companyName = dicPaper["name"] as! String
@@ -23,18 +24,18 @@ struct PaperStruct {
         self.exchDisp = dicPaper["exchDisp"] as! String
         self.typeDisp = dicPaper["typeDisp"] as! String
     }
-    
+
     static func parseToPapelArray(from resultSet: [String : AnyObject]) -> [PaperStruct]{
         guard let rs = resultSet["ResultSet"] as? [String : AnyObject] else {
             fatalError("Não foi encontrado 'ResultSet nos dados baixados.'")
         }
-        
+
         guard let results = rs["Result"] as? [[String :AnyObject]] else {
             fatalError("Não foi encontrado 'Result nos dados baixados.'")
         }
-        
+
         var papelArray : [PaperStruct] = []
-        
+
         for data in results {
             let papel = PaperStruct(dicPaper: data)
             papelArray.append(papel)

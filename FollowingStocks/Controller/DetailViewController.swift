@@ -26,7 +26,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var paper : Paper!
-    var paperStruct : PaperStruct!
+    //var paperStruct : PaperStruct!
     var quote : Quote!
     
     //MARK: Outlets
@@ -48,28 +48,13 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if paper == nil{
-        print("DETAIL - criando paper...")
-        paper = Paper(context: DataController.sharedInstance().viewContext)
-        print("DETAIL - paper criado!")
-            print("DETAIL - criando quote...")
-        quote = Quote(context: DataController.sharedInstance().viewContext)
-            print("DETAIL - quote criado!")
-            
-            print("DETAIL - setando paper...")
-            paper.symbol = paperStruct.symbol
-            paper.name = paperStruct.companyName
-            paper.exchange = paperStruct.exch
-            paper.exchDisp = paperStruct.exchDisp
-            paper.type = paperStruct.type
-            paper.typeDisp = paperStruct.typeDisp
-            print("DETAIL - paper setado!")
-            
-        } else {
+        //pela nova arquitetura, paper nunca é nil
+        if paper.quote != nil{
             print("DETAIL - criando quote...")
             quote = paper.quote
             print("DETAIL - quote criado!")
+        } else {
+            quote = Quote(context: DataController.sharedInstance().viewContext)
         }
         
         fillUI()
@@ -80,7 +65,11 @@ class DetailViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        //DataController.sharedInstance().viewContext.delete(paper)
+        //para limpar a memória (se paper não for salvo, deletar da memória)
+        if !paper.isFollowed && !paper.isPortfolio{
+            DataController.sharedInstance().viewContext.delete(paper)
+        }
+        paper = nil
     }
     
     func fillUI(){
@@ -131,7 +120,7 @@ class DetailViewController: UIViewController {
         present(m, animated: true, completion: nil)
     }
     
-    func reloadUIData(globalQuote: AlphaVantageClient.GlobalQuote){
+    func reloadUIData(globalQuote: GlobalQuote){
         self.priceLabel.text =  "\(globalQuote.price)"
         self.changeLabel.text =  "\(globalQuote.change)"
         self.changePercentLabel.text =  "\(globalQuote.changePercent)"

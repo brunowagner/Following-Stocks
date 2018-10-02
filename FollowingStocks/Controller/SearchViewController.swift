@@ -8,13 +8,14 @@
 
 import Foundation
 import UIKit
+import CoreData
 class SearchViewController : UITableViewController {
     
-
+    var paper: Paper!
     var papelArray : [PaperStruct]!
     var filteredPapelArray : [PaperStruct]!
     
-    var papelDetails : PaperStruct!
+    //var papelDetails : PaperStruct!
 
     var searchController : UISearchController!
     var isToFillField : Bool = false
@@ -70,24 +71,51 @@ class SearchViewController : UITableViewController {
                 self.tableView.reloadData()
             }
         }
-        
-        
-        
 	}
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
+        generatePaper(paperStruct: sender as! PaperStruct)
+        
         if segue.identifier == "SearchToDetail" {
             let detailVC = segue.destination as! DetailViewController
-            detailVC.paperStruct = sender as! PaperStruct
+            //detailVC.paperStruct = sender as! PaperStruct
+            detailVC.paper = paper
         }
         if segue.identifier == "unwindToMovingPortfolioViewController"{
             let mVC = segue.destination as! MovingPortfolioViewController
-            let paperStruct = sender as! PaperStruct
-            mVC.paperTextField.text = paperStruct.symbol
+            //let paperStruct = sender as! PaperStruct
+            //mVC.paperTextField.text = paperStruct.symbol
+            mVC.paper = paper
         }
     }
     
-
+    func generatePaper(paperStruct : PaperStruct){
+        
+        // verifica se papel ja existe (no portfolio), caso sim: retornar o já existente
+        if let result = fetchPaper(symbol: paperStruct.symbol) {
+            paper = result
+        } else {
+            paper = Paper(context: DataController.sharedInstance().viewContext)
+            paper.symbol = paperStruct.symbol
+            paper.name = paperStruct.companyName
+            paper.exchange = paperStruct.exch
+            paper.exchDisp = paperStruct.exchDisp
+            paper.type = paperStruct.type
+            paper.typeDisp = paperStruct.typeDisp
+        }
+    }
+    
+    func fetchPaper(symbol : String) -> Paper?{
+        let fetch : NSFetchRequest<Paper> = Paper.fetchRequest()
+        let predicate : NSPredicate = NSPredicate(format: "symbol == %@", symbol)
+        fetch.predicate = predicate
+        
+        if let results = try? DataController.sharedInstance().viewContext.fetch(fetch), results.count > 0 {
+             return results[0]
+        } else {
+            return nil
+        }
+    }
 }
 
 //MARK: UITableViewDataSource
@@ -138,10 +166,10 @@ extension SearchViewController {
         tableView.deselectRow(at: indexPath, animated: false)
         
         guard isToFillField == false else {
+            
              dismiss(animated: false, completion: nil)
              return performSegue(withIdentifier: "unwindToMovingPortfolioViewController", sender: filteredPapelArray[indexPath.row])
         }
-        
         let paper = filteredPapelArray[indexPath.row]
         performSegue(withIdentifier: "SearchToDetail", sender: paper)
 

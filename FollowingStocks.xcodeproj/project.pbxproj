@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		39A7E1D1214F012C00476573 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D0214F012C00476573 /* SearchViewController.swift */; };
-		39A7E1D3214F03A300476573 /* Autocomplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D2214F03A300476573 /* Autocomplete.swift */; };
+		39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D2214F03A300476573 /* AutoCompleteClient.swift */; };
 		39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D5214F056700476573 /* ApiRequirements.swift */; };
 		39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D6214F056700476573 /* HTTPTools.swift */; };
 		39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */; };
 		39A7E1DC215081D500476573 /* Links uteis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1DB215081D500476573 /* Links uteis.swift */; };
+		39C5382A2162D2550020C5F8 /* Paper+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C538292162D2550020C5F8 /* Paper+Extensions.swift */; };
 		39CE53F1215AF1E8005B57C7 /* MovingPortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE53F0215AF1E8005B57C7 /* MovingPortfolioViewController.swift */; };
 		39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF60CD214E02310041AF3B /* AppDelegate.swift */; };
 		39CF60D0214E02310041AF3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF60CF214E02310041AF3B /* ViewController.swift */; };
@@ -37,11 +38,12 @@
 
 /* Begin PBXFileReference section */
 		39A7E1D0214F012C00476573 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		39A7E1D2214F03A300476573 /* Autocomplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Autocomplete.swift; sourceTree = "<group>"; };
+		39A7E1D2214F03A300476573 /* AutoCompleteClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteClient.swift; sourceTree = "<group>"; };
 		39A7E1D5214F056700476573 /* ApiRequirements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequirements.swift; sourceTree = "<group>"; };
 		39A7E1D6214F056700476573 /* HTTPTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTools.swift; sourceTree = "<group>"; };
 		39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteApiRequirements.swift; sourceTree = "<group>"; };
 		39A7E1DB215081D500476573 /* Links uteis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Links uteis.swift"; sourceTree = "<group>"; };
+		39C538292162D2550020C5F8 /* Paper+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Paper+Extensions.swift"; sourceTree = "<group>"; };
 		39CE53F0215AF1E8005B57C7 /* MovingPortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingPortfolioViewController.swift; sourceTree = "<group>"; };
 		39CF60CA214E02310041AF3B /* FollowingStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowingStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CF60CD214E02310041AF3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,27 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		39C538282162D1F70020C5F8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				39C538292162D2550020C5F8 /* Paper+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39C5382B2162D9310020C5F8 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */,
+				39DB5482215C52860045C3D2 /* PaperStruct.swift */,
+				39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */,
+				39A7E1D2214F03A300476573 /* AutoCompleteClient.swift */,
+				39EF6338215989180000C1D9 /* AlphaVantageClient.swift */,
+				39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */,
+			);
+			path = Clients;
+			sourceTree = "<group>";
+		};
 		39CF60C1214E02310041AF3B = {
 			isa = PBXGroup;
 			children = (
@@ -122,15 +145,13 @@
 		39CF60DF214E02890041AF3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				39C5382B2162D9310020C5F8 /* Clients */,
+				39C538282162D1F70020C5F8 /* Extensions */,
 				39DB5481215C524F0045C3D2 /* Structs */,
 				39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */,
 				39EF63342155C3D60000C1D9 /* DataController.swift */,
 				39A7E1D4214F056700476573 /* Network */,
-				39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */,
-				39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */,
-				39A7E1D2214F03A300476573 /* Autocomplete.swift */,
 				39A7E1DB215081D500476573 /* Links uteis.swift */,
-				39EF6338215989180000C1D9 /* AlphaVantageClient.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,8 +190,6 @@
 		39DB5481215C524F0045C3D2 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				39DB5482215C52860045C3D2 /* PaperStruct.swift */,
-				39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -258,7 +277,8 @@
 				39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */,
 				39DB5480215C4D140045C3D2 /* Utilities.swift in Sources */,
 				39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */,
-				39A7E1D3214F03A300476573 /* Autocomplete.swift in Sources */,
+				39C5382A2162D2550020C5F8 /* Paper+Extensions.swift in Sources */,
+				39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */,
 				39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */,
 				39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */,
 				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
