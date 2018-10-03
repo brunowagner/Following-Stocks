@@ -19,6 +19,8 @@ class SearchTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        symbolLable.layer.masksToBounds = true
+        symbolLable.layer.cornerRadius = 10
         // Initialization code
     }
 

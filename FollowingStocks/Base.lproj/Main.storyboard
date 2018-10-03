@@ -410,7 +410,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wj0-xO-gZf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="Z92-Na-lVj">
+                    <navigationItem key="navigationItem" title="Detail" id="Z92-Na-lVj">
                         <rightBarButtonItems>
                             <barButtonItem title="Follow" id="EQ1-eW-qfm"/>
                             <barButtonItem title="PortFolio" id="6T9-ov-jJj">

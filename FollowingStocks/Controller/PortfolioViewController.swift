@@ -38,7 +38,7 @@ class PortfolioViewController: UIViewController {
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
+        print("\(type(of: self)) - viewDidLoad")
         setupPaperFetchedResultsController()
         tableView.dataSource = self
         tableView.delegate = self
@@ -46,7 +46,7 @@ class PortfolioViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("viewWillAppear")
+        print("\(type(of: self)) - viewWillAppear")
         setupPaperFetchedResultsController()
         tableView.reloadData()
         //if let indexPath = tableView.indexPathForSelectedRow {
@@ -57,7 +57,7 @@ class PortfolioViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("viewDidDisappear")
+        print("\(type(of: self)) - viewDidDisappear")
         fetchedResultsController = nil
     }
 

@@ -13,6 +13,7 @@ class FollowingViewController: UIViewController {
     @IBOutlet weak var btn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(type(of: self)) - viewDidLoad")
 
         // Do any additional setup after loading the view.
     }
@@ -24,7 +25,7 @@ class FollowingViewController: UIViewController {
     
 
     @IBAction func btnAction(_ sender: Any) {
-        self.tabBarController?.tabBar.isHidden = true
+        //self.tabBarController?.tabBar.isHidden = true
     }
     /*
     // MARK: - Navigation

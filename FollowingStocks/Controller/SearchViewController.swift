@@ -22,7 +22,7 @@ class SearchViewController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(SearchViewController.self) - viewDidLoad")
+        print("\(type(of: self)) - viewDidLoad")
         if papelArray == nil { papelArray = [] }
         filteredPapelArray = papelArray
 		tableView.dataSource = self

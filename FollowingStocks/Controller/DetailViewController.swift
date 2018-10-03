@@ -47,6 +47,7 @@ class DetailViewController: UIViewController {
     //MARK: Life`s Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\(type(of: self)) - viewDidLoad")
         
         //pela nova arquitetura, paper nunca é nil
         if paper.quote != nil{
@@ -63,8 +64,21 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("\(type(of: self)) - viewWillAppear")
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("\(type(of: self)) - viewWillDisappear")
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("\(type(of: self)) - viewDidDisappear")
         //para limpar a memória (se paper não for salvo, deletar da memória)
         if !paper.isFollowed && !paper.isPortfolio{
             DataController.sharedInstance().viewContext.delete(paper)
@@ -148,7 +162,8 @@ class DetailViewController: UIViewController {
     
     func removeFromPortFolio() {
         print("removeFromPortFolio - inicio")
-        DataController.sharedInstance().viewContext.delete(paper)
+        paper.isPortfolio = false
+        //DataController.sharedInstance().viewContext.delete(paper)
         do{
             try DataController.sharedInstance().viewContext.save()
             
