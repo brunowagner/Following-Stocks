@@ -89,8 +89,7 @@ class MovingPortfolioViewController: UIViewController {
         trade.price = (self.priceTextField.text! as NSString).doubleValue
         let quantidade = Int16((quantityTextField.text! as NSString).intValue)
         trade.quantity = quantidade
-        
-        
+
         paper.averageCost = averageCost(quantityA: paper.quantity, costA: paper.averageCost, quantityB: trade.quantity, costB: trade.price)
         paper.quantity += trade.quantity
         
