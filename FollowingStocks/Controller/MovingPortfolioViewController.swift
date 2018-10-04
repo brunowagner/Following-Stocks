@@ -89,6 +89,9 @@ class MovingPortfolioViewController: UIViewController {
         trade.price = (self.priceTextField.text! as NSString).doubleValue
         trade.quantity = Int16((quantityTextField.text! as NSString).intValue)
         
+        paper.quantity += trade.quantity
+        paper.averageCost = averageCost(quantityA: paper.quantity, costA: paper.averageCost, quantityB: trade.quantity, costB: trade.price)
+        
         trade.paper = paper
         
         print(trade)
@@ -109,6 +112,11 @@ class MovingPortfolioViewController: UIViewController {
         if let searchVC = segue.destination as? SearchViewController{
             searchVC.isToFillField = true
         }
+    }
+    
+    func averageCost(quantityA : Int16, costA: Double, quantityB: Int16, costB: Double) -> Double{
+        let response = (( Double(quantityA) * costA) + (Double(quantityB) * costB))/2
+        return response
     }
 
 }
