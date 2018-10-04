@@ -87,10 +87,12 @@ class MovingPortfolioViewController: UIViewController {
         trade.date = dateFormatter.date(from: self.dateTextField.text!)
         trade.operation = "purchase"
         trade.price = (self.priceTextField.text! as NSString).doubleValue
-        trade.quantity = Int16((quantityTextField.text! as NSString).intValue)
+        let quantidade = Int16((quantityTextField.text! as NSString).intValue)
+        trade.quantity = quantidade
         
-        paper.quantity += trade.quantity
+        
         paper.averageCost = averageCost(quantityA: paper.quantity, costA: paper.averageCost, quantityB: trade.quantity, costB: trade.price)
+        paper.quantity += trade.quantity
         
         trade.paper = paper
         
@@ -115,7 +117,7 @@ class MovingPortfolioViewController: UIViewController {
     }
     
     func averageCost(quantityA : Int16, costA: Double, quantityB: Int16, costB: Double) -> Double{
-        let response = (( Double(quantityA) * costA) + (Double(quantityB) * costB))/2
+        let response = (( Double(quantityA) * costA) + (Double(quantityB) * costB)) / ( Double(quantityA) + Double(quantityB))
         return response
     }
 

@@ -43,6 +43,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var changePercentLabel: UILabel!
     @IBOutlet weak var portfolioButton: UIBarButtonItem!
     @IBOutlet weak var followButton: UIBarButtonItem!
+    @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var averagePrice: UILabel!
     
     //MARK: Life`s Cycle
     override func viewDidLoad() {
@@ -74,20 +76,25 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         print("\(type(of: self)) - viewWillDisappear")
         self.tabBarController?.tabBar.isHidden = false
+        
+        //para limpar a memória (se paper não for salvo, deletar da memória)
+        if !paper.isFollowed && !paper.isPortfolio{
+            DataController.sharedInstance().viewContext.delete(paper)
+            try? DataController.sharedInstance().viewContext.save()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("\(type(of: self)) - viewDidDisappear")
-        //para limpar a memória (se paper não for salvo, deletar da memória)
-        if !paper.isFollowed && !paper.isPortfolio{
-            DataController.sharedInstance().viewContext.delete(paper)
-        }
+
     }
     
     func fillUI(){
         self.nameLabel.text = paper.name
         self.symbolLabel.text = paper.symbol
+        self.quantity.text = "\(paper.quantity)"
+        self.averagePrice.text = "\(paper.averageCost)"
     }
     
     func requestQuote(symbol : String) {
