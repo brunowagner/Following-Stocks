@@ -129,11 +129,25 @@ class DetailViewController: UIViewController {
         }
     }
     
+    
+    //MARK: Actions
     @IBAction func portfolioAction(_ sender: Any) {
         print("presentPortfolioTradeAlert - inicio")
         presentPortfolioTradeAlert()
         print("presentPortfolioTradeAlert - fim")
     }
+    
+    @IBAction func followButton(_ sender: Any) {
+        paper.isFollowed = !paper.isFollowed
+        if paper.isFollowed {
+            followButton.image = UIImage(named: "baseline_my_location_black_24pt")
+            try? DataController.sharedInstance().viewContext.save()
+        } else {
+            followButton.image = UIImage(named: "baseline_location_disabled_black_24pt")
+            try? DataController.sharedInstance().viewContext.save()
+        }
+    }
+    
     
     func presentPortfolioTradeAlert() {
         let alert = UIAlertController(title: "Portfolio Trade", message: "What trade do you might?", preferredStyle: .alert)
@@ -198,6 +212,11 @@ class DetailViewController: UIViewController {
         self.previousCloseLabel.text = "\(globalQuote.previousClose)"
         self.symbolLabel.text = "\(globalQuote.symbol)"
         self.volumeLabel.text = "\(globalQuote.volume)"
+        if paper.isFollowed {
+            followButton.image = UIImage(named: "baseline_my_location_black_24pt")
+        } else {
+            followButton.image = UIImage(named: "baseline_location_disabled_black_24pt")
+        }
     }
     
     

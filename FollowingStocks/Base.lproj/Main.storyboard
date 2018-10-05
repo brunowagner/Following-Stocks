@@ -141,14 +141,69 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yjg-7U-L2Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="btnAction:" destination="j9h-ST-OKV" eventType="touchUpInside" id="f6e-1g-mza"/>
-                                    </connections>
-                                </button>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FollowingCell" rowHeight="89" id="ZGJ-KQ-l92" customClass="PortfolioCell" customModule="FollowingStocks" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGJ-KQ-l92" id="REz-B7-gEo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="94I-0q-bsR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="88.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1er-fa-ktv">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Symbol" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXp-Lg-SY7">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="331" height="46"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cz8-Bp-rdK">
+                                                                    <rect key="frame" x="331" y="0.0" width="44" height="46"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P8t-Aw-wnK">
+                                                            <rect key="frame" x="0.0" y="50" width="375" height="38.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="exchange" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7t-OW-Yt3">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="205" height="38.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change(ChangePercent)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tb3-r8-AkS">
+                                                                    <rect key="frame" x="205" y="0.0" width="170" height="38.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="94I-0q-bsR" secondAttribute="bottom" id="5cG-Pb-MMr"/>
+                                                <constraint firstItem="94I-0q-bsR" firstAttribute="leading" secondItem="REz-B7-gEo" secondAttribute="leading" id="RzO-mg-oez"/>
+                                                <constraint firstItem="94I-0q-bsR" firstAttribute="top" secondItem="REz-B7-gEo" secondAttribute="top" id="SI4-ZU-FYM"/>
+                                                <constraint firstAttribute="trailing" secondItem="94I-0q-bsR" secondAttribute="trailing" id="bUh-Dd-Qa3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="change" destination="Tb3-r8-AkS" id="5YV-pw-26G"/>
+                                            <outlet property="exchange" destination="U7t-OW-Yt3" id="cDb-ym-I4s"/>
+                                            <outlet property="price" destination="Cz8-Bp-rdK" id="e2A-lS-5gJ"/>
+                                            <outlet property="symbol" destination="VXp-Lg-SY7" id="EyZ-8J-foq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,7 +213,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="jVy-yd-udn"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="btn" destination="Yjg-7U-L2Z" id="BRB-i5-fGc"/>
+                        <outlet property="tableView" destination="abJ-82-WST" id="QaA-bu-gcn"/>
                         <segue destination="BJF-VD-jGW" kind="show" identifier="FollowingToDetail" id="T8B-ad-0Lx"/>
                     </connections>
                 </viewController>
@@ -446,8 +501,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="Z92-Na-lVj">
                         <rightBarButtonItems>
-                            <barButtonItem title="Follow" id="EQ1-eW-qfm"/>
-                            <barButtonItem title="PortFolio" id="6T9-ov-jJj">
+                            <barButtonItem title="Follow" image="baseline_my_location_black_24pt" largeContentSizeImage="baseline_my_location_black_36pt" id="EQ1-eW-qfm">
+                                <connections>
+                                    <action selector="followButton:" destination="BJF-VD-jGW" id="mM9-7q-lXM"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="PortFolio" image="baseline_business_center_black_24pt" largeContentSizeImage="baseline_business_center_black_36pt" id="6T9-ov-jJj">
                                 <connections>
                                     <action selector="portfolioAction:" destination="BJF-VD-jGW" id="MAi-m5-ywH"/>
                                 </connections>
@@ -710,12 +769,12 @@
                         <viewLayoutGuide key="safeArea" id="LtU-30-qaA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Portifolio" id="U80-bJ-7Nq">
-                        <barButtonItem key="leftBarButtonItem" title="Add" id="W32-FE-jzp">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="W32-FE-jzp">
                             <connections>
                                 <action selector="addAction:" destination="Loz-2r-xdk" id="gO7-fl-uin"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Remove" id="AeB-75-CLw"/>
+                        <barButtonItem key="rightBarButtonItem" title="remove" id="AeB-75-CLw"/>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="OSr-pw-zhY" id="WYP-Vp-huo"/>
@@ -932,6 +991,12 @@
             <point key="canvasLocation" x="-521" y="3993"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="baseline_business_center_black_24pt" width="24" height="24"/>
+        <image name="baseline_business_center_black_36pt" width="36" height="36"/>
+        <image name="baseline_my_location_black_24pt" width="24" height="24"/>
+        <image name="baseline_my_location_black_36pt" width="36" height="36"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ecp-YK-vYw"/>
         <segue reference="kGV-Ho-6PR"/>
