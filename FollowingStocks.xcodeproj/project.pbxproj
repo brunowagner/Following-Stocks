@@ -27,6 +27,7 @@
 		39DB5480215C4D140045C3D2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB547F215C4D140045C3D2 /* Utilities.swift */; };
 		39DB5483215C52860045C3D2 /* PaperStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB5482215C52860045C3D2 /* PaperStruct.swift */; };
 		39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */; };
+		39EA67C421682598001C9CC6 /* Trade+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA67C321682598001C9CC6 /* Trade+Extensions.swift */; };
 		39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */; };
 		39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63302155B6210000C1D9 /* PortfolioCell.swift */; };
 		39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */; };
@@ -59,6 +60,7 @@
 		39DB547F215C4D140045C3D2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		39DB5482215C52860045C3D2 /* PaperStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperStruct.swift; sourceTree = "<group>"; };
 		39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStruct.swift; sourceTree = "<group>"; };
+		39EA67C321682598001C9CC6 /* Trade+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trade+Extensions.swift"; sourceTree = "<group>"; };
 		39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingStocks.xcdatamodel; sourceTree = "<group>"; };
 		39EF63302155B6210000C1D9 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				39C538292162D2550020C5F8 /* Paper+Extensions.swift */,
+				39EA67C321682598001C9CC6 /* Trade+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */,
 				39C5382A2162D2550020C5F8 /* Paper+Extensions.swift in Sources */,
 				39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */,
+				39EA67C421682598001C9CC6 /* Trade+Extensions.swift in Sources */,
 				39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */,
 				39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */,
 				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
