@@ -103,6 +103,7 @@ class PortfolioViewController: UIViewController {
     
     @IBAction func addAction(_ sender: UIBarButtonItem) {
         let m = self.storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        m.operation = Trade.OperationType.purchase
         
         present(m, animated: true, completion: nil)
     }

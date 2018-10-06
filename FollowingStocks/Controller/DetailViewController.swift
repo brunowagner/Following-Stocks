@@ -80,6 +80,9 @@ class DetailViewController: UIViewController {
         //para limpar a memória (se paper não for salvo, deletar da memória)
         if !paper.isFollowed && !paper.isPortfolio{
             DataController.sharedInstance().viewContext.delete(paper)
+        }
+        //if paper was deleted in any viewController
+        if paper.isDeleted {
             try? DataController.sharedInstance().viewContext.save()
         }
     }
@@ -95,6 +98,11 @@ class DetailViewController: UIViewController {
         self.symbolLabel.text = paper.symbol
         self.quantity.text = "\(paper.quantity)"
         self.averagePrice.text = "\(paper.averageCost)"
+        if paper.isFollowed {
+            followButton.image = UIImage(named: "baseline_my_location_black_24pt")
+        } else {
+            followButton.image = UIImage(named: "baseline_location_disabled_black_24pt")
+        }
     }
     
     func requestQuote(symbol : String) {
@@ -176,6 +184,7 @@ class DetailViewController: UIViewController {
         
         print("DETAIL - injetando paper...")
         m.paper = paper
+        m.operation = Trade.OperationType.purchase
         print("DETAIL - paper injetado!")
         
         present(m, animated: true, completion: nil)
@@ -183,20 +192,15 @@ class DetailViewController: UIViewController {
     
     func removeFromPortFolio() {
         print("removeFromPortFolio - inicio")
-        paper.isPortfolio = false
-        //DataController.sharedInstance().viewContext.delete(paper)
-        do{
-            try DataController.sharedInstance().viewContext.save()
-            
-            let alert = UIAlertController(title: "Sucessful!", message: "Paper was deleted from portfolio!", preferredStyle: .alert)
-            
-            let ok = UIAlertAction(title: "OK", style: .destructive, handler: nil)
-            
-            alert.addAction(ok)
-            present(alert, animated: true, completion: nil)
-        } catch {
-            fatalError("Papel não deletado!")
-        }
+        
+        let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        
+        print("DETAIL - injetando paper...")
+        m.paper = paper
+        m.operation = Trade.OperationType.sale
+        print("DETAIL - paper injetado!")
+        
+        present(m, animated: true, completion: nil)
         
         print("removeFromPortFolio - fim")
     }

@@ -14,13 +14,14 @@ class MovingPortfolioViewController: UIViewController {
     var paper: Paper!
     var quote: Quote!
     var trade: Trade!
+    var operation: Trade.OperationType!
     
     //MARK: Outlets
     @IBOutlet weak var paperTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var tradeButton: UIButton!
 
     //MARK: Life`s cycle
     override func viewDidLoad() {
@@ -36,6 +37,7 @@ class MovingPortfolioViewController: UIViewController {
         quantityTextField.text = "0"
         priceTextField.text = "\((paper?.quote?.price) ?? 0)"
         dateTextField.text = dateFormatter.string(from: Date())
+        self.tradeButton.setTitle(operation.rawValue, for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,26 +82,40 @@ class MovingPortfolioViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func addAction (_ sender: UIButton){
-        
-        trade = Trade(context: DataController.sharedInstance().viewContext)
-        
-        trade.date = dateFormatter.date(from: self.dateTextField.text!)
-        trade.operation = "purchase"
-        trade.price = (self.priceTextField.text! as NSString).doubleValue
+    @IBAction func tradeAction (_ sender: UIButton){
         let quantidade = Int16((quantityTextField.text! as NSString).intValue)
+        let price = (self.priceTextField.text! as NSString).doubleValue
+        
+        
+        switch operation! {
+        case .sale:
+            if quantidade == paper.quantity{
+                DataController.sharedInstance().viewContext.delete(paper)
+                dismiss(animated: true, completion: nil)
+                return
+            } else {
+                paper.quantity -= quantidade
+            }
+            break
+  
+        case .purchase:
+            paper.averageCost = averageCost(quantityA: paper.quantity, costA: paper.averageCost, quantityB: quantidade, costB: price)
+            paper.quantity += quantidade
+            paper.isPortfolio = true
+        }
+
+        trade = Trade(context: DataController.sharedInstance().viewContext)
+        trade.date = dateFormatter.date(from: self.dateTextField.text!)
+        trade.operation = operation.rawValue
+        trade.price = price
         trade.quantity = quantidade
 
-        paper.averageCost = averageCost(quantityA: paper.quantity, costA: paper.averageCost, quantityB: trade.quantity, costB: trade.price)
-        paper.quantity += trade.quantity
-        
         trade.paper = paper
-        
+
         print(trade)
-        
-        paper.isPortfolio = true
+
         print(paper)
-        
+
         do{
             try DataController.sharedInstance().viewContext.save()
             dismiss(animated: true, completion: nil)
@@ -107,6 +123,8 @@ class MovingPortfolioViewController: UIViewController {
             fatalError("Não foi possivel salva no core data")
         }
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(type(of: self)) - prepareforSegue")

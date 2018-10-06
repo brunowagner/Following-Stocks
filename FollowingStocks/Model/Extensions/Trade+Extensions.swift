@@ -8,8 +8,8 @@
 
 import Foundation
 extension Trade {
-    enum operationType : String {
-        case purchase
-        case sale
+    enum OperationType : String {
+        case purchase = "Purchase"
+        case sale = "Sale"
     }
 }
