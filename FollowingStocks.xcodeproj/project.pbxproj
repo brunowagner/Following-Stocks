@@ -28,6 +28,8 @@
 		39DB5483215C52860045C3D2 /* PaperStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB5482215C52860045C3D2 /* PaperStruct.swift */; };
 		39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */; };
 		39EA67C421682598001C9CC6 /* Trade+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA67C321682598001C9CC6 /* Trade+Extensions.swift */; };
+		39EA67C721696380001C9CC6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA67C621696380001C9CC6 /* UIView+Extensions.swift */; };
+		39EA67C92169653D001C9CC6 /* DetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA67C82169653D001C9CC6 /* DetailViewController2.swift */; };
 		39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */; };
 		39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63302155B6210000C1D9 /* PortfolioCell.swift */; };
 		39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */; };
@@ -61,6 +63,8 @@
 		39DB5482215C52860045C3D2 /* PaperStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperStruct.swift; sourceTree = "<group>"; };
 		39DB5484215C52AF0045C3D2 /* QuoteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteStruct.swift; sourceTree = "<group>"; };
 		39EA67C321682598001C9CC6 /* Trade+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trade+Extensions.swift"; sourceTree = "<group>"; };
+		39EA67C621696380001C9CC6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		39EA67C82169653D001C9CC6 /* DetailViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController2.swift; sourceTree = "<group>"; };
 		39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingStocks.xcdatamodel; sourceTree = "<group>"; };
 		39EF63302155B6210000C1D9 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,7 @@
 		39CF60E0214E02970041AF3B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39EA67C521696364001C9CC6 /* Extensions */,
 				39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */,
 				39EF63302155B6210000C1D9 /* PortfolioCell.swift */,
 			);
@@ -176,8 +181,9 @@
 				39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */,
 				39D4DDED21530794004BEB1E /* TesteSearchController.swift */,
 				39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */,
-				39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */,
+				39EA67C82169653D001C9CC6 /* DetailViewController2.swift */,
 				39CE53F0215AF1E8005B57C7 /* MovingPortfolioViewController.swift */,
+				39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +201,14 @@
 			children = (
 			);
 			path = Structs;
+			sourceTree = "<group>";
+		};
+		39EA67C521696364001C9CC6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				39EA67C621696380001C9CC6 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +293,7 @@
 				39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */,
 				39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */,
 				39DB5480215C4D140045C3D2 /* Utilities.swift in Sources */,
+				39EA67C92169653D001C9CC6 /* DetailViewController2.swift in Sources */,
 				39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */,
 				39C5382A2162D2550020C5F8 /* Paper+Extensions.swift in Sources */,
 				39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */,
@@ -286,6 +301,7 @@
 				39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */,
 				39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */,
 				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
+				39EA67C721696380001C9CC6 /* UIView+Extensions.swift in Sources */,
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,
 				39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */,
 				39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */,
