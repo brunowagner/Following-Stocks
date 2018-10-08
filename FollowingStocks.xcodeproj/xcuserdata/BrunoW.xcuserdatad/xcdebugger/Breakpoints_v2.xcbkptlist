@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560727578.090906"
+            timestampString = "560732152.693913"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "137"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560727578.090968"
+            timestampString = "560732152.693992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560727578.091048"
+            timestampString = "560732152.694073"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "195"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560727578.091092"
+            timestampString = "560732152.69412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "199"
@@ -224,6 +224,22 @@
             startingLineNumber = "81"
             endingLineNumber = "81"
             landmarkName = "viewWillDisappear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowingStocks/Controller/DetailViewController2.swift"
+            timestampString = "560732152.694232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "reloadUIData(globalQuote:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

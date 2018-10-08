@@ -46,7 +46,12 @@ class DetailViewController2: UIViewController {
     @IBOutlet weak var labelprice: UILabel!
     @IBOutlet weak var labelchange: UILabel!
     @IBOutlet weak var labelchangePercent: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var labelPreviousClose: UILabel!
+    @IBOutlet weak var labelOpen: UILabel!
+    @IBOutlet weak var labelHigh: UILabel!
+    @IBOutlet weak var labelLow: UILabel!
+    @IBOutlet weak var labelVolume: UILabel!
+    @IBOutlet weak var labelLatestTradingDay: UILabel!
     @IBOutlet weak var followButton: UIBarButtonItem!
     @IBOutlet weak var portfolioButton: UIBarButtonItem!
     
@@ -214,13 +219,13 @@ class DetailViewController2: UIViewController {
         self.labelprice.text =  "\(globalQuote.price)"
         self.labelchange.text =  "\(globalQuote.change)"
         self.labelchangePercent.text =  "\(globalQuote.changePercent)"
-//        self.highLabel.text = "\(globalQuote.high)"
-//        self.lastestTradingDayLabel.text =  "\(globalQuote.latestTradingDay)"
-//        self.lowLabel.text = "\(globalQuote.low)"
-//        self.openLabel.text = "\(globalQuote.open)"
-//        self.previousCloseLabel.text = "\(globalQuote.previousClose)"
-//        self.symbolLabel.text = "\(globalQuote.symbol)"
-//        self.volumeLabel.text = "\(globalQuote.volume)"
+        self.labelHigh.text = "\(globalQuote.high)"
+        self.labelLatestTradingDay.text =  "\(globalQuote.latestTradingDay)"
+        self.labelLow.text = "\(globalQuote.low)"
+        self.labelOpen.text = "\(globalQuote.open)"
+        self.labelPreviousClose.text = "\(globalQuote.previousClose)"
+        //self.symbolLabel.text = "\(globalQuote.symbol)"
+        self.labelVolume.text = "\(globalQuote.volume)"
         if paper.isFollowed {
             followButton.image = UIImage(named: "baseline_my_location_black_24pt")
         } else {
