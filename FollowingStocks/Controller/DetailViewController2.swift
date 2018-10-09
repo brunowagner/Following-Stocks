@@ -56,6 +56,14 @@ class DetailViewController2: UIViewController {
     @IBOutlet weak var portfolioButton: UIBarButtonItem!
     
     
+    @IBOutlet weak var st: UIStackView!
+    @IBOutlet weak var viewSymbol: UIView!
+    @IBOutlet weak var viewPrice: UIView!
+    @IBOutlet weak var st2: UIView!
+    
+    @IBOutlet weak var lbl1: UILabel!
+    
+    
     //MARK: Life`s Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +79,11 @@ class DetailViewController2: UIViewController {
         }
         
         fillUI()
+        
+        DispatchQueue.main.async {
+            self.configureUI()
+        }
+
 
         requestQuote(symbol: paper.symbol!)
 
@@ -97,11 +110,24 @@ class DetailViewController2: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //configureUI()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("\(type(of: self)) - viewDidDisappear")
 
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        DispatchQueue.main.async {
+            self.configureUI()
+        }
+    }
+    
+    
     
     func fillUI(){
         self.labelName.text = paper.name
@@ -233,12 +259,43 @@ class DetailViewController2: UIViewController {
         }
     }
 }
-extension DetailViewController2 : UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableContent.count
+
+//MARK: UIConfig
+extension DetailViewController2 {
+    func configureUI(){
+        
+//        self.addBottomBorderWithColor(view: st, superView: view, color: .gray, width: 1)
+//
+//        self.addBottomBorderWithColor(view: labelSymbol, color: .black, width: 1)
+        
+        
+        
+        
+        labelPreviousClose.addBottomBorderWithColor(color: .gray, width: 1)
+
+        st.addBottomBorderWithColor(color: .gray, width: 1)
+        viewSymbol.addBottomBorderWithColor(color: .gray, width: 1)
+        viewPrice.addBottomBorderWithColor(color: .gray, width: 1)
+        st2.addBottomBorderWithColor(color: .gray, width: 1)
+
+        st.layer.borderWidth = 10
+        st.layer.borderColor = UIColor.black.cgColor
+
+
+        print (st.frame)
+
+        }
+    func addBottomBorderWithColor(view: UIView , color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: view.frame.size.height - width-1, width: (view.frame.size.width), height:width)
+        view.layer.addSublayer(border)
     }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell")
-        return cell!
+    
+    func addBottomBorderWithColor(view: UIView, superView: UIView , color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: view.frame.size.height - width-1, width: superView.frame.size.width, height:width)
+        view.layer.addSublayer(border)
     }
 }
