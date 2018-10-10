@@ -31,7 +31,7 @@ class DetailViewController2: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var labelName: UILabel!
-    @IBOutlet weak var labelExchange: UILabel!
+    @IBOutlet weak var labelTypeExchangeExchangeDisp: UILabel!
     @IBOutlet weak var labelSymbol: UILabel!
     @IBOutlet weak var labelprice: UILabel!
     @IBOutlet weak var labelchange: UILabel!
@@ -41,13 +41,17 @@ class DetailViewController2: UIViewController {
     @IBOutlet weak var labelHigh: UILabel!
     @IBOutlet weak var labelLow: UILabel!
     @IBOutlet weak var labelVolume: UILabel!
+    @IBOutlet weak var labelQuantity: UILabel!
+    @IBOutlet weak var labelAveragePrice: UILabel!
     @IBOutlet weak var labelLatestTradingDay: UILabel!
+    
     @IBOutlet weak var followButton: UIBarButtonItem!
     @IBOutlet weak var portfolioButton: UIBarButtonItem!
 
     @IBOutlet weak var viewSymbol: UIView!
     @IBOutlet weak var viewPrice: UIView!
     @IBOutlet weak var viewHeader: UIView!
+    @IBOutlet weak var stackViewPortfolio: UIStackView!
     
     
     //MARK: Life`s Cycle
@@ -118,8 +122,16 @@ class DetailViewController2: UIViewController {
     func fillUI(){
         self.labelName.text = paper.name
         self.labelSymbol.text = paper.symbol
-        //self.quantity.text = "\(paper.quantity)"
-        //self.averagePrice.text = "\(paper.averageCost)"
+        self.labelTypeExchangeExchangeDisp.text = "\(paper.type ?? "") - \(paper.exchange ?? "") - \(paper.exchDisp ?? "")"
+        
+        if paper.isPortfolio{
+        self.labelQuantity.text = "\(paper.quantity)"
+        self.labelAveragePrice.text = "\(paper.averageCost)"
+            stackViewPortfolio.isHidden = false
+        } else {
+            stackViewPortfolio.isHidden = true
+        }
+        
         if paper.isFollowed {
             followButton.image = UIImage(named: "baseline_my_location_black_24pt")
         } else {
@@ -230,7 +242,7 @@ class DetailViewController2: UIViewController {
     func reloadUIData(globalQuote: GlobalQuote){
         self.labelprice.text =  "\(globalQuote.price)"
         self.labelchange.text =  "\(globalQuote.change)"
-        self.labelchangePercent.text =  "\(globalQuote.changePercent)"
+        self.labelchangePercent.text =  "(\(globalQuote.changePercent))"
         self.labelHigh.text = "\(globalQuote.high)"
         self.labelLatestTradingDay.text =  "\(globalQuote.latestTradingDay)"
         self.labelLow.text = "\(globalQuote.low)"
