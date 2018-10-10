@@ -28,16 +28,6 @@ class DetailViewController2: UIViewController {
     var paper : Paper!
     //var paperStruct : PaperStruct!
     var quote : Quote!
-    var tableContent : [[String:String]] = [[
-        "open": "-",
-        "high": "-",
-        "low": "-",
-        "volume": "-",
-        "lastestTradingDay": "-",
-        "previousClose": "-",
-        "quantity": "-",
-        "Averange Price": "-"
-    ]]
     
     //MARK: Outlets
     @IBOutlet weak var labelName: UILabel!
@@ -54,14 +44,10 @@ class DetailViewController2: UIViewController {
     @IBOutlet weak var labelLatestTradingDay: UILabel!
     @IBOutlet weak var followButton: UIBarButtonItem!
     @IBOutlet weak var portfolioButton: UIBarButtonItem!
-    
-    
-    @IBOutlet weak var st: UIStackView!
+
     @IBOutlet weak var viewSymbol: UIView!
     @IBOutlet weak var viewPrice: UIView!
-    @IBOutlet weak var st2: UIView!
-    
-    @IBOutlet weak var lbl1: UILabel!
+    @IBOutlet weak var viewHeader: UIView!
     
     
     //MARK: Life`s Cycle
@@ -269,20 +255,27 @@ extension DetailViewController2 {
 //        self.addBottomBorderWithColor(view: labelSymbol, color: .black, width: 1)
         
         
+        viewSymbol.layer.borderWidth = 1
+        viewSymbol.layer.borderColor = UIColor.lightGray.cgColor
         
+        viewPrice.layer.borderWidth = 1
+        viewPrice.layer.borderColor = UIColor.lightGray.cgColor
         
-        labelPreviousClose.addBottomBorderWithColor(color: .gray, width: 1)
-
-        st.addBottomBorderWithColor(color: .gray, width: 1)
-        viewSymbol.addBottomBorderWithColor(color: .gray, width: 1)
-        viewPrice.addBottomBorderWithColor(color: .gray, width: 1)
-        st2.addBottomBorderWithColor(color: .gray, width: 1)
-
-        st.layer.borderWidth = 10
-        st.layer.borderColor = UIColor.black.cgColor
-
-
-        print (st.frame)
+        viewHeader.layer.borderWidth = 1
+        viewHeader.layer.borderColor = UIColor.lightGray.cgColor
+        
+//        labelPreviousClose.addBottomBorderWithColor(color: .gray, width: 1)
+//
+//        st.addBottomBorderWithColor(color: .gray, width: 1)
+//        viewSymbol.addBottomBorderWithColor(color: .gray, width: 1)
+//        viewPrice.addBottomBorderWithColor(color: .gray, width: 1)
+//        st2.addBottomBorderWithColor(color: .gray, width: 1)
+//
+//        st.layer.borderWidth = 10
+//        st.layer.borderColor = UIColor.black.cgColor
+//
+//
+//        print (st.frame)
 
         }
     func addBottomBorderWithColor(view: UIView , color: UIColor, width: CGFloat) {
