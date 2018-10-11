@@ -131,8 +131,8 @@ extension PortfolioViewController: UITableViewDataSource{
         cell.symbol.text = paper.symbol
         cell.exchange.text = paper.exchange
         cell.price.text = "\(paper.quote?.price ?? 0)"
-        cell.change.text = "\(paper.quote?.change ?? 0)"
-        
+        //cell.change.text = "\(paper.quote?.change ?? 0)"
+        cell.setChange(value: paper.quote?.change ?? 0, percent: paper.quote?.changePercent ?? "0%")
         return cell
     }
 }

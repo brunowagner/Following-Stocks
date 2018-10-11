@@ -21,6 +21,15 @@ class PortfolioCell: UITableViewCell {
         // Initialization code
     }
 
+    func setChange(value: Double, percent: String){
+        change.text = String(value) + " (" + percent + ")"
+        if value > 0 {
+            change.textColor = UIColor(named: "DarkGreen")
+        } else {
+            change.textColor = UIColor.red
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
