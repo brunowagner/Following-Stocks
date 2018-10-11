@@ -23,6 +23,9 @@ class MovingPortfolioViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tradeButton: UIButton!
     @IBOutlet weak var stepper: UIStepper!
+    
+    @IBOutlet weak var navigatioBar: UINavigationBar!
+
 
     
     //MARK: Life`s cycle

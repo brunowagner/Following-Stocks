@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560913574.584215"
+            timestampString = "560946425.534922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560913574.584585"
+            timestampString = "560946425.534992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560913574.584947"
+            timestampString = "560946425.535082"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "560913574.585164"
+            timestampString = "560946425.535123"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
-            timestampString = "560913574.585393"
+            timestampString = "560946425.535163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "averageCost(quantityA:costA:quantityB:costB:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -241,6 +241,84 @@
             endingLineNumber = "237"
             landmarkName = "reloadUIData(globalQuote:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
+            timestampString = "560946425.535512"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "MovingPortfolioViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowingStocks.MovingPortfolioViewController.quantityTextField.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "FollowingStocks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/BrunoW/Minhas%20Pastas/Udacity/Nanodegree%20Desenvolvedor%20IOS/Curso/Projetos/FollowingStocks/FollowingStocks/Controller/MovingPortfolioViewController.swift"
+                  timestampString = "560946373.423833"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowingStocks.MovingPortfolioViewController.quantityTextField.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UITextField&gt;"
+                  moduleName = "FollowingStocks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/BrunoW/Minhas%20Pastas/Udacity/Nanodegree%20Desenvolvedor%20IOS/Curso/Projetos/FollowingStocks/FollowingStocks/Controller/MovingPortfolioViewController.swift"
+                  timestampString = "560946373.427429"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowingStocks.MovingPortfolioViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; FollowingStocks.MovingPortfolioViewController"
+                  moduleName = "FollowingStocks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/BrunoW/Minhas%20Pastas/Udacity/Nanodegree%20Desenvolvedor%20IOS/Curso/Projetos/FollowingStocks/FollowingStocks/Controller/MovingPortfolioViewController.swift"
+                  timestampString = "560946373.430385"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "707">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FollowingStocks.MovingPortfolioViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;FollowingStocks.MovingPortfolioViewController&gt;"
+                  moduleName = "FollowingStocks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/BrunoW/Minhas%20Pastas/Udacity/Nanodegree%20Desenvolvedor%20IOS/Curso/Projetos/FollowingStocks/FollowingStocks/Controller/MovingPortfolioViewController.swift"
+                  timestampString = "560946373.433009"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "604">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

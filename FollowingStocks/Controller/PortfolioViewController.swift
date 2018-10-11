@@ -128,11 +128,14 @@ extension PortfolioViewController: UITableViewDataSource{
         
         let paper = fetchedResultsController.object(at: indexPath)
         
-        cell.symbol.text = paper.symbol
-        cell.exchange.text = paper.exchange
-        cell.price.text = "\(paper.quote?.price ?? 0)"
-        //cell.change.text = "\(paper.quote?.change ?? 0)"
-        cell.setChange(value: paper.quote?.change ?? 0, percent: paper.quote?.changePercent ?? "0%")
+//        cell.symbol.text = paper.symbol
+//        cell.exchange.text = paper.exchange
+//        cell.price.text = "\(paper.quote?.price ?? 0)"
+//        //cell.change.text = "\(paper.quote?.change ?? 0)"
+//        cell.setChange(value: paper.quote?.change ?? 0, percent: paper.quote?.changePercent ?? "0%")
+//
+        cell.setFieldsBy(paper: paper)
+        
         return cell
     }
 }

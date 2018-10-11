@@ -20,6 +20,13 @@ class PortfolioCell: UITableViewCell {
         
         // Initialization code
     }
+    
+    func setFieldsBy(paper: Paper){
+        setSymbol(symbol: paper.symbol)
+        setExchange(exchange: paper.exchange, exchangeDisp: paper.exchDisp)
+        setPrice(price: paper.quote?.price)
+        setChange(value: paper.quote?.change ?? 0, percent: paper.quote?.changePercent ?? "0%")
+    }
 
     func setChange(value: Double, percent: String){
         change.text = String(value) + " (" + percent + ")"
@@ -30,9 +37,19 @@ class PortfolioCell: UITableViewCell {
         }
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setExchange(exchange: String!, exchangeDisp: String!){
+        if exchange != nil, exchangeDisp != nil{
+            self.exchange.text = exchange + " - " + exchangeDisp
+        } else {
+            self.exchange.text = "---"
+        }
+    }
+    
+    func setSymbol(symbol: String!){
+        self.symbol.text = symbol
+    }
+    
+    func setPrice(price: Double!){
+        self.price.text = String(format: "%.02f", price ?? 0) //"\(price ?? 0)"
     }
 }
