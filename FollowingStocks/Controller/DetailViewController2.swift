@@ -100,10 +100,6 @@ class DetailViewController2: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        //configureUI()
-    }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("\(type(of: self)) - viewDidDisappear")
@@ -116,17 +112,15 @@ class DetailViewController2: UIViewController {
             self.configureUI()
         }
     }
-    
-    
-    
+
     func fillUI(){
         self.labelName.text = paper.name
         self.labelSymbol.text = paper.symbol
         self.labelTypeExchangeExchangeDisp.text = "\(paper.type ?? "") - \(paper.exchange ?? "") - \(paper.exchDisp ?? "")"
         
         if paper.isPortfolio{
-        self.labelQuantity.text = "\(paper.quantity)"
-        self.labelAveragePrice.text = "\(paper.averageCost)"
+            self.labelQuantity.text = "\(paper.quantity)"
+            self.labelAveragePrice.text = "\(paper.averageCost)"
             stackViewPortfolio.isHidden = false
         } else {
             stackViewPortfolio.isHidden = true
@@ -196,11 +190,11 @@ class DetailViewController2: UIViewController {
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        let add = UIAlertAction(title: "Add", style: .default) { (alertAction) in
+        let add = UIAlertAction(title: "Purchase (add)", style: .default) { (alertAction) in
             self.addToPortfolio()
         }
         
-        let remove = UIAlertAction(title: "Remove", style: .default) { (alertAcion) in
+        let remove = UIAlertAction(title: "Sale (remove)", style: .default) { (alertAcion) in
             self.removeFromPortFolio()
         }
         
@@ -261,12 +255,6 @@ class DetailViewController2: UIViewController {
 //MARK: UIConfig
 extension DetailViewController2 {
     func configureUI(){
-        
-//        self.addBottomBorderWithColor(view: st, superView: view, color: .gray, width: 1)
-//
-//        self.addBottomBorderWithColor(view: labelSymbol, color: .black, width: 1)
-        
-        
         viewSymbol.layer.borderWidth = 1
         viewSymbol.layer.borderColor = UIColor.lightGray.cgColor
         
@@ -275,32 +263,5 @@ extension DetailViewController2 {
         
         viewHeader.layer.borderWidth = 1
         viewHeader.layer.borderColor = UIColor.lightGray.cgColor
-        
-//        labelPreviousClose.addBottomBorderWithColor(color: .gray, width: 1)
-//
-//        st.addBottomBorderWithColor(color: .gray, width: 1)
-//        viewSymbol.addBottomBorderWithColor(color: .gray, width: 1)
-//        viewPrice.addBottomBorderWithColor(color: .gray, width: 1)
-//        st2.addBottomBorderWithColor(color: .gray, width: 1)
-//
-//        st.layer.borderWidth = 10
-//        st.layer.borderColor = UIColor.black.cgColor
-//
-//
-//        print (st.frame)
-
         }
-    func addBottomBorderWithColor(view: UIView , color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: view.frame.size.height - width-1, width: (view.frame.size.width), height:width)
-        view.layer.addSublayer(border)
-    }
-    
-    func addBottomBorderWithColor(view: UIView, superView: UIView , color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: view.frame.size.height - width-1, width: superView.frame.size.width, height:width)
-        view.layer.addSublayer(border)
-    }
 }

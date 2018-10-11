@@ -22,12 +22,15 @@ class MovingPortfolioViewController: UIViewController {
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var tradeButton: UIButton!
+    @IBOutlet weak var stepper: UIStepper!
 
+    
     //MARK: Life`s cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(type(of: self)) - viewDidLoad")
         
+        quantityTextField.isEnabled = false
         fillUI()
         // Do any additional setup after loading the view.
     }
@@ -66,6 +69,11 @@ class MovingPortfolioViewController: UIViewController {
          print("\(type(of: self)) - performSegue")
         performSegue(withIdentifier: "MovingYourPortifolioToSearch", sender: nil)
     }
+    
+    @IBAction func stepperValueChange(_ sender: UIStepper) {
+        quantityTextField.text = Int(sender.value).description
+    }
+    
     
     @IBAction func unwindToMovingPortfolioViewController(_ sender: UIStoryboardSegue) {
         print("\(type(of: self)) - unwindToMovingPortfolioViewController")

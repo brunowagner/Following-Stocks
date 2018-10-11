@@ -112,7 +112,7 @@ extension FollowingViewController: UITableViewDelegate{
         //TODO: pegar symbol e pesquizar Cotação
         //let paper = fetchedResultsController.object(at: indexPath)
         
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController2") as! DetailViewController2
         detailVC.paper = fetchedResultsController.object(at: indexPath)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }

@@ -76,8 +76,8 @@ class SearchViewController : UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
         generatePaper(paperStruct: sender as! PaperStruct)
         
-        if segue.identifier == "SearchToDetail" {
-            let detailVC = segue.destination as! DetailViewController
+        if segue.identifier == "SearchToDetail2" {
+            let detailVC = segue.destination as! DetailViewController2
             //detailVC.paperStruct = sender as! PaperStruct
             detailVC.paper = paper
         }
@@ -171,7 +171,7 @@ extension SearchViewController {
              return performSegue(withIdentifier: "unwindToMovingPortfolioViewController", sender: filteredPapelArray[indexPath.row])
         }
         let paper = filteredPapelArray[indexPath.row]
-        performSegue(withIdentifier: "SearchToDetail", sender: paper)
+        performSegue(withIdentifier: "SearchToDetail2", sender: paper)
 
     }
     

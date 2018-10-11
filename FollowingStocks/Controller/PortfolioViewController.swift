@@ -67,11 +67,11 @@ class PortfolioViewController: UIViewController {
         print("Iniciando Fetched...")
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
         
-        //let predicate = NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))
+        let predicate = NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))
         
         let sortDescriptor = NSSortDescriptor(key: "symbol", ascending: true)
         
-        //fetchRequest.predicate = predicate
+        fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         //------------ apenas para testar o fetchRequst puro
