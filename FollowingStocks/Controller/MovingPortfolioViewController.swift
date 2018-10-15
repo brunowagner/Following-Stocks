@@ -16,6 +16,10 @@ class MovingPortfolioViewController: UIViewController {
     var trade: Trade!
     var operation: Trade.OperationType!
     
+    var keyboardHeight: CGFloat!
+    // Constraints
+    @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
+    
     //MARK: Outlets
     @IBOutlet weak var paperTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
@@ -25,6 +29,10 @@ class MovingPortfolioViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     
     @IBOutlet weak var navigatioBar: UINavigationBar!
+    
+    var activeField: UITextField!
+     var lastOffset: CGPoint!
+     var scrollView: UIScrollView!
 
 
     
@@ -33,22 +41,29 @@ class MovingPortfolioViewController: UIViewController {
         super.viewDidLoad()
         print("\(type(of: self)) - viewDidLoad")
         
-        quantityTextField.isEnabled = false
+        quantityTextField.delegate = self
+        priceTextField.delegate = self
+        dateTextField.delegate = self
+        
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
         fillUI()
         // Do any additional setup after loading the view.
     }
     
-    func fillUI(){
-        paperTextField.text = paper?.symbol
-        quantityTextField.text = "0"
-        priceTextField.text = "\((paper?.quote?.price) ?? 0)"
-        dateTextField.text = dateFormatter.string(from: Date())
-        self.tradeButton.setTitle(operation.rawValue, for: .normal)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        subscriberToKeyboardNotifications()
     }
+
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("\(type(of: self)) - viewWillDisappear")
+        unSubscriberToKeyboardNotifications()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -60,13 +75,21 @@ class MovingPortfolioViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     /// A date formatter for date text in note cells
     let dateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .medium
         return df
     }()
+    
+    func fillUI(){
+        paperTextField.text = paper?.symbol
+        quantityTextField.text = "0"
+        priceTextField.text = "\((paper?.quote?.price) ?? 0)"
+        dateTextField.text = dateFormatter.string(from: Date())
+        self.tradeButton.setTitle(operation.rawValue, for: .normal)
+    }
     
     @IBAction func searchAction(_ sender: Any) {
          print("\(type(of: self)) - performSegue")
@@ -134,9 +157,7 @@ class MovingPortfolioViewController: UIViewController {
             fatalError("Não foi possivel salva no core data")
         }
     }
-    
-    
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(type(of: self)) - prepareforSegue")
         if let searchVC = segue.destination as? SearchViewController{
@@ -149,4 +170,72 @@ class MovingPortfolioViewController: UIViewController {
         return response
     }
 
+}
+
+extension MovingPortfolioViewController: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters) == nil
+    }
+    
+    @objc func dismissKeyboard(){
+        activeField?.resignFirstResponder()
+        //view.endEditing(true)
+        activeField = nil
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        //dismissKeyboard()
+        activeField = textField
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+//        activeField?.resignFirstResponder()
+//        activeField = nil
+        return true
+    }
+}
+
+//MARK: Functions when KeyBoard Appears and Disappears
+extension MovingPortfolioViewController {
+
+    func subscriberToKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func unSubscriberToKeyboardNotifications(){
+        //Notifications can be removeds one by one or all at once
+        //Following sugestions, i changed to remove all at once.
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(_ notification : Notification){
+        //view.frame.origin.y -= getKeyboardHeight(notification)
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        let keyboardY = self.view.frame.size.height - keyboardSize.cgRectValue.height
+        
+        let editingTextFieldY : CGFloat! = self.activeField?.superview?.frame.origin.y
+        
+        if editingTextFieldY > keyboardY - 80 {
+            view.frame.origin.y -= (editingTextFieldY - (keyboardY - 80))
+        }
+    }
+    
+    @objc func keyboardWillHide(){
+        view.frame.origin.y = 0
+    }
+    
+    func getKeyboardHeight(_ notification : Notification) -> CGFloat{
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
 }
