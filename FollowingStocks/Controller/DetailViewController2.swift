@@ -234,14 +234,14 @@ class DetailViewController2: UIViewController {
     }
     
     func reloadUIData(globalQuote: GlobalQuote){
-        self.labelprice.text =  "\(globalQuote.price)"
+        self.labelprice.text =  String(format: "%.02f", globalQuote.price ) //"\(globalQuote.price)"
         self.labelchange.text =  "\(globalQuote.change)"
         self.labelchangePercent.text =  "(\(globalQuote.changePercent))"
-        self.labelHigh.text = "\(globalQuote.high)"
+        self.labelHigh.text = String(format: "%.02f", globalQuote.high ) //"\(globalQuote.high)"
         self.labelLatestTradingDay.text =  "\(globalQuote.latestTradingDay)"
-        self.labelLow.text = "\(globalQuote.low)"
-        self.labelOpen.text = "\(globalQuote.open)"
-        self.labelPreviousClose.text = "\(globalQuote.previousClose)"
+        self.labelLow.text = String(format: "%.02f", globalQuote.low ) //"\(globalQuote.low)"
+        self.labelOpen.text = String(format: "%.02f", globalQuote.open ) //"\(globalQuote.open)"
+        self.labelPreviousClose.text = String(format: "%.02f", globalQuote.previousClose ) //"\(globalQuote.previousClose)"
         //self.symbolLabel.text = "\(globalQuote.symbol)"
         self.labelVolume.text = "\(globalQuote.volume)"
         if paper.isFollowed {
