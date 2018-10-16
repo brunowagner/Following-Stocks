@@ -55,7 +55,7 @@ class MovingPortfolioViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        subscriberToKeyboardNotifications()
+        //subscriberToKeyboardNotifications()
     }
 
 
@@ -63,7 +63,7 @@ class MovingPortfolioViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("\(type(of: self)) - viewWillDisappear")
-        unSubscriberToKeyboardNotifications()
+        //unSubscriberToKeyboardNotifications()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -114,6 +114,10 @@ class MovingPortfolioViewController: UIViewController {
             DataController.sharedInstance().viewContext.delete(paper)
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func DateAction(_ sender: Any) {
+        getDate()
     }
     
     @IBAction func tradeAction (_ sender: UIButton){
@@ -185,9 +189,16 @@ extension MovingPortfolioViewController: UITextFieldDelegate{
         activeField = nil
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        
+        return true
+    }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        //dismissKeyboard()
         activeField = textField
+        if activeField == dateTextField{
+            dismissKeyboard()
+        }
     }
     
     
@@ -238,4 +249,33 @@ extension MovingPortfolioViewController {
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
+}
+
+//MARK: Alert with datePicker
+extension MovingPortfolioViewController{
+
+    func getDate() {
+        let message = "\n\n\n\n\n\n\n"
+        let alert = UIAlertController(title: "Select Date", message: message, preferredStyle: .alert)
+        alert.isModalInPopover = true
+        
+     
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 260, height: 150))
+        datePicker.datePickerMode = .date
+        
+        datePicker.maximumDate = Date()
+        
+        alert.view.addSubview(datePicker)
+        datePicker.frame.origin.y += 40
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.dateTextField.text = self.dateFormatter.string(from: datePicker.date)
+        })
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }

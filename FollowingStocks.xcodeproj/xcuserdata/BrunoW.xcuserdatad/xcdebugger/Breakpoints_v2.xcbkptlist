@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "561339134.72181"
+            timestampString = "561345317.236586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "561339134.7218699"
+            timestampString = "561345317.236657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "561339134.722025"
+            timestampString = "561345317.2367589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/PortfolioViewController.swift"
-            timestampString = "561339134.722066"
+            timestampString = "561345317.236804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "202"
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
-            timestampString = "561339134.722106"
+            timestampString = "561345317.236847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "averageCost(quantityA:costA:quantityB:costB:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/DetailViewController.swift"
-            timestampString = "561339134.722168"
+            timestampString = "561345317.237332"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
-            timestampString = "561339134.722231"
+            timestampString = "561345317.237412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -328,11 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
-            timestampString = "561339134.722293"
+            timestampString = "561345317.237823"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -344,27 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
-            timestampString = "561339134.72234"
+            timestampString = "561345317.23816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "textFieldDidBeginEditing(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
-            timestampString = "561339134.722397"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "keyboardWillShow(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -376,12 +360,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
-            timestampString = "561339134.722469"
+            timestampString = "561345317.238463"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "keyboardWillShow(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
+            timestampString = "561345317.2387511"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "textFieldShouldBeginEditing(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FollowingStocks/Controller/MovingPortfolioViewController.swift"
+            timestampString = "561345317.238983"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "DateAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
