@@ -15,6 +15,7 @@ class MovingPortfolioViewController: UIViewController {
     var quote: Quote!
     var trade: Trade!
     var operation: Trade.OperationType!
+    let moneyDelegate = MoneyTextFieldDelegate(prefix: "")
     
     var keyboardHeight: CGFloat!
     // Constraints
@@ -31,8 +32,7 @@ class MovingPortfolioViewController: UIViewController {
     @IBOutlet weak var navigatioBar: UINavigationBar!
     
     var activeField: UITextField!
-     var lastOffset: CGPoint!
-     var scrollView: UIScrollView!
+
 
 
     
@@ -42,9 +42,8 @@ class MovingPortfolioViewController: UIViewController {
         print("\(type(of: self)) - viewDidLoad")
         
         quantityTextField.delegate = self
-        priceTextField.delegate = self
+        priceTextField.delegate = moneyDelegate
         dateTextField.delegate = self
-        
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -86,7 +85,7 @@ class MovingPortfolioViewController: UIViewController {
     func fillUI(){
         paperTextField.text = paper?.symbol
         quantityTextField.text = "0"
-        priceTextField.text = "\((paper?.quote?.price) ?? 0)"
+        priceTextField.text = String(format: "%.02f", paper?.quote?.price ?? 0)
         dateTextField.text = dateFormatter.string(from: Date())
         self.tradeButton.setTitle(operation.rawValue, for: .normal)
     }
@@ -121,6 +120,10 @@ class MovingPortfolioViewController: UIViewController {
     }
     
     @IBAction func tradeAction (_ sender: UIButton){
+        guard isPaperSelected() else {
+            return presentAlertPaperEmpty()
+        }
+        
         let quantidade = Int16((quantityTextField.text! as NSString).intValue)
         let price = (self.priceTextField.text! as NSString).doubleValue
         
@@ -161,6 +164,20 @@ class MovingPortfolioViewController: UIViewController {
             fatalError("Não foi possivel salva no core data")
         }
     }
+    
+    func isPaperSelected() -> Bool{
+        return !self.paperTextField.text!.isEmpty
+    }
+    
+    func presentAlertPaperEmpty(){
+        let alert = UIAlertController(title: "Paper is empty!", message: "\nPlease, select a Paper!", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(type(of: self)) - prepareforSegue")
@@ -184,8 +201,8 @@ extension MovingPortfolioViewController: UITextFieldDelegate{
     }
     
     @objc func dismissKeyboard(){
-        activeField?.resignFirstResponder()
-        //view.endEditing(true)
+        //activeField?.resignFirstResponder()
+        view.endEditing(true)
         activeField = nil
     }
     

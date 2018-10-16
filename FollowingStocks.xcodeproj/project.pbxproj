@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391BF74A2175764B00EE8EEB /* MoneyTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BF7482175764B00EE8EEB /* MoneyTextFieldDelegate.swift */; };
+		391BF74B2175764B00EE8EEB /* ZipCodeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391BF7492175764B00EE8EEB /* ZipCodeTextFieldDelegate.swift */; };
 		39A7E1D1214F012C00476573 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D0214F012C00476573 /* SearchViewController.swift */; };
 		39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D2214F03A300476573 /* AutoCompleteClient.swift */; };
 		39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D5214F056700476573 /* ApiRequirements.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		391BF7482175764B00EE8EEB /* MoneyTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyTextFieldDelegate.swift; sourceTree = "<group>"; };
+		391BF7492175764B00EE8EEB /* ZipCodeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeTextFieldDelegate.swift; sourceTree = "<group>"; };
 		39A7E1D0214F012C00476573 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		39A7E1D2214F03A300476573 /* AutoCompleteClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCompleteClient.swift; sourceTree = "<group>"; };
 		39A7E1D5214F056700476573 /* ApiRequirements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequirements.swift; sourceTree = "<group>"; };
@@ -85,6 +89,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		391BF7462175760900EE8EEB /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				391BF7472175764B00EE8EEB /* Text Field Delegates */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		391BF7472175764B00EE8EEB /* Text Field Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				391BF7482175764B00EE8EEB /* MoneyTextFieldDelegate.swift */,
+				391BF7492175764B00EE8EEB /* ZipCodeTextFieldDelegate.swift */,
+			);
+			path = "Text Field Delegates";
+			sourceTree = "<group>";
+		};
 		39A7E1D4214F056700476573 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +197,7 @@
 		39CF60E1214E029F0041AF3B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				391BF7462175760900EE8EEB /* Delegates */,
 				39A7E1D0214F012C00476573 /* SearchViewController.swift */,
 				39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */,
 				39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */,
@@ -284,11 +306,13 @@
 			files = (
 				39A7E1D1214F012C00476573 /* SearchViewController.swift in Sources */,
 				39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */,
+				391BF74B2175764B00EE8EEB /* ZipCodeTextFieldDelegate.swift in Sources */,
 				39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */,
 				39CE53F1215AF1E8005B57C7 /* MovingPortfolioViewController.swift in Sources */,
 				39CF60D0214E02310041AF3B /* ViewController.swift in Sources */,
 				39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,
+				391BF74A2175764B00EE8EEB /* MoneyTextFieldDelegate.swift in Sources */,
 				39DB5483215C52860045C3D2 /* PaperStruct.swift in Sources */,
 				39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */,
 				39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */,
