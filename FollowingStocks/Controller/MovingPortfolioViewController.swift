@@ -120,8 +120,21 @@ class MovingPortfolioViewController: UIViewController {
     }
     
     @IBAction func tradeAction (_ sender: UIButton){
+        
+        
         guard isPaperSelected() else {
-            return presentAlertPaperEmpty()
+            Alerts.message(view: self, title: "Paper was not selected!", message: "\nPlease, inform Paper.")
+            return
+        }
+        
+        guard isQuantityValid() else {
+            Alerts.message(view: self, title: "Invalid quantity!", message: "\nPlease, inform Quantity.")
+            return
+        }
+        
+        guard isPriceValid() else {
+            Alerts.message(view: self, title: "Invalid price!", message: "\nPlease, inform Price.")
+            return
         }
         
         let quantidade = Int16((quantityTextField.text! as NSString).intValue)
@@ -168,15 +181,11 @@ class MovingPortfolioViewController: UIViewController {
     func isPaperSelected() -> Bool{
         return !self.paperTextField.text!.isEmpty
     }
-    
-    func presentAlertPaperEmpty(){
-        let alert = UIAlertController(title: "Paper is empty!", message: "\nPlease, select a Paper!", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        
-        alert.addAction(okAction)
-        
-        self.present(alert, animated: true, completion: nil)
+    func isQuantityValid() -> Bool{
+        return Int(self.quantityTextField.text!)! > 0
+    }
+    func isPriceValid() -> Bool{
+        return Float(self.priceTextField.text!)! > 0
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
