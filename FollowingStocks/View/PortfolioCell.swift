@@ -29,12 +29,16 @@ class PortfolioCell: UITableViewCell {
     }
 
     func setChange(value: Double, percent: String){
-        change.text = String(value) + " (" + percent + ")"
-        if value > 0 {
-            change.textColor = UIColor(named: "DarkGreen")
-        } else {
-            change.textColor = UIColor.red
-        }
+        let changeAttributedText = NSMutableAttributedString(string: String(value) + " (" + percent + ")")
+        changeAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: "DarkGreen")!, negativeColor: UIColor.red)
+        
+        change.attributedText = changeAttributedText
+//        change.text = String(value) + " (" + percent + ")"
+//        if value > 0 {
+//            change.textColor = UIColor(named: "DarkGreen")
+//        } else {
+//            change.textColor = UIColor.red
+//        }
     }
     
     func setExchange(exchange: String!, exchangeDisp: String!){
