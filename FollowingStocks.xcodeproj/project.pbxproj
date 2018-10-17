@@ -34,6 +34,7 @@
 		39EA67C421682598001C9CC6 /* Trade+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA67C321682598001C9CC6 /* Trade+Extensions.swift */; };
 		39EA67C721696380001C9CC6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA67C621696380001C9CC6 /* UIView+Extensions.swift */; };
 		39EA67C92169653D001C9CC6 /* DetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EA67C82169653D001C9CC6 /* DetailViewController2.swift */; };
+		39EC98372177B2F100C53418 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EC98362177B2F100C53418 /* Errors.swift */; };
 		39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */; };
 		39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63302155B6210000C1D9 /* PortfolioCell.swift */; };
 		39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */; };
@@ -73,6 +74,7 @@
 		39EA67C321682598001C9CC6 /* Trade+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trade+Extensions.swift"; sourceTree = "<group>"; };
 		39EA67C621696380001C9CC6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		39EA67C82169653D001C9CC6 /* DetailViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController2.swift; sourceTree = "<group>"; };
+		39EC98362177B2F100C53418 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		39EF632E215445150000C1D9 /* FollowingStocks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FollowingStocks.xcdatamodel; sourceTree = "<group>"; };
 		39EF63302155B6210000C1D9 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		39CF60DF214E02890041AF3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				39EC98352177B2B400C53418 /* Errors */,
 				39C5382B2162D9310020C5F8 /* Clients */,
 				39C538282162D1F70020C5F8 /* Extensions */,
 				39DB5481215C524F0045C3D2 /* Auxiliar */,
@@ -237,6 +240,14 @@
 				39D2C6F72176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		39EC98352177B2B400C53418 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				39EC98362177B2F100C53418 /* Errors.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +330,7 @@
 				39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,
 				391BF74A2175764B00EE8EEB /* MoneyTextFieldDelegate.swift in Sources */,
+				39EC98372177B2F100C53418 /* Errors.swift in Sources */,
 				39DB5483215C52860045C3D2 /* PaperStruct.swift in Sources */,
 				39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */,
 				39EF63312155B6210000C1D9 /* PortfolioCell.swift in Sources */,
