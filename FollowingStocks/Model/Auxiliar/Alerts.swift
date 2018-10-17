@@ -43,7 +43,7 @@ struct Alerts {
     
     // Alert disappear it self
     static func toast(view: UIViewController, message: String, speed: toastSpeed, completion: (()->Void)?){
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
         
         alert.view.tintColor = UIColor.black
         

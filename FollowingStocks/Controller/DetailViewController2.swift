@@ -181,9 +181,11 @@ class DetailViewController2: UIViewController {
         if paper.isFollowed {
             followButton.image = UIImage(named: "baseline_my_location_black_24pt")
             try? DataController.sharedInstance().viewContext.save()
+            Alerts.toast(view: self, message: "Following Paper!", speed: .medium, completion: nil)
         } else {
             followButton.image = UIImage(named: "baseline_location_disabled_black_24pt")
             try? DataController.sharedInstance().viewContext.save()
+            Alerts.toast(view: self, message: "Does not Following Paper!", speed: .medium, completion: nil)
         }
     }
     

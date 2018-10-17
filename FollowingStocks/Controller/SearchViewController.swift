@@ -47,6 +47,8 @@ class SearchViewController : UITableViewController {
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.delegate = self
+        if isToFillField { searchController.searchBar.setShowsCancelButton(true, animated: true) }
         tableView.tableHeaderView = searchController.searchBar
 	}
 	
@@ -176,4 +178,12 @@ extension SearchViewController {
     }
     
     
+}
+
+extension SearchViewController : UISearchBarDelegate{
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if isToFillField  {
+            dismiss(animated: true, completion: nil)
+        }
+    }
 }
