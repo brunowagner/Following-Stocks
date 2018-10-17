@@ -23,6 +23,7 @@
 		39CF60D5214E02320041AF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D4214E02320041AF3B /* Assets.xcassets */; };
 		39CF60D8214E02320041AF3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D6214E02320041AF3B /* LaunchScreen.storyboard */; };
 		39D2C6F621768D5E00FFE1CD /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2C6F521768D5E00FFE1CD /* Alerts.swift */; };
+		39D2C6F82176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2C6F72176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift */; };
 		39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */; };
 		39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */; };
 		39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDED21530794004BEB1E /* TesteSearchController.swift */; };
@@ -61,6 +62,7 @@
 		39CF60D7214E02320041AF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39CF60D9214E02330041AF3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39D2C6F521768D5E00FFE1CD /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		39D2C6F72176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
 		39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste1SearchController.swift; sourceTree = "<group>"; };
 		39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
 		39D4DDED21530794004BEB1E /* TesteSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteSearchController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				39EA67C621696380001C9CC6 /* UIView+Extensions.swift */,
+				39D2C6F72176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				39DB5480215C4D140045C3D2 /* Utilities.swift in Sources */,
 				39EA67C92169653D001C9CC6 /* DetailViewController2.swift in Sources */,
 				39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */,
+				39D2C6F82176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift in Sources */,
 				39C5382A2162D2550020C5F8 /* Paper+Extensions.swift in Sources */,
 				39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */,
 				39EA67C421682598001C9CC6 /* Trade+Extensions.swift in Sources */,

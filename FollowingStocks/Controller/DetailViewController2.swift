@@ -29,6 +29,7 @@ class DetailViewController2: UIViewController {
     //var paperStruct : PaperStruct!
     var quote : Quote!
     
+    
     //MARK: Outlets
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelTypeExchangeExchangeDisp: UILabel!
@@ -69,6 +70,8 @@ class DetailViewController2: UIViewController {
         }
         
         fillUI()
+        
+        
         
         DispatchQueue.main.async {
             self.configureUI()
@@ -231,12 +234,21 @@ class DetailViewController2: UIViewController {
         present(m, animated: true, completion: nil)
         
         print("removeFromPortFolio - fim")
+        
     }
     
     func reloadUIData(globalQuote: GlobalQuote){
+        let changeAttributedText = NSMutableAttributedString(string: String(globalQuote.change))
+        changeAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: "DarkGreen")!, negativeColor: UIColor.red)
+        let changePercentAttributedText = NSMutableAttributedString(string: "(\(globalQuote.changePercent))")
+        changePercentAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: "DarkGreen")!, negativeColor: UIColor.red)
+
+        
         self.labelprice.text =  String(format: "%.02f", globalQuote.price ) //"\(globalQuote.price)"
-        self.labelchange.text =  "\(globalQuote.change)"
-        self.labelchangePercent.text =  "(\(globalQuote.changePercent))"
+        //self.labelchange.text =  "\(globalQuote.change)"
+        self.labelchange.attributedText = changeAttributedText
+        //self.labelchangePercent.text =  "(\(globalQuote.changePercent))"
+        self.labelchangePercent.attributedText = changePercentAttributedText
         self.labelHigh.text = String(format: "%.02f", globalQuote.high ) //"\(globalQuote.high)"
         self.labelLatestTradingDay.text =  "\(globalQuote.latestTradingDay)"
         self.labelLow.text = String(format: "%.02f", globalQuote.low ) //"\(globalQuote.low)"
@@ -248,6 +260,10 @@ class DetailViewController2: UIViewController {
             followButton.image = UIImage(named: "baseline_my_location_black_24pt")
         } else {
             followButton.image = UIImage(named: "baseline_location_disabled_black_24pt")
+        }
+        
+        if paper.isPortfolio{
+            try? DataController.sharedInstance().viewContext.save()
         }
     }
 }
