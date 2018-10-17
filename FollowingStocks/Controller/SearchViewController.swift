@@ -40,12 +40,15 @@ class SearchViewController : UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("\(SearchViewController.self) - viewWillDisappear")
+        
+        
     }
     
 	func configureSearchController(){
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.sizeToFit()
         searchController.searchBar.delegate = self
         if isToFillField { searchController.searchBar.setShowsCancelButton(true, animated: true) }

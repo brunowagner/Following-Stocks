@@ -233,7 +233,7 @@
         <scene sceneID="FJg-Yp-IVN">
             <objects>
                 <navigationController id="n86-3A-APs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Following" image="baseline_my_location_black_36pt" id="mK8-y8-NvQ"/>
+                    <tabBarItem key="tabBarItem" title="Following" image="baseline_my_location_black_24pt" id="mK8-y8-NvQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dij-jg-jmt">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -250,7 +250,7 @@
         <scene sceneID="Sha-q2-nya">
             <objects>
                 <navigationController id="2gF-hN-lcU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Protifolio" image="baseline_business_center_black_36pt" id="lvv-Tl-zd2"/>
+                    <tabBarItem key="tabBarItem" title="Protifolio" image="baseline_business_center_black_24pt" id="lvv-Tl-zd2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gjT-yc-pba">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
