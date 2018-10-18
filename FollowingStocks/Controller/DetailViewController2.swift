@@ -70,13 +70,10 @@ class DetailViewController2: UIViewController {
         }
         
         fillUI()
-        
-        
-        
+
         DispatchQueue.main.async {
             self.configureUI()
         }
-
 
         requestQuote(symbol: paper.symbol!)
 
@@ -136,7 +133,19 @@ class DetailViewController2: UIViewController {
         }
     }
     
+    func showLoadingIndicator (_ show : Bool ){
+        performUIUpdatesOnMain {
+            if show{
+                LoadingOverlay.shared.showOverlay(view: self.view)
+            }else{
+                LoadingOverlay.shared.hideOverlayView()
+            }
+        }
+    }
+    
     func requestQuote(symbol : String) {
+        showLoadingIndicator(true)
+        
         AlphaVantageClient.requestQuote(symbol: symbol) { (success, globalQuote, error) in
             
             guard success else {
@@ -166,6 +175,7 @@ class DetailViewController2: UIViewController {
             print("DETAIL - quoter setado!")
 
             DispatchQueue.main.async {
+                self.showLoadingIndicator(false)
                 self.reloadUIData(globalQuote: globalQuote!)
             }
         }
