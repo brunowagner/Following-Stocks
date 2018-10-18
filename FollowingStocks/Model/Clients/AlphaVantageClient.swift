@@ -11,9 +11,15 @@ class AlphaVantageClient {
     
     static let sharedInstance = AlphaVantageClient()
     
-    static func  requestQuote (symbol : String, completion: @escaping (_ : GlobalQuote? ,_ : NSError? ) -> Void) {
+    static func  requestQuote (symbol : String, completion: @escaping (_ success: Bool , _ quote: GlobalQuote? ,_ error: NSError? ) -> Void) {
         
         //function=GLOBAL_QUOTE&symbol=MSFT&apikey=1CSEQWZU1E835K1M
+        
+        /*
+         {
+         "Error Message" = "the parameter apikey is invalid or missing. Please claim your free API key on (https://www.alphavantage.co/support/#api-key). It should take less than 20 seconds, and is free permanently.";
+         }
+         */
         
         let parameters : [String:AnyObject] = [
             "function" : "GLOBAL_QUOTE" as AnyObject,
@@ -24,17 +30,26 @@ class AlphaVantageClient {
         let _ = HTTPTools.taskForGETMethod("", parameters: parameters, apiRequirements: AlphaVantageApiRequirements()) { (data, error) in
 
             guard error == nil else{
-                completion(nil,error)
+                completion(false,nil,error)
                 return
                 //fatalError("houve um erro ao baixar os dados : " + (error?.localizedDescription)!)
             }
             print(data!)
             
+            if let response = data as? [String : AnyObject]{
+                if let errorMessage = response["Error Message"] as? String {
+                    print(errorMessage)
+                    completion(false,nil,Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.Response_statusCode_error.rawValue, description: errorMessage))
+                }
+            }
+            
             //TODO: Não passa objeto globalQuote
             
-            let result = GlobalQuote(dicGlobalQuote: data as! [String : AnyObject])
-            
-            completion(result,nil)
+            if let result = GlobalQuote(dicGlobalQuote: data as! [String : AnyObject]){
+                completion(true, result, nil)
+            } else {
+                completion(true, nil, Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.No_data_or_unexpected_data_was_returned.rawValue, description: "Do not have quote to paper searched!"))
+            }
         }
     }
     

@@ -106,15 +106,30 @@ class DetailViewController: UIViewController {
     }
     
     func requestQuote(symbol : String) {
-        AlphaVantageClient.requestQuote(symbol: symbol) { (globalQuote, error) in
-            guard error == nil else {
-                fatalError("Erro ao aobter cotação: \(String(describing: error?.localizedDescription))")
+        AlphaVantageClient.requestQuote(symbol: symbol) { (success, globalQuote, error) in
+            
+            if !success {
+                guard globalQuote != nil else{
+                    Alerts.message(view: self, title: "Alert!", message: "This paper have no quote!")
+                    return
+                }
+                
+                guard error != nil else {
+                    let message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!)
+                    
+                    Alerts.message(view: self, title: "Alert!", message: message)
+                    return
+                }
             }
-            guard globalQuote != nil else{
-                print("Quote = nil. Provavelmente não retornou informação na consulta do símbolo")
-                //TODO: Codificar quota não encontrada ou veio vazia
-                return
-            }
+            
+//            guard error == nil else {
+//                fatalError("Erro ao aobter cotação: \(String(describing: error?.localizedDescription))")
+//            }
+//            guard globalQuote != nil else{
+//                print("Quote = nil. Provavelmente não retornou informação na consulta do símbolo")
+//                //TODO: Codificar quota não encontrada ou veio vazia
+//                return
+//            }
             
             print("DETAIL - setando quoter...")
             self.quote.change = (globalQuote?.change)!

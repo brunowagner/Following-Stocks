@@ -23,6 +23,47 @@ struct Errors {
         case No_data_or_unexpected_data_was_returned = 20000
         case Could_not_parse_the_data = 20001
     }
+    
+    static func makeNSError(domain: String, code: Int, description: String) -> NSError{
+        let info = [NSLocalizedDescriptionKey : description]
+        return NSError(domain: domain, code: code, userInfo: info)
+    }
+    
+    static func getDefaultDescription(errorCode : ErrorCode) -> String{
+        switch errorCode {
+        case .The_Internet_connection_appears_to_be_offline:
+            return "The Internet connection appears to be offline!"
+        case .The_request_timed_out:
+            return "Time out!"
+        case .No_error:
+            return "Have no error!"
+        case .Response_statusCode_400_Bad_Request:
+            return "Invalid network request!"
+        case .Response_statusCode_401_Unauthorized:
+            return "Unauthorized!"
+        case .Response_statusCode_403_Forbidden:
+            return "Access unallowed!"
+        case .Response_statusCode_404_Not_Found:
+            return "Not found!"
+        case .Response_statusCode_500_Internal_Server_Error:
+            return "Internbal error!"
+        case .Response_statusCode_no_2XX:
+            return "Unsuccessful network request!"
+        case .Response_statusCode_error:
+            return "An response error has occurred!"
+        case .No_data_or_unexpected_data_was_returned:
+            return "No data or unexpected data was returned!"
+        case .Could_not_parse_the_data:
+            return "Could not parse the data!"
+        default:
+            return "An unknown error has occurred"
+        }
+    }
+    
+    
+
+    
+    
 }
 
 
