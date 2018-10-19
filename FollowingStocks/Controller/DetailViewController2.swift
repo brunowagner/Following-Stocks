@@ -148,10 +148,23 @@ class DetailViewController2: UIViewController {
         
         AlphaVantageClient.requestQuote(symbol: symbol) { (success, globalQuote, error) in
             
+            self.showLoadingIndicator(false)
             guard success else {
-                let message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!)
+                let message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!) + "\n\nWould you like to see last stored quotation?"
                 
-                Alerts.message(view: self, title: "Alert!", message: message)
+                //Alerts.message(view: self, title: "Alert!", message: message)
+                
+//                Alerts.message(view: self, title: "Alert!", message: message, handler: { (action) in
+//
+//                    self.loadStorageData()
+//                })
+                
+                Alerts.yesNo(view: self, title: "Alert!", message: message, completionHander: { (yes) in
+                    if yes {
+                        self.loadStorageData()
+                    }
+                })
+
                 return
             }
             
@@ -164,7 +177,7 @@ class DetailViewController2: UIViewController {
             self.quote.change = (globalQuote?.change)!
             self.quote.changePercent = globalQuote?.changePercent
             self.quote.high = (globalQuote?.high)!
-            self.quote.latest = Utilities.Convert.stringToDate((globalQuote?.latestTradingDay)!, dateFormat: "yyyy-mm-dd")
+            self.quote.latest = Utilities.Convert.stringToDate((globalQuote?.latestTradingDay)!, dateFormat: "yyyy-MM-dd")
             self.quote.low = (globalQuote?.low)!
             self.quote.open = (globalQuote?.open)!
             self.quote.previousClose = (globalQuote?.previousClose)!
@@ -175,12 +188,27 @@ class DetailViewController2: UIViewController {
             print("DETAIL - quoter setado!")
 
             DispatchQueue.main.async {
-                self.showLoadingIndicator(false)
                 self.reloadUIData(globalQuote: globalQuote!)
             }
         }
     }
     
+    func loadStorageData(){
+        if isPaperStoraged(){
+            performUIUpdatesOnMain {
+                let globalQuote = GlobalQuote(quote: self.quote)
+                self.reloadUIData(globalQuote: globalQuote)
+            }
+        }
+    }
+    
+    func isPaperStoraged() -> Bool {
+        var returnBool : Bool = false
+        if paper.isFollowed || paper .isPortfolio {
+            returnBool = true
+        }
+        return returnBool
+    }
     
     //MARK: Actions
     @IBAction func portfolioAction(_ sender: Any) {

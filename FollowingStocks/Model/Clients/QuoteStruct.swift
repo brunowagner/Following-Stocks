@@ -38,4 +38,18 @@ struct GlobalQuote {
         self.change = (quote["09. change"] as! NSString).doubleValue
         self.changePercent = quote["10. change percent"] as! String
     }
+    
+    init(quote: Quote) {
+        self.symbol = (quote.paper?.symbol)!
+        self.open = quote.open
+        self.high = quote.high
+        self.low = quote.low
+        self.price = quote.price
+        self.volume = quote.volume
+        print ("print da hora" + quote.latest!.debugDescription)
+        self.latestTradingDay = Utilities.Convert.dateToString(date: quote.latest!)
+        self.previousClose = quote.previousClose
+        self.change = quote.change
+        self.changePercent = quote.changePercent!
+    }
 }

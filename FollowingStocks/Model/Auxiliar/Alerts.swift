@@ -18,10 +18,11 @@ struct Alerts {
     }
     
     // Alert Standart
-    static func message (view: UIViewController ,title:String?, message:String?){
+    static func message (view: UIViewController ,title:String?, message:String?, handler: ((UIAlertAction) -> Void)? = nil){
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.isSpringLoaded = true
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .default, handler: handler)
+        
         alert.addAction(action)
         
         view.present(alert, animated: true, completion: nil)

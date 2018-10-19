@@ -20,5 +20,13 @@ struct Utilities {
             print(date ) //Convert String to Date
             return date
         }
+        
+        static func dateToString (date : Date, dateFormat : String = "yyyy-MM-dd") -> String{
+            let date = NSDate() // Get Todays Date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = dateFormat
+            let stringDate: String = dateFormatter.string(from: date as Date)
+            return stringDate
+        }
     }
 }
