@@ -175,6 +175,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Following" id="pjA-7E-MMa">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="jVy-yd-udn"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="LLP-aE-TaI"/>
+                            <barButtonItem title="AutoRefresh" image="baseline_timer_black_24pt" id="XOU-75-33l"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="abJ-82-WST" id="QaA-bu-gcn"/>
@@ -834,6 +838,10 @@
                                 <action selector="addAction:" destination="Loz-2r-xdk" id="gO7-fl-uin"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="Dwy-TN-Zhq"/>
+                            <barButtonItem title="AutoRefresh" image="baseline_timer_black_24pt" id="SY1-9R-L6f"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="OSr-pw-zhY" id="WYP-Vp-huo"/>
@@ -884,6 +892,7 @@
     <resources>
         <image name="baseline_business_center_black_24pt" width="24" height="24"/>
         <image name="baseline_my_location_black_24pt" width="24" height="24"/>
+        <image name="baseline_timer_black_24pt" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MsL-6z-304"/>

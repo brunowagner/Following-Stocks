@@ -150,7 +150,14 @@ class DetailViewController2: UIViewController {
             
             self.showLoadingIndicator(false)
             guard success else {
-                let message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!) + "\n\nWould you like to see last stored quotation?"
+                var message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!)
+                
+                if error?.code == Errors.ErrorCode.Limit_of_requests_per_minute_was_exceeded.rawValue {
+                    message += "\n\nPlease try again in a few moments."
+                }
+                
+                message += "\n\nWould you like to see last stored quotation?"
+
                 
                 //Alerts.message(view: self, title: "Alert!", message: message)
                 

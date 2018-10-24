@@ -34,6 +34,7 @@ class PortfolioViewController: UIViewController {
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var autoRefreshButton: UIBarButtonItem!
 
     //MARK: Life's cycle
     override func viewDidLoad() {
@@ -109,6 +110,62 @@ class PortfolioViewController: UIViewController {
     }
     
     
+    //TODO: Remove this action
+    @IBAction func autoRefreshAction(_ sender: UIBarButtonItem) {
+        for paper in fetchedResultsController.fetchedObjects!{
+            showLoadingIndicator(true)
+            
+            AlphaVantageClient.requestQuote(symbol: paper.symbol!) { (success, globalQuote, error) in
+                
+                self.showLoadingIndicator(false)
+                guard success else {
+                    let message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!) + "\n\nWould you like to see last stored quotation?"
+                    
+                    Alerts.yesNo(view: self, title: "Alert!", message: message, completionHander: { (yes) in
+                        if yes {
+                            //self.loadStorageData()
+                        }
+                    })
+                    
+                    return
+                }
+                
+                guard globalQuote != nil else{
+                    Alerts.message(view: self, title: "Alert!", message: "This paper have no quote!")
+                    return
+                }
+                
+                print("DETAIL - setando quoter...")
+                paper.quote?.change = (globalQuote?.change)!
+                paper.quote?.changePercent = globalQuote?.changePercent
+                paper.quote?.high = (globalQuote?.high)!
+                paper.quote?.latest = Utilities.Convert.stringToDate((globalQuote?.latestTradingDay)!, dateFormat: "yyyy-MM-dd")
+                paper.quote?.low = (globalQuote?.low)!
+                paper.quote?.open = (globalQuote?.open)!
+                paper.quote?.previousClose = (globalQuote?.previousClose)!
+                paper.quote?.price = (globalQuote?.price)!
+                paper.quote?.volume = (globalQuote?.volume)!
+                
+                print("Portifolio - paper setado!")
+                
+                DispatchQueue.main.async {
+                    //self.reloadUIData(globalQuote: globalQuote!)
+                    try? DataController.sharedInstance().viewContext.save()
+                }
+            }
+        }
+    }
+    
+    //TODO: Remove this function
+    func showLoadingIndicator (_ show : Bool ){
+        performUIUpdatesOnMain {
+            if show{
+                LoadingOverlay.shared.showOverlay(view: self.view)
+            }else{
+                LoadingOverlay.shared.hideOverlayView()
+            }
+        }
+    }
 }
 
 

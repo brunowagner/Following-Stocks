@@ -22,6 +22,7 @@ struct Errors {
         case Response_statusCode_error = 10001
         case No_data_or_unexpected_data_was_returned = 20000
         case Could_not_parse_the_data = 20001
+        case Limit_of_requests_per_minute_was_exceeded = 20002
     }
     
     static func makeNSError(domain: String, code: Int, description: String) -> NSError{
@@ -55,6 +56,8 @@ struct Errors {
             return "No data or unexpected data was returned!"
         case .Could_not_parse_the_data:
             return "Could not parse the data!"
+        case .Limit_of_requests_per_minute_was_exceeded:
+            return "Limit of requests per minute was exceeded!"
         default:
             return "An unknown error has occurred"
         }
