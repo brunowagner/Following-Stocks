@@ -32,6 +32,8 @@ class PortfolioViewController: UIViewController {
     
     var fetchedResultsController : NSFetchedResultsController<Paper>!
     
+    static var countPapers : Int = 0
+    
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var autoRefreshButton: UIBarButtonItem!
@@ -41,6 +43,7 @@ class PortfolioViewController: UIViewController {
         super.viewDidLoad()
         print("\(type(of: self)) - viewDidLoad")
         setupPaperFetchedResultsController()
+        //PortfolioViewController.countPapers = fetchedResultsController.sections[0].numberof
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -97,12 +100,17 @@ class PortfolioViewController: UIViewController {
         } catch {
             fatalError("Can not to do fetchedResultsController.performFetch!")
         }
-        print("Quantidade objetos no fetched: \(String(describing: fetchedResultsController.sections?[0].numberOfObjects))")
+        PortfolioViewController.countPapers = (fetchedResultsController.sections?[0].numberOfObjects)!
+        print("Number of papers = \(PortfolioViewController.countPapers)")
     }
     
     //MARK: Actions
     
     @IBAction func addAction(_ sender: UIBarButtonItem) {
+        if PortfolioViewController.countPapers >= 5 {
+            Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
+            return
+        }
         let m = self.storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
         m.operation = Trade.OperationType.purchase
         
@@ -247,7 +255,6 @@ extension PortfolioViewController: NSFetchedResultsControllerDelegate{
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-
         
         switch type {
         case .insert:

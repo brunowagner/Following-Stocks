@@ -48,7 +48,7 @@ class AlphaVantageClient {
         let parameters : [String:AnyObject] = [
             "function" : "GLOBAL_QUOTE" as AnyObject,
             "symbol": symbol as AnyObject,
-            "apikey": getApiKey() as AnyObject
+            "apikey": "1CSEQWZU1E835K1M" as AnyObject
         ]
         
         let _ = HTTPTools.taskForGETMethod("", parameters: parameters, apiRequirements: AlphaVantageApiRequirements()) { (data, error) in

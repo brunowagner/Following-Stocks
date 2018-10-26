@@ -261,6 +261,11 @@ class DetailViewController2: UIViewController {
     }
     
     func addToPortfolio() {
+        if !paper.isPortfolio, PortfolioViewController.countPapers >= 5 {
+            Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
+            return
+        }
+        
         let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
         
         print("DETAIL - injetando paper...")
