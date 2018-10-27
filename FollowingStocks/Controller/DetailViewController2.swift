@@ -225,6 +225,10 @@ class DetailViewController2: UIViewController {
     }
     
     @IBAction func followButton(_ sender: Any) {
+        if !paper.isFollowed, FollowingViewController.getPapersCount() >= 5 {
+            Alerts.message(view: self, title: "Alert!", message: "Limit of papers in following just was reached!")
+            return
+        }
         paper.isFollowed = !paper.isFollowed
         if paper.isFollowed {
             followButton.image = UIImage(named: "baseline_my_location_black_24pt")
@@ -261,7 +265,7 @@ class DetailViewController2: UIViewController {
     }
     
     func addToPortfolio() {
-        if !paper.isPortfolio, PortfolioViewController.countPapers >= 5 {
+        if !paper.isPortfolio, PortfolioViewController.getPapersCount() >= 5 {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
             return
         }

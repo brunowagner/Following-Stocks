@@ -13,6 +13,8 @@ class FollowingViewController: UIViewController {
 
     var fetchedResultsController : NSFetchedResultsController<Paper>!
     
+    static var countPapers : Int = 0
+    
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -74,6 +76,20 @@ class FollowingViewController: UIViewController {
             fatalError("Can not to do fetchedResultsController.performFetch!")
         }
         print("Quantidade objetos no fetched: \(String(describing: fetchedResultsController.sections?[0].numberOfObjects))")
+        FollowingViewController.countPapers = (fetchedResultsController.sections?[0].numberOfObjects)!
+        print("Number of papers = \(FollowingViewController.countPapers)")
+    }
+    
+    static func getPapersCount() -> Int {
+        let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
+        let predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
+        fetchRequest.predicate = predicate
+        
+        if let result = try? DataController.sharedInstance().viewContext.fetch(fetchRequest){
+            return result.count
+        } else {
+            return 0
+        }
     }
 }
 

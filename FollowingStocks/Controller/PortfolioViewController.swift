@@ -32,8 +32,6 @@ class PortfolioViewController: UIViewController {
     
     var fetchedResultsController : NSFetchedResultsController<Paper>!
     
-    static var countPapers : Int = 0
-    
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var autoRefreshButton: UIBarButtonItem!
@@ -100,14 +98,24 @@ class PortfolioViewController: UIViewController {
         } catch {
             fatalError("Can not to do fetchedResultsController.performFetch!")
         }
-        PortfolioViewController.countPapers = (fetchedResultsController.sections?[0].numberOfObjects)!
-        print("Number of papers = \(PortfolioViewController.countPapers)")
+    }
+    
+    static func getPapersCount() -> Int {
+        let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
+        let predicate = NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))
+        fetchRequest.predicate = predicate
+        
+        if let result = try? DataController.sharedInstance().viewContext.fetch(fetchRequest){
+            return result.count
+        } else {
+            return 0
+        }
     }
     
     //MARK: Actions
     
     @IBAction func addAction(_ sender: UIBarButtonItem) {
-        if PortfolioViewController.countPapers >= 5 {
+        if PortfolioViewController.getPapersCount() >= 5 {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
             return
         }
