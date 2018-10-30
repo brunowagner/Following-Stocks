@@ -44,6 +44,7 @@ class PortfolioViewController: UIViewController {
         //PortfolioViewController.countPapers = fetchedResultsController.sections[0].numberof
         tableView.dataSource = self
         tableView.delegate = self
+        autoRequestQuote(interval: 60, requestsPerInterval: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,31 +128,36 @@ class PortfolioViewController: UIViewController {
     
     
     //TODO: Remove this action
-    @IBAction func autoRefreshAction(_ sender: UIBarButtonItem) {
-        for paper in fetchedResultsController.fetchedObjects!{
-            showLoadingIndicator(true)
+    func autoRequestQuote(interval:TimeInterval = 60, requestsPerInterval : Int = 1) {
+        
+        guard requestsPerInterval > 0 else { return }
+        
+        let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "quoteDate", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        //let predicate = NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))
+        //fetchRequest.predicate = predicate
+        
+        guard let result = try? DataController.sharedInstance().backgroundContext.fetch(fetchRequest), result.count > 0 else {
+            return
+        }
+        
+        for index in 0...(requestsPerInterval-1) {
+            let paper = result[index]
             
             AlphaVantageClient.requestQuote(symbol: paper.symbol!) { (success, globalQuote, error) in
-                
-                self.showLoadingIndicator(false)
                 guard success else {
-                    let message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!) + "\n\nWould you like to see last stored quotation?"
-                    
-                    Alerts.yesNo(view: self, title: "Alert!", message: message, completionHander: { (yes) in
-                        if yes {
-                            //self.loadStorageData()
-                        }
-                    })
-                    
+                    let message = Errors.getDefaultDescription(errorCode:  Errors.ErrorCode(rawValue: (error?.code)!)!)
+                    print(message)
                     return
                 }
                 
                 guard globalQuote != nil else{
-                    Alerts.message(view: self, title: "Alert!", message: "This paper have no quote!")
+                    print ("This paper have no quote!")
                     return
                 }
                 
-                print("DETAIL - setando quoter...")
+                print("PORTFOLIO - setando autoRequestQuoter...")
                 paper.quote?.change = (globalQuote?.change)!
                 paper.quote?.changePercent = globalQuote?.changePercent
                 paper.quote?.high = (globalQuote?.high)!
@@ -161,15 +167,19 @@ class PortfolioViewController: UIViewController {
                 paper.quote?.previousClose = (globalQuote?.previousClose)!
                 paper.quote?.price = (globalQuote?.price)!
                 paper.quote?.volume = (globalQuote?.volume)!
-                
-                print("Portifolio - paper setado!")
+                paper.quoteDate = Date()
+                print("\(paper.symbol) - \(paper.quoteDate)")
+                print("Portifolio - autoRequestQuoter setado!")
                 
                 DispatchQueue.main.async {
-                    //self.reloadUIData(globalQuote: globalQuote!)
-                    try? DataController.sharedInstance().viewContext.save()
+                    try? DataController.sharedInstance().backgroundContext.save()
                 }
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
+            self.autoRequestQuote(interval: interval, requestsPerInterval: requestsPerInterval)
+        }
+    
     }
     
     //TODO: Remove this function

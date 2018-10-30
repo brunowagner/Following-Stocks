@@ -58,6 +58,8 @@ class AlphaVantageClient {
                 return
             }
             
+            print(data!)
+            
             guard let response = data as? [String : AnyObject] else {
                 return completion(true, nil, Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.No_data_or_unexpected_data_was_returned.rawValue, description: "Do not have quote to paper searched!"))
             }

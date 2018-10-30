@@ -8,6 +8,7 @@
         <attribute name="isPortfolio" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quoteDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="typeDisp" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,7 +35,7 @@
         <relationship name="paper" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Paper" inverseName="trades" inverseEntity="Paper" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Paper" positionX="5166" positionY="-1591" width="128" height="223"/>
+        <element name="Paper" positionX="5166" positionY="-1591" width="128" height="240"/>
         <element name="Quote" positionX="5400" positionY="-1633" width="128" height="193"/>
         <element name="Trade" positionX="5400" positionY="-1405" width="128" height="118"/>
     </elements>

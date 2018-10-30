@@ -143,6 +143,7 @@ class DetailViewController: UIViewController {
             self.quote.volume = (globalQuote?.volume)!
 
             self.quote.paper = self.paper
+            self.paper.quoteDate = Date()
             print("DETAIL - quoter setado!")
             
             //self.quote = Quote(context: DataController.sharedInstance().viewContext)
