@@ -143,7 +143,10 @@ class MovingPortfolioViewController: UIViewController {
         
         switch operation! {
         case .sale:
-            if quantidade == paper.quantity{
+            if quantidade > paper.quantity {
+                Alerts.message(view: self, title: "The quantity exceeded the limit!", message: "This paper have only \(paper.quantity). Choose this quantity or less!")
+                return
+            } else if quantidade == paper.quantity {
                 DataController.sharedInstance().viewContext.delete(paper)
                 dismiss(animated: true, completion: nil)
                 return
