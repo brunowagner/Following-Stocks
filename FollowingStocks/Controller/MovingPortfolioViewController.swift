@@ -147,9 +147,9 @@ class MovingPortfolioViewController: UIViewController {
                 Alerts.message(view: self, title: "The quantity exceeded the limit!", message: "This paper have only \(paper.quantity). Choose this quantity or less!")
                 return
             } else if quantidade == paper.quantity {
-                DataController.sharedInstance().viewContext.delete(paper)
-                dismiss(animated: true, completion: nil)
-                return
+                //DataController.sharedInstance().viewContext.delete(paper)
+                paper.quantity -= quantidade
+                paper.isPortfolio = false
             } else {
                 paper.quantity -= quantidade
             }
@@ -197,14 +197,11 @@ class MovingPortfolioViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(type(of: self)) - prepareforSegue")
         if segue.identifier == "unwindToDetail"{
-//            let vc = segue.destination as! DetailViewController2
-//            //let paperStruct = sender as! PaperStruct
-//            //mVC.paperTextField.text = paperStruct.symbol
-//            vc.loadStorageData()
-        }
-        
-        if let searchVC = segue.destination as? SearchViewController{
-            searchVC.isToFillField = true
+            //Do nothing. At return to Detail, a reload occurs.
+        } else {
+            if let searchVC = segue.destination as? SearchViewController{
+                searchVC.isToFillField = true
+            }
         }
     }
     
