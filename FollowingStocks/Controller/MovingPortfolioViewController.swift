@@ -175,10 +175,13 @@ class MovingPortfolioViewController: UIViewController {
 
         do{
             try DataController.sharedInstance().viewContext.save()
-            dismiss(animated: true, completion: nil)
+            performSegue(withIdentifier: "unwindToDetail", sender: nil)
+            //dismiss(animated: true, completion: nil)
         } catch {
             fatalError("Não foi possivel salva no core data")
         }
+        
+        
     }
     
     func isPaperSelected() -> Bool{
@@ -193,6 +196,13 @@ class MovingPortfolioViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(type(of: self)) - prepareforSegue")
+        if segue.identifier == "unwindToDetail"{
+//            let vc = segue.destination as! DetailViewController2
+//            //let paperStruct = sender as! PaperStruct
+//            //mVC.paperTextField.text = paperStruct.symbol
+//            vc.loadStorageData()
+        }
+        
         if let searchVC = segue.destination as? SearchViewController{
             searchVC.isToFillField = true
         }

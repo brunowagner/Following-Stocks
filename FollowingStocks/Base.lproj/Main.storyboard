@@ -384,9 +384,11 @@
                         <outlet property="stepper" destination="zL1-Vb-psz" id="SQC-P8-3UU"/>
                         <outlet property="tradeButton" destination="fSN-L6-hoY" id="2Re-xg-v1a"/>
                         <segue destination="c0O-v5-mEt" kind="presentation" identifier="MovingYourPortifolioToSearch" id="UK9-HE-9ua"/>
+                        <segue destination="MOd-kg-hAP" kind="unwind" identifier="unwindToDetail" unwindAction="unwindToDetail:" id="C2Y-NL-AWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFW-vi-HHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="MOd-kg-hAP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3223" y="552"/>
         </scene>
@@ -399,7 +401,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJV-vP-Ed6" userLabel="ViewHeader">
-                                <rect key="frame" x="7" y="64" width="361" height="60"/>
+                                <rect key="frame" x="7" y="20" width="361" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QRD-3M-05e" userLabel="StackViewHeader">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="60"/>
@@ -429,7 +431,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="6yX-GV-TgL" userLabel="StackViewSymbolPrice">
-                                <rect key="frame" x="7" y="131" width="361" height="100"/>
+                                <rect key="frame" x="7" y="87" width="361" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KK7-8E-zeW">
                                         <rect key="frame" x="0.0" y="0.0" width="177" height="100"/>
@@ -515,7 +517,7 @@
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qG-mQ-I4j">
-                                <rect key="frame" x="7" y="238" width="361" height="380"/>
+                                <rect key="frame" x="7" y="194" width="361" height="473"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="1" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fT6-k5-wXN" userLabel="Stack View Quote">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="150"/>
@@ -741,6 +743,7 @@
                         <outlet property="viewHeader" destination="VJV-vP-Ed6" id="YlX-FE-gkP"/>
                         <outlet property="viewPrice" destination="VrM-gw-Lc3" id="s5s-4q-LjV"/>
                         <outlet property="viewSymbol" destination="KK7-8E-zeW" id="rkG-DG-4BJ"/>
+                        <segue destination="O4c-IM-jmY" kind="presentation" identifier="DetailToTrade" id="c9t-C0-cFo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYl-P0-Gro" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -895,7 +898,7 @@
         <image name="baseline_timer_black_24pt" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MsL-6z-304"/>
+        <segue reference="9eF-Kp-7dJ"/>
         <segue reference="UK9-HE-9ua"/>
     </inferredMetricsTieBreakers>
 </document>

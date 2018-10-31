@@ -203,6 +203,7 @@ class DetailViewController2: UIViewController {
     func loadStorageData(){
         if isPaperStoraged(){
             performUIUpdatesOnMain {
+                print(self.quote)
                 let globalQuote = GlobalQuote(quote: self.quote)
                 self.reloadUIData(globalQuote: globalQuote)
             }
@@ -284,7 +285,7 @@ class DetailViewController2: UIViewController {
         print("removeFromPortFolio - inicio")
         
         let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
-        
+
         print("DETAIL - injetando paper...")
         m.paper = paper
         m.operation = Trade.OperationType.sale
@@ -292,9 +293,22 @@ class DetailViewController2: UIViewController {
         
         present(m, animated: true, completion: nil)
         
+        //performSegue(withIdentifier: "DetailToTrade", sender: nil)
+        
         print("removeFromPortFolio - fim")
         
     }
+    
+    @IBAction func unwindToDetail(_ sender: UIStoryboardSegue) {
+        //usado para recarregar a quantidade de ações após fazer trade.
+        fillUI()
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let vc = segue.destination as! MovingPortfolioViewController
+//        vc.paper = paper
+//        vc.operation = Trade.OperationType.sale
+//    }
     
     func reloadUIData(globalQuote: GlobalQuote){
         let changeAttributedText = NSMutableAttributedString(string: String(globalQuote.change))
