@@ -162,7 +162,7 @@ class PortfolioViewController: UIViewController {
 //    }
 }
 
-// MARK: UITableViewDataSource
+// MARK: - UITableViewDataSource
 extension PortfolioViewController: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -181,7 +181,7 @@ extension PortfolioViewController: UITableViewDataSource{
     }
 }
 
-//MARK: UITableViewDelegate
+//MARK: - UITableViewDelegate
 extension PortfolioViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
