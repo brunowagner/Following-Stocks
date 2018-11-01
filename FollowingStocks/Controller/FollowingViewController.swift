@@ -10,10 +10,10 @@ import UIKit
 import CoreData
 
 class FollowingViewController: UIViewController {
-
-    var fetchedResultsController : NSFetchedResultsController<Paper>!
     
-    static var countPapers : Int = 0
+    //MARK: Properties
+    var fetchedResultsController : NSFetchedResultsController<Paper>!
+    static let limitOfPapers : Int = 5
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -21,7 +21,6 @@ class FollowingViewController: UIViewController {
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print("\(type(of: self)) - viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
@@ -41,33 +40,14 @@ class FollowingViewController: UIViewController {
     }
     
     //MARK: Fetcheds
-    
     fileprivate func setupPaperFetchedResultsController() {
         print("Iniciando Fetched...")
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
-        
         let predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
-        
         let sortDescriptor = NSSortDescriptor(key: "symbol", ascending: true)
-        
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        //------------ apenas para testar o fetchRequst puro
-        if let result = try? DataController.sharedInstance().viewContext.fetch(fetchRequest){
-            let papers : [Paper] = result
-            
-            //for p in papers{
-            //    print(p.symbol)
-            //}
-            
-            print(papers.count)
-            //print(papers)
-        }
-        //----------
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.sharedInstance().viewContext, sectionNameKeyPath: nil, cacheName: nil)//"paperFRC")
-        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: DataController.sharedInstance().viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         
         do{
@@ -75,11 +55,9 @@ class FollowingViewController: UIViewController {
         } catch {
             fatalError("Can not to do fetchedResultsController.performFetch!")
         }
-        print("Quantidade objetos no fetched: \(String(describing: fetchedResultsController.sections?[0].numberOfObjects))")
-        FollowingViewController.countPapers = (fetchedResultsController.sections?[0].numberOfObjects)!
-        print("Number of papers = \(FollowingViewController.countPapers)")
     }
     
+    //MARK: Statics Functions
     static func getPapersCount() -> Int {
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
         let predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
@@ -91,10 +69,19 @@ class FollowingViewController: UIViewController {
             return 0
         }
     }
+    
+    static func limitOfPapersReached() -> Bool {
+        let numOfPapers : Int = self.getPapersCount()
+        
+        if numOfPapers >= limitOfPapers {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
-
-// MARK: UITableViewDataSource
+// MARK: - UITableViewDataSource
 extension FollowingViewController: UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -107,36 +94,23 @@ extension FollowingViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowingCell", for: indexPath) as! PortfolioCell
-        
         let paper = fetchedResultsController.object(at: indexPath)
-        
-//        cell.symbol.text = paper.symbol
-//        cell.exchange.text = paper.exchange
-//        cell.price.text = "\(paper.quote?.price ?? 0)"
-//        cell.change.text = "\(paper.quote?.change ?? 0)"
-        
         cell.setFieldsBy(paper: paper)
-        
         return cell
     }
 }
 
-//MARK: UITableViewDelegate
+//MARK: - UITableViewDelegate
 extension FollowingViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
-        
-        //TODO: pegar symbol e pesquizar Cotação
-        //let paper = fetchedResultsController.object(at: indexPath)
         
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController2") as! DetailViewController2
         detailVC.paper = fetchedResultsController.object(at: indexPath)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
-
-
 
 // MARK: - NSFetchedResultsControllerDelegate
 extension FollowingViewController: NSFetchedResultsControllerDelegate{
@@ -150,7 +124,6 @@ extension FollowingViewController: NSFetchedResultsControllerDelegate{
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
         
         switch type {
         case .insert:
@@ -171,5 +144,4 @@ extension FollowingViewController: NSFetchedResultsControllerDelegate{
             break
         }
     }
-
 }
