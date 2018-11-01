@@ -31,6 +31,11 @@ class AlphaVantageClient {
          {
             "Information": "Thank you for using Alpha Vantage! Please visit https://www.alphavantage.co/premium/ if you would like to have a higher API call volume."
         }
+         
+         {
+         Note = "Thank you for using Alpha Vantage! Our standard API call frequency is 5 calls per minute and 500 calls per day. Please visit https://www.alphavantage.co/premium/ if you would like to target a higher API call frequency.";
+         }
+         
          */
         
         /*  quando a apikey é inválida ou inexistente
@@ -66,6 +71,10 @@ class AlphaVantageClient {
             
             if let errorMessage = response["Information"] as? String,  errorMessage.contains("if you would like to have a higher API call volume") {
                     return completion(false,nil,Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.Limit_of_requests_per_minute_was_exceeded.rawValue, description: errorMessage))
+            }
+            
+            if let errorMessage = response["Note"] as? String,  errorMessage.contains("if you would like to target a higher API call frequency") {
+                return completion(false,nil,Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.Limit_of_requests_per_minute_was_exceeded.rawValue, description: errorMessage))
             }
 
             if let errorMessage = response["Error Message"] as? String {
