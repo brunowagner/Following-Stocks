@@ -9,13 +9,10 @@
 import Foundation
 class AutocompleteApiRequirements: ApiRequirements {
     
-    //http://autoc.finance.yahoo.com/autoc?query=Brasileiro&region=EU&lang=en-GB
+    //ex. http://autoc.finance.yahoo.com/autoc?query=Brasileiro&region=EU&lang=en-GB
     
     func requestConfigToGET(urlRequest: inout NSMutableURLRequest) {
         urlRequest.httpMethod = "GET"
-//        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-//        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//        urlRequest.addValue("pt-br", forHTTPHeaderField: "Accept-Language")
     }
     
     func requestConfigToPOST(urlRequest: inout NSMutableURLRequest, jsonBody: String?) {

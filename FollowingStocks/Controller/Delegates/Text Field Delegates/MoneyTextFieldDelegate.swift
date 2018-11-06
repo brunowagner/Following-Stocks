@@ -68,12 +68,4 @@ class MoneyTextFieldDelegate: NSObject, UITextFieldDelegate {
         
         return true;
     }
-
-    
-    
-   
-    
-
-    
-
 }
