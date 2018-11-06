@@ -11,8 +11,8 @@ import UIKit
 
 class ZipCodeTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    let charactersLimit=5
-
+    let charactersLimit = 5
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         var nextString = textField.text! as NSString
@@ -24,5 +24,4 @@ class ZipCodeTextFieldDelegate: NSObject, UITextFieldDelegate {
         
         return true
     }
-    
 }

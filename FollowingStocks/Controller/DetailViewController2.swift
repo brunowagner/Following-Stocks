@@ -160,7 +160,7 @@ class DetailViewController2: UIViewController {
         
         if isPaperPortfolio(){
             self.labelQuantity.text = "\(paper.quantity)"
-            self.labelAveragePrice.text = "\(paper.averageCost)"
+            self.labelAveragePrice.text = String(format: "%.02f",paper.averageCost)
             stackViewPortfolio.isHidden = false
         } else {
             stackViewPortfolio.isHidden = true

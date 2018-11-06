@@ -14,12 +14,6 @@ class PortfolioCell: UITableViewCell {
     @IBOutlet weak var price : UILabel!
     @IBOutlet weak var exchange : UILabel!
     @IBOutlet weak var change : UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        // Initialization code
-    }
     
     func setFieldsBy(paper: Paper){
         setSymbol(symbol: paper.symbol)
@@ -27,18 +21,12 @@ class PortfolioCell: UITableViewCell {
         setPrice(price: paper.quote?.price)
         setChange(value: paper.quote?.change ?? 0, percent: paper.quote?.changePercent ?? "0%")
     }
-
+    
     func setChange(value: Double, percent: String){
         let changeAttributedText = NSMutableAttributedString(string: String(value) + " (" + percent + ")")
         changeAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: "DarkGreen")!, negativeColor: UIColor.red)
         
         change.attributedText = changeAttributedText
-//        change.text = String(value) + " (" + percent + ")"
-//        if value > 0 {
-//            change.textColor = UIColor(named: "DarkGreen")
-//        } else {
-//            change.textColor = UIColor.red
-//        }
     }
     
     func setExchange(exchange: String!, exchangeDisp: String!){
@@ -54,6 +42,6 @@ class PortfolioCell: UITableViewCell {
     }
     
     func setPrice(price: Double!){
-        self.price.text = String(format: "%.02f", price ?? 0) //"\(price ?? 0)"
+        self.price.text = String(format: "%.02f", price ?? 0)
     }
 }

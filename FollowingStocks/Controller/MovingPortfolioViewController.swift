@@ -18,6 +18,11 @@ class MovingPortfolioViewController: UIViewController {
     let moneyDelegate = MoneyTextFieldDelegate(prefix: "")
     var activeField: UITextField!
     var keyboardHeight: CGFloat!
+    let dateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .medium
+        return df
+    }()
     
     //MARK: Outlets
     @IBOutlet weak var paperTextField: UITextField!
@@ -54,15 +59,7 @@ class MovingPortfolioViewController: UIViewController {
         super.viewDidDisappear(animated)
         print("\(type(of: self)) - viewDidDisappear")
     }
-    
-    /// A date formatter for date text in note cells
-    //TO DO: Colocar em uma classe de utilidade
-    let dateFormatter: DateFormatter = {
-        let df = DateFormatter()
-        df.dateStyle = .medium
-        return df
-    }()
-    
+
     // MARK: Actions
     @IBAction func searchAction(_ sender: Any) {
         print("\(type(of: self)) - performSegue")
