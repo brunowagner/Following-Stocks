@@ -9,20 +9,92 @@
 import Foundation
 struct Constants {
     
-    struct SegueWays{
-        static let SearchToDetail2 = "SearchToDetail2"
+    struct SegueId{
+        static let searchToDetail2 = "SearchToDetail2"
         static let unwindToMovingPortfolioViewController = "unwindToMovingPortfolioViewController"
+        static let movingYourPortifolioToSearch = "MovingYourPortifolioToSearch"
+        static let unwindToDetail = "unwindToDetail"
+        static let followingToDetail2 = "FollowingToDetail2"
+        static let portfolioToDetail2 = "PortfolioToDetail2"
+        static let detailToTrade = "DetailToTrade"
     }
     
-    struct ViewControllers{
-        static let MovingPortfolioViewController = "MovingPortfolioViewController"
-        static let DetailViewController2 = "DetailViewController2"
+    struct ViewController{
+        static let movingPortfolioViewController = "TradeViewController"
+        static let detailViewController2 = "DetailViewController2"
     }
     
-    struct Cell{
-        static let PortfolioCell = "PortfolioCell"
-        static let FollowingCell = "FollowingCell"
+    struct TableCell{
+        static let portfolioCell = "PortfolioCell"
+        static let followingCell = "FollowingCell"
+        static let searchCell = "SearchCell"
     }
     
+    struct Image {
+        static let following = "baseline_my_location_black_24pt"
+        static let unfollowing = "baseline_location_disabled_black_24pt"
+        
+    }
     
+    struct Collor {
+        static let darkGreen = "DarkGreen"
+    }
+    
+    struct PredicateFormat {
+        static let isFollowing = "isFollowed == %@"
+        static let isPortfolio = "isPortfolio == %@"
+    }
+    
+    struct AutoComplete {
+        struct ResponseKey {
+            static let symbol = "symbol"
+            static let name = "name"
+            static let exch = "exch"
+            static let type = "type"
+            static let exchDisp = "exchDisp"
+            static let typeDisp = "typeDisp"
+        }
+        
+        struct ParameterValue {
+            static let langEng = "eng"
+            static let region1 = "1"
+        }
+        
+        struct ParameterKey {
+            static let query = "query"
+            static let region = "region"
+            static let lang = "lang"
+        }
+    }
+    
+    struct AlphaVantageClient {
+        struct FaultKey{
+            static let information = "Information"
+            static let errorMessage = "Error Message"
+        }
+        
+        struct ParameterValue{
+            static let functionGlobalQuote = "GLOBAL_QUOTE"
+            static let apiKey = "1CSEQWZU1E835K1M"
+        }
+        
+        struct ParameterKey{
+            static let function = "function"
+            static let symbol = "symbol"
+            static let apikey = "apikey"
+        }
+        
+        struct ResponseKey {
+            static let symbol = "01. symbol"
+            static let open = "02. open"
+            static let high = "03. high"
+            static let low = "04. low"
+            static let price = "05. price"
+            static let volume = "06. volume"
+            static let latestTradingDay = "07. latest trading day"
+            static let previousClose = "08. previous close"
+            static let change = "09. change"
+            static let changePercent = "10. change percent"
+        }
+    }
 }

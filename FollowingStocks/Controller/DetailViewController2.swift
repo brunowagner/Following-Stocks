@@ -137,7 +137,7 @@ class DetailViewController2: UIViewController {
             return
         }
         
-        let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        let m = storyboard?.instantiateViewController(withIdentifier: "TradeViewController") as! TradeViewController
         
         print("DETAIL - injetando paper...")
         m.paper = paper

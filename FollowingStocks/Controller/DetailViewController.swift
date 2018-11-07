@@ -196,7 +196,7 @@ class DetailViewController: UIViewController {
     }
     
     func addToPortfolio() {
-        let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        let m = storyboard?.instantiateViewController(withIdentifier: "TradeViewController") as! TradeViewController
         
         print("DETAIL - injetando paper...")
         m.paper = paper
@@ -209,7 +209,7 @@ class DetailViewController: UIViewController {
     func removeFromPortFolio() {
         print("removeFromPortFolio - inicio")
         
-        let m = storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        let m = storyboard?.instantiateViewController(withIdentifier: "TradeViewController") as! TradeViewController
         
         print("DETAIL - injetando paper...")
         m.paper = paper

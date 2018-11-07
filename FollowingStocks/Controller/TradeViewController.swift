@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovingPortfolioViewController: UIViewController {
+class TradeViewController: UIViewController {
     
     //MARK: Properties
     var paper: Paper!
@@ -211,7 +211,7 @@ class MovingPortfolioViewController: UIViewController {
 }
 
 //MARK: - UITextFieldDelegate
-extension MovingPortfolioViewController: UITextFieldDelegate{
+extension TradeViewController: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
@@ -242,7 +242,7 @@ extension MovingPortfolioViewController: UITextFieldDelegate{
 }
 
 //MARK: - Functions when KeyBoard Appears and Disappears
-extension MovingPortfolioViewController {
+extension TradeViewController {
     
     func subscriberToKeyboardNotifications(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
@@ -280,7 +280,7 @@ extension MovingPortfolioViewController {
 }
 
 //MARK: - DatePicker on Alert
-extension MovingPortfolioViewController{
+extension TradeViewController{
     
     func getDate() {
         let message = "\n\n\n\n\n\n\n"

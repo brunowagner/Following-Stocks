@@ -89,7 +89,7 @@ class PortfolioViewController: PaperViewController {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
             return
         }
-        let m = self.storyboard?.instantiateViewController(withIdentifier: "MovingPortfolioViewController") as! MovingPortfolioViewController
+        let m = self.storyboard?.instantiateViewController(withIdentifier: "TradeViewController") as! TradeViewController
         m.operation = Trade.OperationType.purchase
         
         present(m, animated: true, completion: nil)

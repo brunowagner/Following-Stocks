@@ -42,12 +42,12 @@ class SearchViewController : UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)  {
         setPaper(paperStruct: sender as! PaperStruct)
         
-        if segue.identifier == "SearchToDetail2" {
+        if segue.identifier == Constants.SegueId.searchToDetail2 {
             let detailVC = segue.destination as! DetailViewController2
             detailVC.paper = paper
         }
-        if segue.identifier == "unwindToMovingPortfolioViewController"{
-            let mVC = segue.destination as! MovingPortfolioViewController
+        if segue.identifier ==  Constants.SegueId.unwindToMovingPortfolioViewController {
+            let mVC = segue.destination as! TradeViewController
             mVC.paper = paper
         }
     }
