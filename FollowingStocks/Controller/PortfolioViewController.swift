@@ -15,8 +15,8 @@ class PortfolioViewController: PaperViewController {
 //    var fetchedResultsController : NSFetchedResultsController<Paper>!
 //    static let limitOfPapers : Int = 5
     
-    override var predicate: NSPredicate! { get {return NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))} }
-    override var tableViewCellId: String! {get {return "PortfolioCell"}}
+    override var predicate: NSPredicate! { get {return Constants.Predicate.isPortfolio} }
+    override var tableViewCellId: String! {get {return Constants.TableCell.portfolioCell}}
     
     //MARK: Outlets
 //    @IBOutlet weak var tableView: UITableView!
@@ -90,7 +90,7 @@ class PortfolioViewController: PaperViewController {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
             return
         }
-        let m = self.storyboard?.instantiateViewController(withIdentifier: "TradeViewController") as! TradeViewController
+        let m = self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.tradeViewController) as! TradeViewController
         m.operation = Trade.OperationType.purchase
         
         present(m, animated: true, completion: nil)

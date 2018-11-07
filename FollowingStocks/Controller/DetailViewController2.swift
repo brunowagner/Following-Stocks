@@ -137,7 +137,7 @@ class DetailViewController2: UIViewController {
             return
         }
         
-        let m = storyboard?.instantiateViewController(withIdentifier: "TradeViewController") as! TradeViewController
+        let m = storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.tradeViewController) as! TradeViewController
         
         print("DETAIL - injetando paper...")
         m.paper = paper
@@ -149,7 +149,7 @@ class DetailViewController2: UIViewController {
     
     //MARK: UI
     func toggleUIFollowingButton (to on: Bool){
-        let namedImage = on ? "baseline_my_location_black_24pt" : "baseline_location_disabled_black_24pt"
+        let namedImage = on ? Constants.ImageName.following : Constants.ImageName.unfollowing
         followButton.image = UIImage(named: namedImage)
     }
     
@@ -180,9 +180,9 @@ class DetailViewController2: UIViewController {
     
     func loadQuoteInUI(globalQuote: GlobalQuote){
         let changeAttributedText = NSMutableAttributedString(string: String(globalQuote.change))
-        changeAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: "DarkGreen")!, negativeColor: UIColor.red)
+        changeAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: Constants.CollorName.darkGreen)!, negativeColor: UIColor.red)
         let changePercentAttributedText = NSMutableAttributedString(string: "(\(globalQuote.changePercent))")
-        changePercentAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: "DarkGreen")!, negativeColor: UIColor.red)
+        changePercentAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: Constants.CollorName.darkGreen)!, negativeColor: UIColor.red)
         
         self.labelprice.text =  String(format: "%.02f", globalQuote.price ) //"\(globalQuote.price)"
         //self.labelchange.text =  "\(globalQuote.change)"
