@@ -14,8 +14,8 @@ class FollowingViewController: PaperViewController {
     //MARK: Properties
     //var fetchedResultsController : NSFetchedResultsController<Paper>!
     //static let limitOfPapers : Int = 5
-    override var predicate: NSPredicate! { get {return NSPredicate(format: "isFollowed == %@", NSNumber(value: true))} }
-    override var tableViewCellId: String! {get {return "FollowingCell"} }
+    override var predicate: NSPredicate! { get {return Constants.Predicate.isFollowing} }
+    override var tableViewCellId: String! {get {return Constants.TableCell.followingCell} }
 
     //MARK: Outlets
     
