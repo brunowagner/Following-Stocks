@@ -90,7 +90,8 @@ class SearchViewController : UITableViewController {
     
     func fetchPaper(symbol : String) -> Paper?{
         let fetch : NSFetchRequest<Paper> = Paper.fetchRequest()
-        let predicate : NSPredicate = NSPredicate(format: "symbol == %@", symbol)
+        
+        let predicate : NSPredicate = NSPredicate(format: Constants.PredicateFormat.symbol, symbol)
         fetch.predicate = predicate
         
         if let results = try? DataController.sharedInstance().viewContext.fetch(fetch), results.count > 0 {
@@ -117,7 +118,7 @@ extension SearchViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableCell.searchCell) as! SearchTableViewCell
         
         let paper : PaperStruct = filteredPaperArray[indexPath.row]
         print(paper.symbol)
@@ -143,11 +144,11 @@ extension SearchViewController {
         
         guard isToFillField == false else {
             dismiss(animated: false, completion: nil)
-            return performSegue(withIdentifier: "unwindToMovingPortfolioViewController", sender: filteredPaperArray[indexPath.row])
+            return performSegue(withIdentifier: Constants.SegueId.unwindToMovingPortfolioViewController, sender: filteredPaperArray[indexPath.row])
         }
         
         let paper = filteredPaperArray[indexPath.row]
-        performSegue(withIdentifier: "SearchToDetail2", sender: paper)
+        performSegue(withIdentifier: Constants.SegueId.searchToDetail2, sender: paper)
     }
 }
 

@@ -43,6 +43,7 @@ struct Constants {
     struct PredicateFormat {
         static let isFollowing = "isFollowed == %@"
         static let isPortfolio = "isPortfolio == %@"
+        static let symbol = "symbol == %@"
     }
     
     struct AutoComplete {
