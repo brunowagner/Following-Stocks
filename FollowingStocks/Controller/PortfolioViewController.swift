@@ -14,6 +14,7 @@ class PortfolioViewController: PaperViewController {
     //MARK: Properties
 //    var fetchedResultsController : NSFetchedResultsController<Paper>!
 //    static let limitOfPapers : Int = 5
+    
     override var predicate: NSPredicate! { get {return NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))} }
     override var tableViewCellId: String! {get {return "PortfolioCell"}}
     
@@ -85,7 +86,7 @@ class PortfolioViewController: PaperViewController {
     
     //MARK: Actions
     @IBAction func addAction(_ sender: UIBarButtonItem) {
-        if PortfolioViewController.limitOfPapersReached() {
+        if PortfolioViewController.limitOfPapersReached(with: predicate) {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
             return
         }

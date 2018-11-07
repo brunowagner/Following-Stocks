@@ -70,9 +70,9 @@ class PaperViewController: UIViewController {
     }
     
     //MARK: Statics Functions
-    static func getPapersCount() -> Int {
+    static func getPapersCount(with predicate: NSPredicate) -> Int {
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
-        let predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
+        //let predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
         fetchRequest.predicate = predicate
         
         if let result = try? DataController.sharedInstance().viewContext.fetch(fetchRequest){
@@ -82,8 +82,8 @@ class PaperViewController: UIViewController {
         }
     }
     
-    static func limitOfPapersReached() -> Bool {
-        let numOfPapers : Int = self.getPapersCount()
+    static func limitOfPapersReached(with predicate: NSPredicate) -> Bool {
+        let numOfPapers : Int = self.getPapersCount(with: predicate)
         
         if numOfPapers >= limitOfPapers {
             return true

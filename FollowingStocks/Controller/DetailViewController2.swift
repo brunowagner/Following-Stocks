@@ -88,7 +88,7 @@ class DetailViewController2: UIViewController {
     }
     
     @IBAction func followingAction(_ sender: Any) {
-        if !isPaperFollowed(), FollowingViewController.getPapersCount() >= 5 {
+        if !isPaperFollowed(), FollowingViewController.limitOfPapersReached(with: Constants.Predicate.isFollowing) {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in following just was reached!")
             
         } else {
@@ -132,7 +132,7 @@ class DetailViewController2: UIViewController {
     }
     
     func tradePaper(operation: Trade.OperationType){
-        if !isPaperPortfolio(), PortfolioViewController.getPapersCount() >= 5 {
+        if !isPaperPortfolio(), PortfolioViewController.limitOfPapersReached(with: Constants.Predicate.isPortfolio) {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
             return
         }

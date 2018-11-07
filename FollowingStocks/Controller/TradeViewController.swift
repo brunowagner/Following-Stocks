@@ -63,7 +63,7 @@ class TradeViewController: UIViewController {
     // MARK: Actions
     @IBAction func searchAction(_ sender: Any) {
         print("\(type(of: self)) - performSegue")
-        performSegue(withIdentifier: "MovingYourPortifolioToSearch", sender: nil)
+        performSegue(withIdentifier: "TradeToSearch", sender: nil)
     }
     
     @IBAction func stepperValueChange(_ sender: UIStepper) {

@@ -226,7 +226,7 @@
         <!--Moving your Portfolio-->
         <scene sceneID="qGw-fC-vNJ">
             <objects>
-                <viewController storyboardIdentifier="MovingPortfolioViewController" title="Moving your Portfolio" modalPresentationStyle="overFullScreen" id="O4c-IM-jmY" customClass="TradeViewController" customModule="FollowingStocks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TradeViewController" title="Moving your Portfolio" modalPresentationStyle="overFullScreen" id="O4c-IM-jmY" customClass="TradeViewController" customModule="FollowingStocks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="obR-mk-81z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -383,7 +383,7 @@
                         <outlet property="quantityTextField" destination="Cjf-G2-HVk" id="3TC-g7-vb6"/>
                         <outlet property="stepper" destination="zL1-Vb-psz" id="SQC-P8-3UU"/>
                         <outlet property="tradeButton" destination="fSN-L6-hoY" id="2Re-xg-v1a"/>
-                        <segue destination="c0O-v5-mEt" kind="presentation" identifier="MovingYourPortifolioToSearch" id="UK9-HE-9ua"/>
+                        <segue destination="c0O-v5-mEt" kind="presentation" identifier="TradeToSearch" id="UK9-HE-9ua"/>
                         <segue destination="MOd-kg-hAP" kind="unwind" identifier="unwindToDetail" unwindAction="unwindToDetail:" id="C2Y-NL-AWF"/>
                     </connections>
                 </viewController>

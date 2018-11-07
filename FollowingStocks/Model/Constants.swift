@@ -12,7 +12,7 @@ struct Constants {
     struct SegueId{
         static let searchToDetail2 = "SearchToDetail2"
         static let unwindToMovingPortfolioViewController = "unwindToMovingPortfolioViewController"
-        static let movingYourPortifolioToSearch = "MovingYourPortifolioToSearch"
+        static let tradeToSearch = "TradeToSearch"
         static let unwindToDetail = "unwindToDetail"
         static let followingToDetail2 = "FollowingToDetail2"
         static let portfolioToDetail2 = "PortfolioToDetail2"
@@ -20,7 +20,7 @@ struct Constants {
     }
     
     struct ViewController{
-        static let movingPortfolioViewController = "TradeViewController"
+        static let tradeViewController = "TradeViewController"
         static let detailViewController2 = "DetailViewController2"
     }
     
@@ -44,6 +44,11 @@ struct Constants {
         static let isFollowing = "isFollowed == %@"
         static let isPortfolio = "isPortfolio == %@"
         static let symbol = "symbol == %@"
+    }
+    
+    struct Predicate {
+        static let isFollowing : NSPredicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
+        static let isPortfolio : NSPredicate = NSPredicate(format: "isPortfolio == %@", NSNumber(value: true))
     }
     
     struct AutoComplete {
