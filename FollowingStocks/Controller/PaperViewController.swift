@@ -9,11 +9,18 @@
 import UIKit
 import CoreData
 
+protocol fetchP {
+    var predicate : NSPredicate! {get set}
+    
+    func setPredicate (predicate : NSPredicate)
+}
+
 class PaperViewController: UIViewController {
     
     //MARK: Properties
     var fetchedResultsController : NSFetchedResultsController<Paper>!
-    var predicate : NSPredicate!
+    var predicate : NSPredicate! { get {return nil} }
+    var tableViewCellId : String! {get {return nil}}
     static let limitOfPapers : Int = 5
     
     //MARK: Outlets
@@ -23,6 +30,9 @@ class PaperViewController: UIViewController {
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard predicate != nil && tableViewCellId != nil else {
+            fatalError("Override 'predicate' and 'tableViewCellId' variables on format '{get {return ...} }'!")
+        }
         print("\(type(of: self)) - viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
@@ -42,10 +52,6 @@ class PaperViewController: UIViewController {
     }
     
     //MARK: Fetcheds
-    func setPredicate(predicate: NSPredicate) {
-        fatalError("Implements setPredicate")
-    }
-    
     fileprivate func setupPaperFetchedResultsController() {
         print("Iniciando Fetched...")
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
@@ -99,7 +105,7 @@ extension PaperViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FollowingCell", for: indexPath) as! PortfolioCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId/*"FollowingCell"*/, for: indexPath) as! PortfolioCell
         let paper = fetchedResultsController.object(at: indexPath)
         cell.setFieldsBy(paper: paper)
         return cell

@@ -14,21 +14,24 @@ class FollowingViewController: PaperViewController {
     //MARK: Properties
     //var fetchedResultsController : NSFetchedResultsController<Paper>!
     //static let limitOfPapers : Int = 5
-    
+    override var predicate: NSPredicate! { get {return NSPredicate(format: "isFollowed == %@", NSNumber(value: true))} }
+    override var tableViewCellId: String! {get {return "FollowingCell"} }
+
     //MARK: Outlets
     
 
     //MARK: Life's cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+ //   override func viewDidLoad() {
+ //       super.viewDidLoad()
+//        setPredicate()
 //        print("\(type(of: self)) - viewDidLoad")
 //        tableView.dataSource = self
 //        tableView.delegate = self
-    }
+ //   }
     
-    override func setPredicate(predicate: NSPredicate) {
-        self.predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
-    }
+//    override func setPredicate() {
+//        self.predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
+//    }
     
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
