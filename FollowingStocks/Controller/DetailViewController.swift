@@ -99,9 +99,9 @@ class DetailViewController: UIViewController {
         self.quantity.text = "\(paper.quantity)"
         self.averagePrice.text = "\(paper.averageCost)"
         if paper.isFollowed {
-            followButton.image = UIImage(named: "baseline_my_location_black_24pt")
+            followButton.image = UIImage(named: Constants.ImageName.following)
         } else {
-            followButton.image = UIImage(named: "baseline_location_disabled_black_24pt")
+            followButton.image = UIImage(named: Constants.ImageName.unfollowing)
         }
     }
     

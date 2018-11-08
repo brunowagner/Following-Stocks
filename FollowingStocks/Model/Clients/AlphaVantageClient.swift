@@ -34,9 +34,13 @@ class AlphaVantageClient {
          */
         
         let parameters : [String:AnyObject] = [
-            "function" : "GLOBAL_QUOTE" as AnyObject,
-            "symbol": symbol as AnyObject,
-            "apikey": "1CSEQWZU1E835K1M" as AnyObject
+            
+            Constants.AlphaVantageClient.ParameterKey.function : Constants.AlphaVantageClient.ParameterValue.functionGlobalQuote as AnyObject,
+            Constants.AlphaVantageClient.ParameterKey.symbol :symbol as AnyObject,
+            Constants.AlphaVantageClient.ParameterKey.apikey : Constants.AlphaVantageClient.ParameterValue.apiKey as AnyObject
+            //"function" : "GLOBAL_QUOTE" as AnyObject,
+            //"symbol": symbol as AnyObject,
+            //"apikey": "1CSEQWZU1E835K1M" as AnyObject
         ]
         
         let _ = HTTPTools.taskForGETMethod("", parameters: parameters, apiRequirements: AlphaVantageApiRequirements()) { (data, error) in
@@ -52,11 +56,11 @@ class AlphaVantageClient {
                 return completion(true, nil, Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.No_data_or_unexpected_data_was_returned.rawValue, description: "Do not have quote to paper searched!"))
             }
             
-            if let errorMessage = response["Information"] as? String,  errorMessage.contains("if you would like to have a higher API call volume") {
+            if let errorMessage = response[Constants.AlphaVantageClient.FaultKey.information] as? String,  errorMessage.contains("if you would like to have a higher API call volume") {
                 return completion(false,nil,Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.Limit_of_requests_per_minute_was_exceeded.rawValue, description: errorMessage))
             }
             
-            if let errorMessage = response["Error Message"] as? String {
+            if let errorMessage = response[Constants.AlphaVantageClient.FaultKey.errorMessage] as? String {
                 print(errorMessage)
                 return completion(false,nil,Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.Response_statusCode_error.rawValue, description: errorMessage))
             }

@@ -16,7 +16,7 @@ class PortfolioViewController: PaperViewController {
 //    static let limitOfPapers : Int = 5
     
     override var predicate: NSPredicate! { get {return Constants.Predicate.isPortfolio} }
-    override var tableViewCellId: String! {get {return Constants.TableCell.portfolioCell}}
+    override var reusableCell: String! {get {return Constants.ReusableCell.portfolioCell}}
     
     //MARK: Outlets
 //    @IBOutlet weak var tableView: UITableView!

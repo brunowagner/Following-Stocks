@@ -24,7 +24,7 @@ struct Constants {
         static let detailViewController2 = "DetailViewController2"
     }
     //MARK: -
-    struct TableCell{
+    struct ReusableCell{
         static let portfolioCell = "PortfolioCell"
         static let followingCell = "FollowingCell"
         static let searchCell = "SearchCell"

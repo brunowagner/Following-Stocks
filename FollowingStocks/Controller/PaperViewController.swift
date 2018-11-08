@@ -8,29 +8,21 @@
 
 import UIKit
 import CoreData
-
-protocol fetchP {
-    var predicate : NSPredicate! {get set}
-    
-    func setPredicate (predicate : NSPredicate)
-}
-
 class PaperViewController: UIViewController {
     
     //MARK: Properties
     var fetchedResultsController : NSFetchedResultsController<Paper>!
     var predicate : NSPredicate! { get {return nil} }
-    var tableViewCellId : String! {get {return nil}}
+    var reusableCell : String! {get {return nil}}
     static let limitOfPapers : Int = 5
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
-    //var tableView : UITableView!
 
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard predicate != nil && tableViewCellId != nil else {
+        guard predicate != nil && reusableCell != nil else {
             fatalError("Override 'predicate' and 'tableViewCellId' variables on format '{get {return ...} }'!")
         }
         print("\(type(of: self)) - viewDidLoad")
@@ -55,7 +47,6 @@ class PaperViewController: UIViewController {
     fileprivate func setupPaperFetchedResultsController() {
         print("Iniciando Fetched...")
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
-        //let predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
         let sortDescriptor = NSSortDescriptor(key: "symbol", ascending: true)
         fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [sortDescriptor]
@@ -72,7 +63,6 @@ class PaperViewController: UIViewController {
     //MARK: Statics Functions
     static func getPapersCount(with predicate: NSPredicate) -> Int {
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
-        //let predicate = NSPredicate(format: "isFollowed == %@", NSNumber(value: true))
         fetchRequest.predicate = predicate
         
         if let result = try? DataController.sharedInstance().viewContext.fetch(fetchRequest){
@@ -105,7 +95,7 @@ extension PaperViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: tableViewCellId/*"FollowingCell"*/, for: indexPath) as! PortfolioCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reusableCell, for: indexPath) as! PortfolioCell
         let paper = fetchedResultsController.object(at: indexPath)
         cell.setFieldsBy(paper: paper)
         return cell
@@ -118,7 +108,7 @@ extension PaperViewController: UITableViewDelegate{
         
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailViewController2") as! DetailViewController2
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.detailViewController2) as! DetailViewController2
         detailVC.paper = fetchedResultsController.object(at: indexPath)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }

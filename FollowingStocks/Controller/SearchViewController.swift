@@ -118,7 +118,7 @@ extension SearchViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableCell.searchCell) as! SearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReusableCell.searchCell) as! SearchTableViewCell
         
         let paper : PaperStruct = filteredPaperArray[indexPath.row]
         print(paper.symbol)
