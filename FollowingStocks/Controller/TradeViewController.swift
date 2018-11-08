@@ -63,7 +63,7 @@ class TradeViewController: UIViewController {
     // MARK: Actions
     @IBAction func searchAction(_ sender: Any) {
         print("\(type(of: self)) - performSegue")
-        performSegue(withIdentifier: "TradeToSearch", sender: nil)
+        performSegue(withIdentifier: Constants.SegueId.tradeToSearch, sender: nil)
     }
     
     @IBAction func stepperValueChange(_ sender: UIStepper) {
@@ -79,7 +79,7 @@ class TradeViewController: UIViewController {
     
     @IBAction func cancelAction(_ sender: Any) {
         print("\(type(of: self)) - cancelAction")
-        if paper != nil, !paper.isPortfolio && !paper.isFollowed {
+        if paper != nil, !isPaperStoraged() {
             DataController.sharedInstance().viewContext.delete(paper)
         }
         dismiss(animated: true, completion: nil)
@@ -91,30 +91,32 @@ class TradeViewController: UIViewController {
     
     @IBAction func tradeAction (_ sender: UIButton){
         
-        guard validateFields() else {
-            return
-        }
-        
         let quantity = Int16((quantityTextField.text! as NSString).intValue)
         let price = (self.priceTextField.text! as NSString).doubleValue
         
+        guard validateFields(), validateQuantity(quantity: quantity) else {
+            return
+        }
+
         setTrade(price: price, quantity: quantity)
         
         print(trade)
         print(paper)
-        
+    
         do{
             try DataController.sharedInstance().viewContext.save()
-            performSegue(withIdentifier: "unwindToDetail", sender: nil)
+            performSegue(withIdentifier: Constants.SegueId.unwindToDetail, sender: nil)
+            dismiss(animated: true, completion: nil)
         } catch {
             fatalError("\(type(of: self)) - tradeAction: Could not save to core date")
         }
+        
     }
     
     //MARK: PrepareForSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("\(type(of: self)) - prepareforSegue")
-        if segue.identifier == "unwindToDetail"{
+        if segue.identifier == Constants.SegueId.unwindToDetail{
             //Do nothing. At return to Detail, a reload occurs.
         } else {
             if let searchVC = segue.destination as? SearchViewController{
@@ -135,31 +137,12 @@ class TradeViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    func fillUI(){
-        paperTextField.text = paper?.symbol
-        quantityTextField.text = "0"
-        priceTextField.text = String(format: "%.02f", paper?.quote?.price ?? 0)
-        dateTextField.text = dateFormatter.string(from: Date())
-        self.tradeButton.setTitle(operation.rawValue, for: .normal)
-    }
-    
-    func validateFields() -> Bool {
-        guard isPaperSelected() else {
-            Alerts.message(view: self, title: "Paper was not selected!", message: "\nPlease, inform Paper.")
-            return false
+    func isPaperStoraged() -> Bool {
+        var returnBool : Bool = false
+        if paper.isPortfolio || paper.isFollowed {
+            returnBool = true
         }
-        
-        guard isQuantityValid() else {
-            Alerts.message(view: self, title: "Invalid quantity!", message: "\nPlease, inform Quantity.")
-            return false
-        }
-        
-        guard isPriceValid() else {
-            Alerts.message(view: self, title: "Invalid price!", message: "\nPlease, inform Price.")
-            return false
-        }
-        
-        return true
+        return returnBool
     }
     
     func isPaperSelected() -> Bool {
@@ -179,7 +162,6 @@ class TradeViewController: UIViewController {
         switch operation! {
         case .sale:
             if quantity > paper.quantity {
-                Alerts.message(view: self, title: "The quantity exceeded the limit!", message: "This paper have only \(paper.quantity). Choose this quantity or less!")
                 return
             } else if quantity == paper.quantity {
                 paper.quantity -= quantity
@@ -207,6 +189,47 @@ class TradeViewController: UIViewController {
     func averageCost(quantityA : Int16, costA: Double, quantityB: Int16, costB: Double) -> Double{
         let response = (( Double(quantityA) * costA) + (Double(quantityB) * costB)) / ( Double(quantityA) + Double(quantityB))
         return response
+    }
+    
+    //MARK : UI
+    func fillUI(){
+        paperTextField.text = paper?.symbol
+        quantityTextField.text = "0"
+        priceTextField.text = String(format: "%.02f", paper?.quote?.price ?? 0)
+        dateTextField.text = dateFormatter.string(from: Date())
+        self.tradeButton.setTitle(operation.rawValue, for: .normal)
+    }
+    
+    func validateFields() -> Bool {
+        guard isPaperSelected() else {
+            Alerts.message(view: self, title: "Paper was not selected!", message: "\nPlease, inform Paper.")
+            return false
+        }
+        
+        guard isQuantityValid() else {
+            Alerts.message(view: self, title: "Invalid quantity!", message: "\nPlease, inform Quantity.")
+            return false
+        }
+        
+        guard isPriceValid() else {
+            Alerts.message(view: self, title: "Invalid price!", message: "\nPlease, inform Price.")
+            return false
+        }
+        
+        return true
+    }
+    
+    func validateQuantity (quantity : Int16) -> Bool {
+        switch operation! {
+        case .sale:
+            if quantity > paper.quantity {
+                Alerts.message(view: self, title: "The quantity exceeded the limit!", message: "This paper have only \(paper.quantity). Choose this quantity or less!")
+                return false
+            }
+            break
+        case .purchase: break
+        }
+        return true
     }
 }
 
