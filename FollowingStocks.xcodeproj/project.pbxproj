@@ -14,11 +14,8 @@
 		39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D5214F056700476573 /* ApiRequirements.swift */; };
 		39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D6214F056700476573 /* HTTPTools.swift */; };
 		39A7E1DA214F070500476573 /* AutocompleteApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */; };
-		39A7E1DC215081D500476573 /* Links uteis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7E1DB215081D500476573 /* Links uteis.swift */; };
-		39C5382A2162D2550020C5F8 /* Paper+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C538292162D2550020C5F8 /* Paper+Extensions.swift */; };
 		39CE53F1215AF1E8005B57C7 /* TradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE53F0215AF1E8005B57C7 /* TradeViewController.swift */; };
 		39CF60CE214E02310041AF3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF60CD214E02310041AF3B /* AppDelegate.swift */; };
-		39CF60D0214E02310041AF3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CF60CF214E02310041AF3B /* ViewController.swift */; };
 		39CF60D3214E02310041AF3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D1214E02310041AF3B /* Main.storyboard */; };
 		39CF60D5214E02320041AF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D4214E02320041AF3B /* Assets.xcassets */; };
 		39CF60D8214E02320041AF3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39CF60D6214E02320041AF3B /* LaunchScreen.storyboard */; };
@@ -53,12 +50,9 @@
 		39A7E1D5214F056700476573 /* ApiRequirements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiRequirements.swift; sourceTree = "<group>"; };
 		39A7E1D6214F056700476573 /* HTTPTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTools.swift; sourceTree = "<group>"; };
 		39A7E1D9214F070500476573 /* AutocompleteApiRequirements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteApiRequirements.swift; sourceTree = "<group>"; };
-		39A7E1DB215081D500476573 /* Links uteis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Links uteis.swift"; sourceTree = "<group>"; };
-		39C538292162D2550020C5F8 /* Paper+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Paper+Extensions.swift"; sourceTree = "<group>"; };
 		39CE53F0215AF1E8005B57C7 /* TradeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeViewController.swift; sourceTree = "<group>"; };
 		39CF60CA214E02310041AF3B /* FollowingStocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FollowingStocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CF60CD214E02310041AF3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		39CF60CF214E02310041AF3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		39CF60D2214E02310041AF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39CF60D4214E02320041AF3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39CF60D7214E02320041AF3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -126,7 +120,6 @@
 		39C538282162D1F70020C5F8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				39C538292162D2550020C5F8 /* Paper+Extensions.swift */,
 				39EA67C321682598001C9CC6 /* Trade+Extensions.swift */,
 			);
 			path = Extensions;
@@ -170,7 +163,6 @@
 				39CF60E0214E02970041AF3B /* View */,
 				39CF60DF214E02890041AF3B /* Model */,
 				39CF60D4214E02320041AF3B /* Assets.xcassets */,
-				39CF60CF214E02310041AF3B /* ViewController.swift */,
 				39CF60D1214E02310041AF3B /* Main.storyboard */,
 				39CF60D6214E02320041AF3B /* LaunchScreen.storyboard */,
 				39CF60D9214E02330041AF3B /* Info.plist */,
@@ -189,7 +181,6 @@
 				39EF632D215445150000C1D9 /* FollowingStocks.xcdatamodeld */,
 				39EF63342155C3D60000C1D9 /* DataController.swift */,
 				39A7E1D4214F056700476573 /* Network */,
-				39A7E1DB215081D500476573 /* Links uteis.swift */,
 				39D0026C21923E1500545236 /* Constants.swift */,
 			);
 			path = Model;
@@ -328,7 +319,6 @@
 				39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */,
 				391BF74B2175764B00EE8EEB /* ZipCodeTextFieldDelegate.swift in Sources */,
 				39CE53F1215AF1E8005B57C7 /* TradeViewController.swift in Sources */,
-				39CF60D0214E02310041AF3B /* ViewController.swift in Sources */,
 				39EC9886217809D400C53418 /* GCDBlackBox.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,
 				391BF74A2175764B00EE8EEB /* MoneyTextFieldDelegate.swift in Sources */,
@@ -343,7 +333,6 @@
 				39DB5485215C52AF0045C3D2 /* QuoteStruct.swift in Sources */,
 				39D0026B218B8ECA00545236 /* PaperViewController.swift in Sources */,
 				39D2C6F82176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift in Sources */,
-				39C5382A2162D2550020C5F8 /* Paper+Extensions.swift in Sources */,
 				39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */,
 				39EA67C421682598001C9CC6 /* Trade+Extensions.swift in Sources */,
 				39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */,
@@ -355,7 +344,6 @@
 				39EF63352155C3D60000C1D9 /* DataController.swift in Sources */,
 				39EF632F215445150000C1D9 /* FollowingStocks.xcdatamodeld in Sources */,
 				39EF6339215989180000C1D9 /* AlphaVantageClient.swift in Sources */,
-				39A7E1DC215081D500476573 /* Links uteis.swift in Sources */,
 				39D0026D21923E1500545236 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

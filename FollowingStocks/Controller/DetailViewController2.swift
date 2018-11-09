@@ -6,21 +6,6 @@
 //  Copyright © 2018 Bruno_W. All rights reserved.
 //
 
-/*
- Lógica:
- 
- > ao iniciar:
- -      buscar na rede a cotação do papel recebido via modo de injeção
- -      carregar as view com os dados obtidos da rede.
- 
- > ao clicar no botão "Add":
- -      Ir para uma view(modal) com formulario de adição
- -      No formulário:
- -          O usuário poderá cancelar a adição ou;
- -          O usuário irá preencher dados como quantidade, preço e data de compra.
- -          Ao clicar em adicionar os dados seráo persistidos no coredata e o formulário será dispensado.
- */
-
 import UIKit
 
 class DetailViewController2: UIViewController {
@@ -184,17 +169,14 @@ class DetailViewController2: UIViewController {
         let changePercentAttributedText = NSMutableAttributedString(string: "(\(globalQuote.changePercent))")
         changePercentAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: Constants.CollorName.darkGreen)!, negativeColor: UIColor.red)
         
-        self.labelprice.text =  String(format: "%.02f", globalQuote.price ) //"\(globalQuote.price)"
-        //self.labelchange.text =  "\(globalQuote.change)"
+        self.labelprice.text =  String(format: "%.02f", globalQuote.price )
         self.labelchange.attributedText = changeAttributedText
-        //self.labelchangePercent.text =  "(\(globalQuote.changePercent))"
         self.labelchangePercent.attributedText = changePercentAttributedText
-        self.labelHigh.text = String(format: "%.02f", globalQuote.high ) //"\(globalQuote.high)"
+        self.labelHigh.text = String(format: "%.02f", globalQuote.high )
         self.labelLatestTradingDay.text =  "\(globalQuote.latestTradingDay)"
-        self.labelLow.text = String(format: "%.02f", globalQuote.low ) //"\(globalQuote.low)"
-        self.labelOpen.text = String(format: "%.02f", globalQuote.open ) //"\(globalQuote.open)"
-        self.labelPreviousClose.text = String(format: "%.02f", globalQuote.previousClose ) //"\(globalQuote.previousClose)"
-        //self.symbolLabel.text = "\(globalQuote.symbol)"
+        self.labelLow.text = String(format: "%.02f", globalQuote.low )
+        self.labelOpen.text = String(format: "%.02f", globalQuote.open )
+        self.labelPreviousClose.text = String(format: "%.02f", globalQuote.previousClose )
         self.labelVolume.text = "\(globalQuote.volume)"
         
         self.toggleUIFollowingButton(to: isPaperFollowed())
