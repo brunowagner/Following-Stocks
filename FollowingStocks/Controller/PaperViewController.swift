@@ -108,9 +108,9 @@ extension PaperViewController: UITableViewDelegate{
         
         tableView.deselectRow(at: indexPath, animated: false)
         
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.detailViewController2) as! DetailViewController2
-        detailVC.paper = fetchedResultsController.object(at: indexPath)
-        self.navigationController?.pushViewController(detailVC, animated: true)
+        let detailViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.detailViewController2) as! DetailViewController2
+        detailViewController.paper = fetchedResultsController.object(at: indexPath)
+        self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
 

@@ -75,8 +75,8 @@ class TradeViewController: UIViewController {
     
     @IBAction func unwindToTradeViewController(_ sender: UIStoryboardSegue) {
         print("\(type(of: self)) - unwindToTradeViewController")
-        let vc = sender.source as! SearchViewController
-        paper = vc.paper
+        let searchViewController = sender.source as! SearchViewController
+        paper = searchViewController.paper
         self.paperTextField.text = paper.symbol
     }
     
@@ -122,8 +122,8 @@ class TradeViewController: UIViewController {
         if segue.identifier == Constants.SegueId.unwindToDetail{
             //Do nothing. At return to Detail, a reload occurs.
         } else {
-            if let searchVC = segue.destination as? SearchViewController{
-                searchVC.isToFillField = true
+            if let searchViewController = segue.destination as? SearchViewController{
+                searchViewController.isToFillField = true
             }
         }
     }

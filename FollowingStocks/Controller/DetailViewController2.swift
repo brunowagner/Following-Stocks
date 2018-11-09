@@ -55,7 +55,6 @@ class DetailViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(type(of: self)) - viewDidLoad")
-        
         self.initializeQuote()
         self.loadPaperInUI()
         self.configureBorders()
@@ -137,15 +136,15 @@ class DetailViewController2: UIViewController {
             return
         }
         
-        let m = storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.tradeViewController) as! TradeViewController
+        let tradeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.tradeViewController) as! TradeViewController
         
         print("DETAIL - injetando paper...")
-        m.paper = paper
-        m.operation = operation
-        m.accessedBy = self
+        tradeViewController.paper = paper
+        tradeViewController.operation = operation
+        tradeViewController.accessedBy = self
         print("DETAIL - paper injetado!")
         
-        present(m, animated: true, completion: nil)
+        present(tradeViewController, animated: true, completion: nil)
     }
     
     //MARK: UI

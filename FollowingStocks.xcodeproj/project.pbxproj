@@ -26,9 +26,7 @@
 		39D0026D21923E1500545236 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D0026C21923E1500545236 /* Constants.swift */; };
 		39D2C6F621768D5E00FFE1CD /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2C6F521768D5E00FFE1CD /* Alerts.swift */; };
 		39D2C6F82176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D2C6F72176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift */; };
-		39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */; };
 		39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */; };
-		39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDED21530794004BEB1E /* TesteSearchController.swift */; };
 		39D4DDF021531419004BEB1E /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */; };
 		39DB5480215C4D140045C3D2 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB547F215C4D140045C3D2 /* Utilities.swift */; };
 		39DB5483215C52860045C3D2 /* PaperStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DB5482215C52860045C3D2 /* PaperStruct.swift */; };
@@ -45,7 +43,6 @@
 		39EF63352155C3D60000C1D9 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF63342155C3D60000C1D9 /* DataController.swift */; };
 		39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */; };
 		39EF6339215989180000C1D9 /* AlphaVantageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF6338215989180000C1D9 /* AlphaVantageClient.swift */; };
-		39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,9 +67,7 @@
 		39D0026C21923E1500545236 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		39D2C6F521768D5E00FFE1CD /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		39D2C6F72176A6A200FFE1CD /* NSMutableAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extensions.swift"; sourceTree = "<group>"; };
-		39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teste1SearchController.swift; sourceTree = "<group>"; };
 		39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingViewController.swift; sourceTree = "<group>"; };
-		39D4DDED21530794004BEB1E /* TesteSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteSearchController.swift; sourceTree = "<group>"; };
 		39D4DDEF21531419004BEB1E /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		39DB547F215C4D140045C3D2 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		39DB5482215C52860045C3D2 /* PaperStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperStruct.swift; sourceTree = "<group>"; };
@@ -89,7 +84,6 @@
 		39EF63342155C3D60000C1D9 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		39EF6336215987710000C1D9 /* AlphaVantageApiRequirements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageApiRequirements.swift; sourceTree = "<group>"; };
 		39EF6338215989180000C1D9 /* AlphaVantageClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaVantageClient.swift; sourceTree = "<group>"; };
-		39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,13 +210,10 @@
 			children = (
 				391BF7462175760900EE8EEB /* Delegates */,
 				39A7E1D0214F012C00476573 /* SearchViewController.swift */,
-				39D4DDE92152F6FF004BEB1E /* Teste1SearchController.swift */,
 				39D4DDEB2152FFFB004BEB1E /* FollowingViewController.swift */,
-				39D4DDED21530794004BEB1E /* TesteSearchController.swift */,
 				39EF63322155B74A0000C1D9 /* PortfolioViewController.swift */,
 				39EA67C82169653D001C9CC6 /* DetailViewController2.swift */,
 				39CE53F0215AF1E8005B57C7 /* TradeViewController.swift */,
-				39EF633A2159AF6F0000C1D9 /* DetailViewController.swift */,
 				39D0026A218B8ECA00545236 /* PaperViewController.swift */,
 			);
 			path = Controller;
@@ -336,11 +327,9 @@
 				39A7E1D1214F012C00476573 /* SearchViewController.swift in Sources */,
 				39EF63332155B74A0000C1D9 /* PortfolioViewController.swift in Sources */,
 				391BF74B2175764B00EE8EEB /* ZipCodeTextFieldDelegate.swift in Sources */,
-				39D4DDEA2152F6FF004BEB1E /* Teste1SearchController.swift in Sources */,
 				39CE53F1215AF1E8005B57C7 /* TradeViewController.swift in Sources */,
 				39CF60D0214E02310041AF3B /* ViewController.swift in Sources */,
 				39EC9886217809D400C53418 /* GCDBlackBox.swift in Sources */,
-				39D4DDEE21530794004BEB1E /* TesteSearchController.swift in Sources */,
 				39A7E1D7214F056700476573 /* ApiRequirements.swift in Sources */,
 				391BF74A2175764B00EE8EEB /* MoneyTextFieldDelegate.swift in Sources */,
 				39EC98372177B2F100C53418 /* Errors.swift in Sources */,
@@ -358,7 +347,6 @@
 				39A7E1D3214F03A300476573 /* AutoCompleteClient.swift in Sources */,
 				39EA67C421682598001C9CC6 /* Trade+Extensions.swift in Sources */,
 				39EF6337215987710000C1D9 /* AlphaVantageApiRequirements.swift in Sources */,
-				39EF633B2159AF6F0000C1D9 /* DetailViewController.swift in Sources */,
 				39D4DDEC2152FFFB004BEB1E /* FollowingViewController.swift in Sources */,
 				39EA67C721696380001C9CC6 /* UIView+Extensions.swift in Sources */,
 				39A7E1D8214F056700476573 /* HTTPTools.swift in Sources */,

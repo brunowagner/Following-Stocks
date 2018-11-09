@@ -43,12 +43,12 @@ class SearchViewController : UITableViewController {
         setPaper(paperStruct: sender as! PaperStruct)
         
         if segue.identifier == Constants.SegueId.searchToDetail2 {
-            let detailVC = segue.destination as! DetailViewController2
-            detailVC.paper = paper
+            let detailViewController = segue.destination as! DetailViewController2
+            detailViewController.paper = paper
         }
         if segue.identifier ==  Constants.SegueId.unwindToTradeViewController {
-            let mVC = segue.destination as! TradeViewController
-            mVC.paper = paper
+            let tradeViewController = segue.destination as! TradeViewController
+            tradeViewController.paper = paper
         }
     }
     

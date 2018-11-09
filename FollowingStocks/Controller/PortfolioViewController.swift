@@ -90,10 +90,10 @@ class PortfolioViewController: PaperViewController {
             Alerts.message(view: self, title: "Alert!", message: "Limit of papers in portfolio just was reached!")
             return
         }
-        let m = self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.tradeViewController) as! TradeViewController
-        m.operation = Trade.OperationType.purchase
+        let tradeViewController = self.storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.tradeViewController) as! TradeViewController
+        tradeViewController.operation = Trade.OperationType.purchase
         
-        present(m, animated: true, completion: nil)
+        present(tradeViewController, animated: true, completion: nil)
     }
     
     //MARK: Api Request
