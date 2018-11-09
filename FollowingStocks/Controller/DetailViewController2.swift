@@ -141,7 +141,7 @@ class DetailViewController2: UIViewController {
     func loadPaperInUI(){
         self.labelName.text = paper.name
         self.labelSymbol.text = paper.symbol
-        self.labelTypeExchangeExchangeDisp.text = "\(paper.type ?? "") - \(paper.exchange ?? "") - \(paper.exchDisp ?? "")"
+        self.labelTypeExchangeExchangeDisp.text = "\(paper.typeDisp ?? "") - \(paper.exchange ?? "") - \(paper.exchDisp ?? "")"
         
         if isPaperPortfolio(){
             self.labelQuantity.text = "\(paper.quantity)"

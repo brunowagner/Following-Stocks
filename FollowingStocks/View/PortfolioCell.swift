@@ -29,7 +29,7 @@ class PortfolioCell: UITableViewCell {
         change.attributedText = changeAttributedText
     }
     
-    func setExchange(exchange: String!, exchangeDisp: String!){
+    func setExchange( exchange: String!, exchangeDisp: String!){
         if exchange != nil, exchangeDisp != nil{
             self.exchange.text = exchange + " - " + exchangeDisp
         } else {

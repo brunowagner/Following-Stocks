@@ -125,7 +125,7 @@ extension SearchViewController{
         
         cell.symbolLable.text = paper.symbol
         cell.nameLable.text = paper.companyName
-        cell.exchangeLable.text = paper.exch + " - " + paper.exchDisp
+        cell.exchangeLable.text = paper.typeDisp + " - " +  paper.exch + " - " + paper.exchDisp
         
         return cell
     }
