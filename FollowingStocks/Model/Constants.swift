@@ -11,7 +11,7 @@ struct Constants {
     //MARK: -
     struct SegueId{
         static let searchToDetail2 = "SearchToDetail2"
-        static let unwindToMovingPortfolioViewController = "unwindToMovingPortfolioViewController"
+        static let unwindToTradeViewController = "unwindToTradeViewController"
         static let tradeToSearch = "TradeToSearch"
         static let unwindToDetail = "unwindToDetail"
         static let followingToDetail2 = "FollowingToDetail2"

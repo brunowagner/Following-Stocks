@@ -46,7 +46,7 @@ class SearchViewController : UITableViewController {
             let detailVC = segue.destination as! DetailViewController2
             detailVC.paper = paper
         }
-        if segue.identifier ==  Constants.SegueId.unwindToMovingPortfolioViewController {
+        if segue.identifier ==  Constants.SegueId.unwindToTradeViewController {
             let mVC = segue.destination as! TradeViewController
             mVC.paper = paper
         }
@@ -144,7 +144,7 @@ extension SearchViewController {
         
         guard isToFillField == false else {
             dismiss(animated: false, completion: nil)
-            return performSegue(withIdentifier: Constants.SegueId.unwindToMovingPortfolioViewController, sender: filteredPaperArray[indexPath.row])
+            return performSegue(withIdentifier: Constants.SegueId.unwindToTradeViewController, sender: filteredPaperArray[indexPath.row])
         }
         
         let paper = filteredPaperArray[indexPath.row]

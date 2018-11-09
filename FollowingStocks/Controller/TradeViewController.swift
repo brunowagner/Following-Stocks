@@ -70,8 +70,8 @@ class TradeViewController: UIViewController {
         quantityTextField.text = Int(sender.value).description
     }
     
-    @IBAction func unwindToMovingPortfolioViewController(_ sender: UIStoryboardSegue) {
-        print("\(type(of: self)) - unwindToMovingPortfolioViewController")
+    @IBAction func unwindToTradeViewController(_ sender: UIStoryboardSegue) {
+        print("\(type(of: self)) - unwindToTradeViewController")
         let vc = sender.source as! SearchViewController
         paper = vc.paper
         self.paperTextField.text = paper.symbol

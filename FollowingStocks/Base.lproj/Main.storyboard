@@ -79,7 +79,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Search" id="Lez-nT-ggn"/>
                     <connections>
-                        <segue destination="Jcs-IM-GKL" kind="unwind" identifier="unwindToMovingPortfolioViewController" unwindAction="unwindToMovingPortfolioViewController:" id="1xn-rq-bni"/>
+                        <segue destination="Jcs-IM-GKL" kind="unwind" identifier="unwindToTradeViewController" unwindAction="unwindToTradeViewController:" id="1xn-rq-bni"/>
                         <segue destination="1uU-I1-yR8" kind="show" identifier="SearchToDetail2" id="9eF-Kp-7dJ"/>
                     </connections>
                 </tableViewController>
@@ -223,10 +223,10 @@
             </objects>
             <point key="canvasLocation" x="33" y="2170"/>
         </scene>
-        <!--Moving your Portfolio-->
+        <!--Trade-->
         <scene sceneID="qGw-fC-vNJ">
             <objects>
-                <viewController storyboardIdentifier="TradeViewController" title="Moving your Portfolio" modalPresentationStyle="overFullScreen" id="O4c-IM-jmY" customClass="TradeViewController" customModule="FollowingStocks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TradeViewController" title="Trade" modalPresentationStyle="overFullScreen" id="O4c-IM-jmY" customClass="TradeViewController" customModule="FollowingStocks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="obR-mk-81z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
