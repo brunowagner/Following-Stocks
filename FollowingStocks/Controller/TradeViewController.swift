@@ -11,6 +11,7 @@ import UIKit
 class TradeViewController: UIViewController {
     
     //MARK: Properties
+    var accessedBy : UIViewController!
     var paper: Paper!
     var quote: Quote!
     var trade: Trade!
@@ -32,6 +33,7 @@ class TradeViewController: UIViewController {
     @IBOutlet weak var tradeButton: UIButton!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var navigatioBar: UINavigationBar!
+    @IBOutlet weak var searchButton: UIButton!
     // Constraints
     @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
     
@@ -39,6 +41,7 @@ class TradeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(type(of: self)) - viewDidLoad")
+        configureUI()
         setUpTextFieldsDelegate()
         setUpUITapGestureRecognizer()
         fillUI()
@@ -198,6 +201,12 @@ class TradeViewController: UIViewController {
         priceTextField.text = String(format: "%.02f", paper?.quote?.price ?? 0)
         dateTextField.text = dateFormatter.string(from: Date())
         self.tradeButton.setTitle(operation.rawValue, for: .normal)
+    }
+    
+    fileprivate func configureUI() {
+        if let settedSource = accessedBy, settedSource.isKind(of: DetailViewController2.self) {
+            searchButton.isHidden = true
+        }
     }
     
     func validateFields() -> Bool {

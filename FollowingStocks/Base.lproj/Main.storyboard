@@ -381,6 +381,7 @@
                         <outlet property="paperTextField" destination="QAW-6B-B0X" id="yf1-8g-uzZ"/>
                         <outlet property="priceTextField" destination="GEx-vH-xiP" id="rRz-ZM-K6Q"/>
                         <outlet property="quantityTextField" destination="Cjf-G2-HVk" id="3TC-g7-vb6"/>
+                        <outlet property="searchButton" destination="OSW-Of-iWa" id="D7h-WX-nKq"/>
                         <outlet property="stepper" destination="zL1-Vb-psz" id="SQC-P8-3UU"/>
                         <outlet property="tradeButton" destination="fSN-L6-hoY" id="2Re-xg-v1a"/>
                         <segue destination="c0O-v5-mEt" kind="presentation" identifier="TradeToSearch" id="UK9-HE-9ua"/>

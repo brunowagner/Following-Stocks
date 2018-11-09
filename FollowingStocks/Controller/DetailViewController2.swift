@@ -142,6 +142,7 @@ class DetailViewController2: UIViewController {
         print("DETAIL - injetando paper...")
         m.paper = paper
         m.operation = operation
+        m.accessedBy = self
         print("DETAIL - paper injetado!")
         
         present(m, animated: true, completion: nil)
