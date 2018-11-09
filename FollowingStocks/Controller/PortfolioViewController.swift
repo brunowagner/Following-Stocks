@@ -85,7 +85,7 @@ class PortfolioViewController: PaperViewController {
         paper.quote?.price = (globalQuote?.price)!
         paper.quote?.volume = (globalQuote?.volume)!
         paper.quoteDate = Date()
-        print("\(paper.symbol ?? "without symbol") - \(paper.quoteDate ?? "without quote")")
+        print("\(String(describing: paper.symbol)) - \(String(describing: paper.quoteDate))")
         print("Portifolio - autoRequestQuoter setado!")
     }
 }
