@@ -24,7 +24,7 @@ class PortfolioCell: UITableViewCell {
     
     func setChange(value: Double, percent: String){
         let changeAttributedText = NSMutableAttributedString(string: String(value) + " (" + percent + ")")
-        changeAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: "DarkGreen")!, negativeColor: UIColor.red)
+        changeAttributedText.setColorForRacionalNumber(positiveColor: UIColor(named: Constants.CollorName.darkGreen)!, negativeColor: UIColor.red)
         
         change.attributedText = changeAttributedText
     }

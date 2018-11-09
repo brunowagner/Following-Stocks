@@ -12,35 +12,11 @@ class AlphaVantageClient {
     static let sharedInstance = AlphaVantageClient()
     
     static func  requestQuote (symbol : String, completion: @escaping (_ success: Bool , _ quote: GlobalQuote? ,_ error: NSError? ) -> Void) {
-        
-        //function=GLOBAL_QUOTE&symbol=MSFT&apikey=1CSEQWZU1E835K1M
-        //TO DO: Colocar as mensagens abaixo em uma estrutura de constantes.
-        /*  quando excede 5 requests por minuto
-         {
-         "Information": "Thank you for using Alpha Vantage! Please visit https://www.alphavantage.co/premium/ if you would like to have a higher API call volume."
-         }
-         */
-        
-        /*  quando a apikey é inválida ou inexistente
-         {
-         "Error Message" = "the parameter apikey is invalid or missing. Please claim your free API key on (https://www.alphavantage.co/support/#api-key). It should take less than 20 seconds, and is free permanently.";
-         }
-         */
-        
-        /*  quando a função não existe
-         {
-         "Error Message": "This API function (GLOBAL_QUOT) does not exist."
-         }
-         */
-        
+
         let parameters : [String:AnyObject] = [
-            
             Constants.AlphaVantageClient.ParameterKey.function : Constants.AlphaVantageClient.ParameterValue.functionGlobalQuote as AnyObject,
             Constants.AlphaVantageClient.ParameterKey.symbol :symbol as AnyObject,
             Constants.AlphaVantageClient.ParameterKey.apikey : Constants.AlphaVantageClient.ParameterValue.apiKey as AnyObject
-            //"function" : "GLOBAL_QUOTE" as AnyObject,
-            //"symbol": symbol as AnyObject,
-            //"apikey": "1CSEQWZU1E835K1M" as AnyObject
         ]
         
         let _ = HTTPTools.taskForGETMethod("", parameters: parameters, apiRequirements: AlphaVantageApiRequirements()) { (data, error) in
@@ -56,7 +32,11 @@ class AlphaVantageClient {
                 return completion(true, nil, Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.No_data_or_unexpected_data_was_returned.rawValue, description: "Do not have quote to paper searched!"))
             }
             
-            if let errorMessage = response[Constants.AlphaVantageClient.FaultKey.information] as? String,  errorMessage.contains("if you would like to have a higher API call volume") {
+            if let errorMessage = response[Constants.AlphaVantageClient.FaultKey.note] as? String,  errorMessage.contains("premium") {
+                return completion(false,nil,Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.Limit_of_requests_per_minute_was_exceeded.rawValue, description: errorMessage))
+            }
+            
+            if let errorMessage = response[Constants.AlphaVantageClient.FaultKey.information] as? String,  errorMessage.contains("premium") {
                 return completion(false,nil,Errors.makeNSError(domain: "Request Quote", code: Errors.ErrorCode.Limit_of_requests_per_minute_was_exceeded.rawValue, description: errorMessage))
             }
             

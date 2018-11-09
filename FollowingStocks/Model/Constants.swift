@@ -75,8 +75,16 @@ struct Constants {
     //MARK: -
     struct AlphaVantageClient {
         struct FaultKey{
+            static let note = "Note"
             static let information = "Information"
             static let errorMessage = "Error Message"
+        }
+        
+        struct FaultValue{
+            static let informationExceededLimit1 = "Thank you for using Alpha Vantage! Please visit https://www.alphavantage.co/premium/ if you would like to have a higher API call volume."
+            static let informationExceededLimit2 = "Thank you for using Alpha Vantage! Our standard API call frequency is 5 calls per minute and 500 calls per day. Please visit https://www.alphavantage.co/premium/ if you would like to target a higher API call frequency."
+            static let errorMessageApi = "the parameter apikey is invalid or missing. Please claim your free API key on (https://www.alphavantage.co/support/#api-key). It should take less than 20 seconds, and is free permanently."
+            static let errorMessageFunction = "This API function (GLOBAL_QUOT) does not exist."
         }
         
         struct ParameterValue{

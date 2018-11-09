@@ -17,29 +17,29 @@ struct PaperStruct {
     let typeDisp: String  //: "Equity"
 
     init(dicPaper: [String: AnyObject]) {
-        self.symbol = dicPaper["symbol"] as! String
-        self.companyName = dicPaper["name"] as! String
-        self.exch = dicPaper["exch"] as! String
-        self.type = dicPaper["type"] as! String
-        self.exchDisp = dicPaper["exchDisp"] as! String
-        self.typeDisp = dicPaper["typeDisp"] as! String
+        self.symbol = dicPaper[Constants.AutoComplete.ResponseKey.symbol] as! String
+        self.companyName = dicPaper[Constants.AutoComplete.ResponseKey.name] as! String
+        self.exch = dicPaper[Constants.AutoComplete.ResponseKey.exch] as! String
+        self.type = dicPaper[Constants.AutoComplete.ResponseKey.type] as! String
+        self.exchDisp = dicPaper[Constants.AutoComplete.ResponseKey.exchDisp] as! String
+        self.typeDisp = dicPaper[Constants.AutoComplete.ResponseKey.typeDisp] as! String
     }
 
     static func parseToPapelArray(from resultSet: [String : AnyObject]) -> [PaperStruct]{
         guard let rs = resultSet["ResultSet"] as? [String : AnyObject] else {
-            fatalError("Não foi encontrado 'ResultSet nos dados baixados.'")
+            fatalError("'ResultSet'' not finded in download data!")
         }
 
         guard let results = rs["Result"] as? [[String :AnyObject]] else {
-            fatalError("Não foi encontrado 'Result nos dados baixados.'")
+            fatalError("'ResultSet'' not finded in download data!")
         }
 
-        var papelArray : [PaperStruct] = []
+        var paperArray : [PaperStruct] = []
 
         for data in results {
-            let papel = PaperStruct(dicPaper: data)
-            papelArray.append(papel)
+            let paper = PaperStruct(dicPaper: data)
+            paperArray.append(paper)
         }
-        return papelArray
+        return paperArray
     }
 }

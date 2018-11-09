@@ -22,21 +22,21 @@ struct GlobalQuote {
     
     init?(dicGlobalQuote: [String: AnyObject]) {
         guard let quote = dicGlobalQuote["Global Quote"] as? [String : AnyObject] else {
-            print("Não foi encontrado 'Global Quote nos dados baixados.'")
+            print("Not finded 'Global Quote' ín download data.")
             return nil
         }
         if quote.count == 0 { return nil}
         
-        self.symbol = quote["01. symbol"] as! String
-        self.open = (quote["02. open"] as! NSString).doubleValue
-        self.high = (quote["03. high"] as! NSString).doubleValue
-        self.low = (quote["04. low"] as! NSString).doubleValue
-        self.price = (quote["05. price"] as! NSString).doubleValue
-        self.volume = (quote["06. volume"] as! NSString).intValue
-        self.latestTradingDay = (quote["07. latest trading day"] as! String)
-        self.previousClose = (quote["08. previous close"] as! NSString).doubleValue
-        self.change = (quote["09. change"] as! NSString).doubleValue
-        self.changePercent = quote["10. change percent"] as! String
+        self.symbol = quote[Constants.AlphaVantageClient.ResponseKey.symbol] as! String
+        self.open = (quote[Constants.AlphaVantageClient.ResponseKey.open] as! NSString).doubleValue
+        self.high = (quote[Constants.AlphaVantageClient.ResponseKey.high] as! NSString).doubleValue
+        self.low = (quote[Constants.AlphaVantageClient.ResponseKey.low] as! NSString).doubleValue
+        self.price = (quote[Constants.AlphaVantageClient.ResponseKey.price] as! NSString).doubleValue
+        self.volume = (quote[Constants.AlphaVantageClient.ResponseKey.volume] as! NSString).intValue
+        self.latestTradingDay = (quote[Constants.AlphaVantageClient.ResponseKey.latestTradingDay] as! String)
+        self.previousClose = (quote[Constants.AlphaVantageClient.ResponseKey.previousClose] as! NSString).doubleValue
+        self.change = (quote[Constants.AlphaVantageClient.ResponseKey.change] as! NSString).doubleValue
+        self.changePercent = quote[Constants.AlphaVantageClient.ResponseKey.changePercent] as! String
     }
     
     init(quote: Quote) {
@@ -46,7 +46,6 @@ struct GlobalQuote {
         self.low = quote.low
         self.price = quote.price
         self.volume = quote.volume
-        print ("print da hora" + quote.latest!.debugDescription)
         self.latestTradingDay = Utilities.Convert.dateToString(date: quote.latest!)
         self.previousClose = quote.previousClose
         self.change = quote.change

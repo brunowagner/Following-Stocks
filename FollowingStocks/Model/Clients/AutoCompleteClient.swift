@@ -14,9 +14,9 @@ class AutoCompleteCliente {
     static func requestPaper(query : String, completion: @escaping (_ success: Bool , _ data: [String : AnyObject]? ,_ error: NSError? ) -> Void) {
         
         let parameters = [
-            "query" : query,
-            "region" : "1",
-            "lang" : "en"
+            Constants.AutoComplete.ParameterKey.query : query,
+            Constants.AutoComplete.ParameterKey.region: Constants.AutoComplete.ParameterValue.region1,
+            Constants.AutoComplete.ParameterKey.lang : Constants.AutoComplete.ParameterValue.langEng
             ] as [String: AnyObject]
         
         let _ = HTTPTools.taskForGETMethod("", parameters: parameters, apiRequirements: AutocompleteApiRequirements()) { (data, error) in

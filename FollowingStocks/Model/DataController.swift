@@ -79,25 +79,3 @@ class DataController{
         return Singleton.sharedInstance
     }
 }
-
-
-extension DataController {
-    func autoRefreshQuote(interval:TimeInterval = 60) {
-        print("autoRefreshing...")
-        
-        guard interval > 0 else {
-            print("cannot set negative autosave interval")
-            return
-        }
-        
-        
-        
-        if viewContext.hasChanges {
-            try? viewContext.save()
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
-            self.autoSaveViewContext(interval: interval)
-        }
-    }
-}
