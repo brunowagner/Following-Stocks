@@ -1,5 +1,6 @@
 # Following Stocks
 
+[![Readme in portuguese](https://img.shields.io/badge/Readme%20Language-PT--BR-brightgreen.svg)](README_PT-BR.md)
 
 -------
 <p align="center">
