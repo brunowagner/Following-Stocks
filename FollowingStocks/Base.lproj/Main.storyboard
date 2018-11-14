@@ -45,7 +45,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="JRJ-ex-SfG" secondAttribute="height" multiplier="1:1" id="rsp-St-i17"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
