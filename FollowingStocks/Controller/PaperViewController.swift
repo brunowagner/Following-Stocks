@@ -25,27 +25,23 @@ class PaperViewController: UIViewController {
         guard predicate != nil && reusableCell != nil else {
             fatalError("Override 'predicate' and 'tableViewCellId' variables on format '{get {return ...} }'!")
         }
-        print("\(type(of: self)) - viewDidLoad")
         tableView.dataSource = self
         tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("\(type(of: self)) - viewWillAppear")
         setupPaperFetchedResultsController()
         tableView.reloadData()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("\(type(of: self)) - viewDidDisappear")
         fetchedResultsController = nil
     }
     
     //MARK: Fetcheds
     fileprivate func setupPaperFetchedResultsController() {
-        print("Iniciando Fetched...")
         let fetchRequest : NSFetchRequest<Paper> = Paper.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "symbol", ascending: true)
         fetchRequest.predicate = predicate
@@ -129,19 +125,15 @@ extension PaperViewController: NSFetchedResultsControllerDelegate{
         
         switch type {
         case .insert:
-            print("FRC type = insert")
             tableView.insertRows(at: [newIndexPath!], with: .fade)
             break
         case .delete:
-            print("FRC type = delete")
             tableView.deleteRows(at: [indexPath!], with: .fade)
             break
         case .update:
-            print("FRC type = update")
             tableView.reloadData()
             break
         case .move:
-            print("FRC type = move")
             //move isn't applied in this app
             break
         }

@@ -16,7 +16,6 @@ class PortfolioViewController: PaperViewController {
     //MARK: Life's cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(type(of: self)) - viewDidLoad")
         autoRequestQuote(interval: 60, requestsPerInterval: 1)
     }
 
@@ -74,7 +73,6 @@ class PortfolioViewController: PaperViewController {
     
     //MARK: Helpers
     func setQuote(_ paper: Paper, _ globalQuote: GlobalQuote!) {
-        print("PORTFOLIO - setando autoRequestQuoter...")
         paper.quote?.change = (globalQuote?.change)!
         paper.quote?.changePercent = globalQuote?.changePercent
         paper.quote?.high = (globalQuote?.high)!
@@ -85,8 +83,6 @@ class PortfolioViewController: PaperViewController {
         paper.quote?.price = (globalQuote?.price)!
         paper.quote?.volume = (globalQuote?.volume)!
         paper.quoteDate = Date()
-        print("\(String(describing: paper.symbol)) - \(String(describing: paper.quoteDate))")
-        print("Portifolio - autoRequestQuoter setado!")
     }
 }
 

@@ -33,7 +33,7 @@ class DataController{
             // função criada para configurar os contextos da fila principal e da fila privada(background)
             self.configureContexts()
             
-            print ("Data Stak Loadded")
+            print ("Data Stack Loaded")
             completion?()
         }
     }

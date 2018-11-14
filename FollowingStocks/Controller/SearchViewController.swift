@@ -21,12 +21,10 @@ class SearchViewController : UITableViewController {
     //MARK: Life`s Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(type(of: self)) - viewDidLoad")
         initiateArrays()
         configureTableView()
         configureSearchController()
         definesPresentationContext = true
-        print("toFillField =  \(isToFillField)")
     }
     
     //MARK: API Request
@@ -121,7 +119,6 @@ extension SearchViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.ReusableCell.searchCell) as! SearchTableViewCell
         
         let paper : PaperStruct = filteredPaperArray[indexPath.row]
-        print(paper.symbol)
         
         cell.symbolLable.text = paper.symbol
         cell.nameLable.text = paper.companyName

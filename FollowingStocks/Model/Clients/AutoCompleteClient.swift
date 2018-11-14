@@ -25,7 +25,6 @@ class AutoCompleteCliente {
                 completion(false, nil, error)
                 fatalError("An error accurred to request data : " + (error?.localizedDescription)!)
             }
-            print(data!)
             
             if let data = data as? [String : AnyObject] {
                 completion(true, data, nil)

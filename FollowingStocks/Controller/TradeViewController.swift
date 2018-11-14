@@ -40,32 +40,14 @@ class TradeViewController: UIViewController {
     //MARK: Life`s cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(type(of: self)) - viewDidLoad")
         configureUI()
         setUpTextFieldsDelegate()
         setUpUITapGestureRecognizer()
         fillUI()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //subscriberToKeyboardNotifications()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("\(type(of: self)) - viewWillDisappear")
-        //unSubscriberToKeyboardNotifications()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("\(type(of: self)) - viewDidDisappear")
-    }
 
     // MARK: Actions
     @IBAction func searchAction(_ sender: Any) {
-        print("\(type(of: self)) - performSegue")
         performSegue(withIdentifier: Constants.SegueId.tradeToSearch, sender: nil)
     }
     
@@ -74,14 +56,12 @@ class TradeViewController: UIViewController {
     }
     
     @IBAction func unwindToTradeViewController(_ sender: UIStoryboardSegue) {
-        print("\(type(of: self)) - unwindToTradeViewController")
         let searchViewController = sender.source as! SearchViewController
         paper = searchViewController.paper
         self.paperTextField.text = paper.symbol
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        print("\(type(of: self)) - cancelAction")
         if paper != nil, !isPaperStoraged() {
             DataController.sharedInstance().viewContext.delete(paper)
         }
@@ -102,9 +82,6 @@ class TradeViewController: UIViewController {
         }
 
         setTrade(price: price, quantity: quantity)
-        
-        print(trade)
-        print(paper)
     
         do{
             try DataController.sharedInstance().viewContext.save()
@@ -118,7 +95,6 @@ class TradeViewController: UIViewController {
     
     //MARK: PrepareForSegue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("\(type(of: self)) - prepareforSegue")
         if segue.identifier == Constants.SegueId.unwindToDetail{
             //Do nothing. At return to Detail, a reload occurs.
         } else {

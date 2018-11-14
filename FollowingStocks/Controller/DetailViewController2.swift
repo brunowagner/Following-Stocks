@@ -39,7 +39,6 @@ class DetailViewController2: UIViewController {
     //MARK: Life`s Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(type(of: self)) - viewDidLoad")
         self.initializeQuote()
         self.loadPaperInUI()
         self.configureBorders()
@@ -48,13 +47,11 @@ class DetailViewController2: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("\(type(of: self)) - viewWillAppear")
         self.showTabBar(option: true)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("\(type(of: self)) - viewWillDisappear")
         self.showTabBar(option: false)
         self.clearManagedObjectsFromMemory()
     }
@@ -66,9 +63,7 @@ class DetailViewController2: UIViewController {
 
     //MARK: Actions
     @IBAction func portfolioAction(_ sender: Any) {
-        print("presentPortfolioTradeAlert - inicio")
         presentPortfolioTradeAlert()
-        print("presentPortfolioTradeAlert - fim")
     }
     
     @IBAction func followingAction(_ sender: Any) {
@@ -123,11 +118,9 @@ class DetailViewController2: UIViewController {
         
         let tradeViewController = storyboard?.instantiateViewController(withIdentifier: Constants.ViewControllerId.tradeViewController) as! TradeViewController
         
-        print("DETAIL - injetando paper...")
         tradeViewController.paper = paper
         tradeViewController.operation = operation
         tradeViewController.accessedBy = self
-        print("DETAIL - paper injetado!")
         
         present(tradeViewController, animated: true, completion: nil)
     }
@@ -156,7 +149,6 @@ class DetailViewController2: UIViewController {
     func loadStorageData(){
         if isPaperStoraged(){
             performUIUpdatesOnMain {
-                print(self.quote)
                 let globalQuote = GlobalQuote(quote: self.quote)
                 self.loadQuoteInUI(globalQuote: globalQuote)
             }
@@ -242,9 +234,7 @@ class DetailViewController2: UIViewController {
     //MARK: Helper and abstracting
     fileprivate func initializeQuote() {
         if paper.quote != nil{
-            print("DETAIL - criando quote...")
             quote = paper.quote
-            print("DETAIL - quote criado!")
         } else {
             quote = Quote(context: DataController.sharedInstance().viewContext)
         }
@@ -282,7 +272,6 @@ class DetailViewController2: UIViewController {
     }
     
     fileprivate func setQuote(globalQuote: GlobalQuote?) {
-        print("DETAIL - setando quoter...")
         self.quote.change = (globalQuote?.change)!
         self.quote.changePercent = globalQuote?.changePercent
         self.quote.high = (globalQuote?.high)!
@@ -294,6 +283,5 @@ class DetailViewController2: UIViewController {
         self.quote.volume = (globalQuote?.volume)!
         
         self.quote.paper = self.paper
-        print("DETAIL - quoter setado!")
     }
 }
