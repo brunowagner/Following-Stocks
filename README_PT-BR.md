@@ -3,18 +3,18 @@
 -------
 <p align="center">
     <a href="#o-projeto">O Projeto</a> &bull;
-    <a href="#pre-requisitos">Pré-requisitos</a> &bull;
-    <a href="#functionalities">Funcionalidades</a> &bull;
-    <a href="#used-APIs">APIs Utilizadas</a> &bull;
-    <a href="#restrictions">Restrições</a> &bull;
-    <a href="#license">Licença</a> &bull;
+    <a href="#pré-requisitos">Pré-requisitos</a> &bull;
+    <a href="#funcionalidades">Funcionalidades</a> &bull;
+    <a href="#aPIs-Utilizadas">APIs Utilizadas</a> &bull;
+    <a href="#restrições">Restrições</a> &bull;
+    <a href="#licença">Licença</a> &bull;
     <a href="#autor">Autor</a>
     
 </p>
 
 -------
 
-O Projeto
+# O Projeto
 Following Stocks é um aplicativo que permite, de forma simplificada, consultar cotações e seguir papéis (ações, moedas e futuros) negociados pelas diversas bolsas de valores espalhadas pelo mundo.
 
 # Pré-requisitos
