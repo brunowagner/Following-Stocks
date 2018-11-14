@@ -1,6 +1,7 @@
 # Following Stocks
 
 [![Readme in portuguese](https://img.shields.io/badge/Readme%20Language-PT--BR-brightgreen.svg)](README_PT-BR.md)
+[![GitHub license](https://img.shields.io/github/license/brunowagner/Following-Stocks.svg)](https://github.com/brunowagner/Following-Stocks/blob/master/LICENSE)
 
 -------
 <p align="center">
