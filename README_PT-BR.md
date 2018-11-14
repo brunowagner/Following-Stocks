@@ -1,5 +1,7 @@
 # Following Stocks
 
+[![Readme em ingles](https://img.shields.io/badge/Readme%20Language-ENG-brightgreen.svg)](README.md)
+
 -------
 <p align="center">
     <a href="#o-projeto">O Projeto</a> &bull;
