@@ -7,7 +7,7 @@
     <a href="#prerequisites">Prerequisites</a> &bull;
     <a href="#functionalities">Functionalities</a> &bull;
     <a href="#used-APIs">Used APIs</a> &bull;
-    <a href="#restrictions">Restrictions</a>
+    <a href="#restrictions">Restrictions</a> &bull;
     <a href="#license">License</a>
     
 </p>
